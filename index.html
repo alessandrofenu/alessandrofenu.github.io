@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro Fenu - Personal Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Basic Reset and Body Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #232223; /* Very dark grey/near black */
+            color: #cccccc; /* Standard light grey for text */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            padding-top: 60px; /* Space for fixed header */
+        }
+
+        /* Header Styling */
+        .site-header {
+            background-color: #32302C; /* Dark grey/brown */
+            color: #94A3A1; /* Light grey/teal text color */
+            padding: 0 20px; /* Padding adjusted */
+            position: fixed; /* Fixed header */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px; /* Fixed height for header */
+        }
+
+        .header-content {
+             max-width: 1200px;
+             width: 100%;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-between; /* Title left, Nav/Toggle right */
+             align-items: center;
+        }
+
+
+        .site-header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6em;
+            color: #94A3A1; /* Light grey/teal accent */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* flex-shrink: 0; */ /* Optional: Prevent shrinking */
+        }
+
+        /* Navigation Styling (Desktop) */
+        .site-nav {
+            /* Added to center navigation links */
+            flex-grow: 1; /* Allow nav to take available space */
+            display: flex; /* Use flexbox to center ul */
+            justify-content: center; /* Center the ul horizontally */
+            align-items: center; /* Center the ul vertically */
+        }
+
+        .site-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Horizontal on desktop */
+            /* Removed justify-content here, moved to .site-nav */
+        }
+
+        .site-nav li {
+            margin: 0 15px; /* Adjusted margin for centering */
+        }
+
+        .site-nav a {
+            color: #94A3A1; /* Light grey/teal default */
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px; /* Space for underline */
+        }
+
+        /* Underline effect */
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #847C6D; /* Muted brownish-grey accent */
+            transition: width 0.3s ease-out;
+        }
+
+        .site-nav a:hover::after,
+        .site-nav a.active::after {
+            width: 100%;
+        }
+         .site-nav a:hover,
+         .site-nav a.active {
+            color: #847C6D; /* Muted brownish-grey on hover/active */
+         }
+
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            /* flex-shrink: 0; */ /* Optional: Prevent shrinking */
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            color: #94A3A1; /* Light grey/teal */
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+         .menu-toggle:hover {
+             transform: rotate(90deg);
+         }
+
+
+        /* Main Content Area */
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            background-color: #363C3D; /* Dark grey/blue */
+            color: #cccccc; /* Standard light grey for section text */
+            padding: 40px;
+            margin-bottom: 20px; /* Space between sections if needed (only one shown at a time) */
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+            display: none; /* Hidden by default */
+
+            /* Animation properties when shown */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.active {
+            display: block; /* Show when active */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Home Section Specifics */
+        .home-section .container {
+             display: flex;
+             flex-wrap: wrap;
+             align-items: flex-start; /* Photo aligned to the top, not vertically centered */
+             gap: 40px; /* Space between elements */
+        }
+
+        .home-section .bio {
+            flex: 2; /* Bio takes more space */
+            min-width: 300px;
+        }
+
+        .home-section .profile-image {
+            flex: 1; /* Image takes less space */
+            text-align: center;
+        }
+
+        .home-section img {
+            max-width: 250px;
+            width: 100%; /* Responsive image */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+            border: 3px solid #847C6D; /* Muted brownish-grey border */
+            transition: transform 0.3s ease;
+        }
+         .home-section img:hover {
+             transform: scale(1.05);
+         }
+
+
+        /* Typography */
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #847C6D; /* Muted brownish-grey for headings */
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #94A3A1; /* Light grey/teal underline */
+            padding-bottom: 5px;
+        }
+
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; margin-top: 30px; }
+
+        p {
+            margin-bottom: 15px;
+            color: #cccccc; /* Standard light grey */
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+            list-style: disc; /* Standard discs */
+            color: #cccccc; /* Ensure list markers are light */
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #847C6D; /* Muted brownish-grey for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #94A3A1; /* Light grey/teal on hover */
+            text-decoration: underline;
+        }
+
+         /* Link color consistency within lists */
+        .section ul li a {
+            color: #847C6D; /* Apply muted green to list links */
+        }
+         .section ul li a:hover {
+            color: #94A3A1; /* Apply teal hover to list links */
+         }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                 padding-top: 120px; /* More space for stacked header/nav */
+            }
+            .site-header {
+                 flex-direction: column;
+                 height: auto; /* Auto height when stacked */
+                 padding: 10px 20px;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                 width: 100%;
+            }
+            .site-header h1 {
+                margin-bottom: 10px;
+            }
+
+            /* Mobile Nav - Stacked & Toggleable */
+            .site-nav {
+                 width: 100%;
+                 margin-top: 10px;
+                 border-top: 1px solid rgba(148, 163, 161, 0.2); /* Subtle separator using 94A3A1 */
+                 padding-top: 10px;
+                 display: none; /* Hidden by default */
+                 text-align: center; /* Center links in mobile view */
+                 transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth toggle */
+                 max-height: 0;
+                 overflow: hidden;
+                 opacity: 0;
+                 /* Reset flex properties for mobile */
+                 flex-grow: 0;
+                 justify-content: center; /* Center stacked ul */
+                 align-items: center; /* Center stacked ul */
+            }
+            .site-nav.open {
+                 display: block; /* Show when open */
+                 max-height: 300px; /* Sufficient height for menu */
+                 opacity: 1;
+            }
+
+
+            .site-nav ul {
+                flex-direction: column; /* Stack links vertically */
+                align-items: center; /* Center stacked links */
+                /* Removed justify-content here for mobile */
+            }
+             .site-nav li {
+                margin: 8px 0; /* Space between stacked links */
+             }
+             .site-nav a {
+                 font-size: 1.1em;
+             }
+
+
+            .menu-toggle {
+                display: block; /* Show toggle button */
+            }
+
+            .home-section .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .home-section .profile-image {
+                 order: -1; /* Image first */
+            }
+             .home-section img {
+                 max-width: 200px;
+             }
+
+            .section {
+                padding: 30px 20px;
+            }
+             h2 { font-size: 1.8em; }
+             h3 { font-size: 1.4em; }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                 padding-top: 100px;
+            }
+             .site-header { padding: 8px 15px; }
+             .site-header h1 { font-size: 1.4em; }
+             .menu-toggle { font-size: 1.6em; }
+             .section { padding: 25px 15px; }
+             h2 { font-size: 1.6em; }
+             h3 { font-size: 1.3em; }
+        }
+        /* === CODICE DA AGGIUNGERE === */
+
+/* Stile per il selettore di lingua */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spazio tra i pulsanti */
+    margin-right: 20px; /* Spazio dalla navigazione o dal menu toggle */
+}
+
+.language-selector button {
+    background: none;
+    border: 1px solid #847C6D; /* Colore accentato del sito */
+    color: #94A3A1;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+.language-selector button:hover, .language-selector button.active {
+    background-color: #847C6D;
+    color: #232223;
+}
+
+/* Adattamento per mobile */
+@media (max-width: 768px) {
+    .header-content {
+        /* Aggiungiamo flex-wrap per gestire meglio gli elementi */
+        flex-wrap: wrap;
+        justify-content: space-between; /* Mantiene titolo e toggle ai lati */
+    }
+    .language-selector {
+        order: 3; /* Lo sposta sotto il titolo e il nav */
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        margin-right: 0;
+        padding-bottom: 5px;
+    }
+    .site-nav {
+         /* Rimuoviamo il bordo superiore perché ora c'è il selettore di lingua */
+         border-top: none;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1>Alessandro Fenu</h1>
+            
+            <div class="language-selector">
+                <button onclick="changeLanguage('it')" id="lang-it">IT</button>
+                <button onclick="changeLanguage('en')" id="lang-en">EN</button>
+                <button onclick="changeLanguage('fr')" id="lang-fr">FR</button>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#home" id="nav-home">Home</a></li>
+                    <li><a href="#documents" id="nav-documents">Documents</a></li>
+                    <li><a href="#tutorato" id="nav-tutorato">Tutoring</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                 <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="bio">
+                    <h2 id="home-greeting">Hello!</h2>
+                    <p id="home-p1">I'm Alessandro Fenu. I did my bachelor's in Mathematics at the Università di Pisa, with a thesis in Algebraic Topology. I did my master's both in Italy, at the Università di Pisa, and in Paris, where I completed the M2 in Mathématiques Fondamentales at Université Paris Cité and Sorbonne Université.</p>
+                    <p id="home-p2">My master's thesis, supervised by Prof. Grégory Ginot and co-supervised by Prof. Filippo Gianluca Callegaro, is on the <a href="masterthesis.pdf" target="_blank">real homotopy invariance of configuration spaces</a>. I defended it at the Università di Pisa and at <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).</p>
+                    <p id="home-p3">I'm currently working with a professor at Sorbonne Université on a preprint in Artificial Intelligence. My main interests are configuration spaces and homotopical methods in algebraic topology, and I'm increasingly interested in the computational aspects of algebraic topology.</p>
+                    <p id="home-p4">I'm also attending the Prépa à l'Agrégation at the UFR de Mathématiques of Université Paris Cité, and I'm a colleur in the Mathématiques et Physique prépa at <a href="https://lyc-fenelon.ac-paris.fr/" target="_blank">Lycée Fénelon</a> in Paris.</p>
+                    <p id="home-p5">I like mathematics, sushi, and people.</p>
+                    <p id="home-p6">You can reach me at:</p>
+                    <ul>
+                        <li id="home-contact1">Telegram <a href="https://t.me/Issimaaa" target="_blank">@Issimaaa</a></li>
+                        <li id="home-contact2">Personal email <a href="mailto:alessandrofenuspano@gmail.com">alessandrofenuspano@gmail.com</a></li>
+                        <li id="home-contact3">University email (Université Paris Cité) <a href="mailto:alessandro.fenu@etu.u-paris.fr">alessandro.fenu@etu.u-paris.fr</a></li>
+                    </ul>
+                </div>
+                <div class="profile-image">
+                    <img src="propic2.jpg" alt="Alessandro Fenu" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="documents" class="section documents-section">
+            <div class="container">
+                <h2 id="docs-title">Relevant Documents.</h2>
+                <p id="docs-intro">In this section, I upload documents I have written (potentially full of errors and continuously being corrected).</p>
+                <ul>
+                    <li id="doc-item-master"><a href="masterthesis.pdf" download>Master's Thesis</a>: real homotopy invariance of configuration spaces, supervised by Prof. Grégory Ginot and co-supervised by Prof. Filippo Gianluca Callegaro.</li>
+                    <li id="doc-item1"><a href="Tesi_A.Fenu.pdf" download>Bachelor's Thesis</a>: Group Completion Theorem and Configuration Spaces</li>
+                    <li id="doc-item2"><a href="Spectral_Sequences.pdf" download>Spectral Sequences</a>: a LaTeX version of the notes from the last part of the Algebraic Topology A course of 2022-2023. Part of a larger version (still far from complete).</li>
+                    <li id="doc-item3"><a href="Dispense_Top_Alg_A.pdf" download>Algebraic Topology A Notes</a>: notes from the Algebraic Topology A course held in the year 2022-2023 based on the manuscripts provided during the course. They are still to be completed and likely full of my errors.</li>
+                    <li id="doc-item4"><a href="operad_riassunto.pdf" download>Operads & Recognition Principle</a>: a super-summary version of May's theorem on the recognition of iterated loop spaces via operads. A fundamental part of the proof is missing, which however follows from my thesis.</li>
+                    <li id="doc-item5"><a href="firstapproach.pdf" download>First approach to ∞-categories</a>: an extended version of my introductory seminar on infinity categories. Essentially my exam for Category Theory.</li>
+                    <li id="doc-item6"><a href="orlik-solomon.pdf" download>Orlik-Solomon algebras and Orlik-Solomon theorem</a>: a document in Italian on the isomorphism theorem between the homology of a complex hyperplane arrangement and the integer homology of its complement.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tutorato" class="section tutorato-section">
+            <div class="container">
+                <h2 id="tutorato-title">Tutoring</h2>
+                <h3 id="tutorato-fenelon-h3">Prépa MP at Lycée Fénelon, 2026-2027</h3>
+                <p id="tutorato-fenelon-p1">For now, I don't need to upload any documents. Feel free to contact me anytime by university email (<a href="mailto:alessandro.fenu@etu.u-paris.fr">alessandro.fenu@etu.u-paris.fr</a>).</p>
+                <h3 id="tutorato-h3">Arithmetic, 2024-2025</h3>
+                <p id="tutorato-p1">In 2024/2025 I was a tutor for Arithmetic: you can still find the exercises and solutions from those sessions here.</p>
+                <p id="tutorato-p2">I also remind you that the PHC manages a page where all information about all tutoring sessions is available, starting from 2023: <a href="https://tutorato.phc.dm.unipi.it/" target="_blank">PHC Tutoring</a>.</p>
+                <p id="tutorato-p3">Appointment for exam simulation: Room G, Fibonacci campus, December 12th from 4 PM to 6 PM.</p>
+                <p id="tutorato-p4">Text of the second midterm simulation with solutions: <a href="simulazione_compitino_2425.pdf" download>Simulation & Solutions.</a></p>
+                <p id="tutorato-p5"><a href="esercizi_16dicembre.pdf" download>Exercises</a> for the week of December 16th. I know you have the midterm these days, feel free to use it (whenever you want) as practice. If you want feedback on your solutions, you can send them to me and I will return them corrected. <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRYHE4j_j28WXvL6kzqQ3LLuaiJl2QPg76fsS11Ucl871MLQ/viewform?usp=dialog" target="_blank">Submit solutions</a>.</p>
+                <p id="tutorato-p6">Here are the <a href="soluzioni_esercizi_16dicembre.pdf" download>Solutions</a>. Exercise 5 contains theory not covered in class.</p>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Funzioni e variabili per la traduzione
+        const translations = {
+            it: {
+                'page-title': 'Alessandro Fenu - Pagina Personale',
+                'nav-home': 'Home',
+                'nav-documents': 'Documenti',
+                'nav-tutorato': 'Tutorato',
+                'home-greeting': 'Ciao!',
+                'home-p1': 'Sono Alessandro Fenu. Ho fatto la triennale in Matematica all\'Università di Pisa, con una tesi in Topologia Algebrica. Ho fatto la magistrale sia in Italia, all\'Università di Pisa, sia a Parigi, dove ho completato il M2 in Mathématiques Fondamentales a Université Paris Cité e Sorbonne Université.',
+                'home-p2': 'La mia tesi magistrale, con relatore il prof. Grégory Ginot e correlatore il prof. Filippo Gianluca Callegaro, è sull\'<a href="masterthesis.pdf" target="_blank">invarianza omotopica reale degli spazi di configurazioni</a>. L\'ho discussa all\'Università di Pisa e al <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
+                'home-p3': 'Attualmente collaboro con un professore di Sorbonne Université a un preprint di Intelligenza Artificiale. I miei interessi principali sono gli spazi di configurazioni e i metodi omotopici in topologia algebrica, e mi interesso sempre di più agli aspetti computazionali della topologia algebrica.',
+                'home-p4': 'Seguo inoltre la Prépa à l\'Agrégation all\'UFR de Mathématiques di Université Paris Cité e sono colleur nella prépa di Mathématiques et Physique al <a href="https://lyc-fenelon.ac-paris.fr/" target="_blank">Lycée Fénelon</a> di Parigi.',
+                'home-p5': 'Mi piacciono la matematica, il sushi e le persone.',
+                'home-p6': 'Potete contattarmi su:',
+                'home-contact1': 'Telegram', // Manteniamo solo la parola chiave
+                'home-contact2': 'Mail personale',
+                'home-contact3': 'Mail istituzionale (Université Paris Cité)',
+                'docs-title': 'Documenti rilevanti.',
+                'docs-intro': 'In questa sezione carico documenti che ho scritto (potenzialmente pieni di errori e in continua correzione).',
+                'doc-item-master': 'Tesi Magistrale: invarianza omotopica reale degli spazi di configurazioni, con relatore il prof. Grégory Ginot e correlatore il prof. Filippo Gianluca Callegaro.',
+                'doc-item1': 'Tesi Triennale: Teorema di Group Completion e Spazi di configurazioni',
+                'doc-item2': 'Sequenze spettrali: una versione tekkata degli appunti dell\'ultima parte del corso di Topologia Algebrica A del 2022-2023. Parte di una versione più grande (ancora lontana).',
+                'doc-item3': 'Dispense Topologia Algebrica A: dispense del corso di Topologia Algebrica A tenuto nell\'anno 2022-2023 basate sui manoscritti lasciati durante il corso. Sono ancora da completare e probabilmente pieni di miei errori.',
+                'doc-item4': 'Operad & Recognition Principle: una versione super riassuntiva del teorema di May sull\' riconoscimento di spazi di cammini iterati attraverso gli operad. Manca una parte fondamentale della dimostrazione, che però segue dalla mia tesi.',
+                'doc-item5': 'First approach to ∞-categories: una versione estesa del mio seminario introduttivo sulle infinito categorie. Sostanzialmente il mio esame di Teoria dell Categorie.',
+                'doc-item6': 'Orlik-Solomon algebras e teorema di Orlik-Solomon: un documento in italiano sul teorema di isomorfismo tra l\'omologia di un arrangiamento di iperpiano complesso e l\'omologia intera del complementare.',
+                'tutorato-title': 'Tutorato',
+                'tutorato-fenelon-h3': 'Prépa MP al Lycée Fénelon, 2026-2027',
+                'tutorato-fenelon-p1': 'Per ora non ho bisogno di caricare documenti. Potete contattarmi quando volete alla mail istituzionale (<a href="mailto:alessandro.fenu@etu.u-paris.fr">alessandro.fenu@etu.u-paris.fr</a>).',
+                'tutorato-p1': 'Nel 2024/2025 ho fatto il tutor di Aritmetica: qui trovate ancora testi e soluzioni di quei tutorati.',
+                'tutorato-p2': 'Ricordo inoltre che il PHC gestisce una pagina dove sono presenti tutte le informazioni di tutti i tutorati, a partire dal 2023: <a href="https://tutorato.phc.dm.unipi.it/" target="_blank">Tutorato PHC</a>.',
+                'tutorato-h3': 'Aritmetica, 2024-2025',
+                'tutorato-p3': 'Appuntamento per simulazione esame: Aula G, polo Fibonaccil 12 Dicembre dalle 16 alle 18.',
+                'tutorato-p4': 'Testo della simulazione del secondo compitino con annesse soluzioni: <a href="simulazione_compitino_2425.pdf" download>Simulazione & Soluzioni.</a>',
+                'tutorato-p5': '<a href="esercizi_16dicembre.pdf" download>Esercizi</a> della settimana del 16 dicembre. Chiaramente so che avete il compitino in questi giorni, sentitevi liberi di usarlo (quando volete) come esercitazione. Se volete un feedback sulle vostre soluzioni potete mandarvele e ve le restituirò corrette. <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRYHE4j_j28WXvL6kzqQ3LLuaiJl2QPg76fsS11Ucl871MLQ/viewform?usp=dialog" target="_blank">Consegna soluzioni</a>.',
+                'tutorato-p6': 'Ecco le <a href="soluzioni_esercizi_16dicembre.pdf" download>Soluzioni</a>. L\'esercizio 5 contiene della teoria non vista a lezione.'
+            },
+            en: {
+                'page-title': 'Alessandro Fenu - Personal Page',
+                'nav-home': 'Home',
+                'nav-documents': 'Documents',
+                'nav-tutorato': 'Tutoring',
+                'home-greeting': 'Hello!',
+                'home-p1': 'I\'m Alessandro Fenu. I did my bachelor\'s in Mathematics at the Università di Pisa, with a thesis in Algebraic Topology. I did my master\'s both in Italy, at the Università di Pisa, and in Paris, where I completed the M2 in Mathématiques Fondamentales at Université Paris Cité and Sorbonne Université.',
+                'home-p2': 'My master\'s thesis, supervised by Prof. Grégory Ginot and co-supervised by Prof. Filippo Gianluca Callegaro, is on the <a href="masterthesis.pdf" target="_blank">real homotopy invariance of configuration spaces</a>. I defended it at the Università di Pisa and at <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
+                'home-p3': 'I\'m currently working with a professor at Sorbonne Université on a preprint in Artificial Intelligence. My main interests are configuration spaces and homotopical methods in algebraic topology, and I\'m increasingly interested in the computational aspects of algebraic topology.',
+                'home-p4': 'I\'m also attending the Prépa à l\'Agrégation at the UFR de Mathématiques of Université Paris Cité, and I\'m a colleur in the Mathématiques et Physique prépa at <a href="https://lyc-fenelon.ac-paris.fr/" target="_blank">Lycée Fénelon</a> in Paris.',
+                'home-p5': 'I like mathematics, sushi, and people.',
+                'home-p6': 'You can reach me at:',
+                'home-contact1': 'Telegram',
+                'home-contact2': 'Personal email',
+                'home-contact3': 'University email (Université Paris Cité)',
+                'docs-title': 'Relevant Documents.',
+                'docs-intro': 'In this section, I upload documents I have written (potentially full of errors and continuously being corrected).',
+                'doc-item-master': 'Master\'s Thesis: real homotopy invariance of configuration spaces, supervised by Prof. Grégory Ginot and co-supervised by Prof. Filippo Gianluca Callegaro.',
+                'doc-item1': 'Bachelor\'s Thesis: Group Completion Theorem and Configuration Spaces',
+                'doc-item2': 'Spectral Sequences: a LaTeX version of the notes from the last part of the Algebraic Topology A course of 2022-2023. Part of a larger version (still far from complete).',
+                'doc-item3': 'Algebraic Topology A Notes: notes from the Algebraic Topology A course held in the year 2022-2023 based on the manuscripts provided during the course. They are still to be completed and likely full of my errors.',
+                'doc-item4': 'Operads & Recognition Principle: a super-summary version of May\'s theorem on the recognition of iterated loop spaces via operads. A fundamental part of the proof is missing, which however follows from my thesis.',
+                'doc-item5': 'First approach to ∞-categories: an extended version of my introductory seminar on infinity categories. Essentially my exam for Category Theory.',
+                'doc-item6': 'Orlik-Solomon algebras and Orlik-Solomon theorem: a document in Italian on the isomorphism theorem between the homology of a complex hyperplane arrangement and the integer homology of its complement.',
+                'tutorato-title': 'Tutoring',
+                'tutorato-fenelon-h3': 'Prépa MP at Lycée Fénelon, 2026-2027',
+                'tutorato-fenelon-p1': 'For now, I don\'t need to upload any documents. Feel free to contact me anytime by university email (<a href="mailto:alessandro.fenu@etu.u-paris.fr">alessandro.fenu@etu.u-paris.fr</a>).',
+                'tutorato-p1': 'In 2024/2025 I was a tutor for Arithmetic: you can still find the exercises and solutions from those sessions here.',
+                'tutorato-p2': 'I also remind you that the PHC manages a page where all information about all tutoring sessions is available, starting from 2023: <a href="https://tutorato.phc.dm.unipi.it/" target="_blank">PHC Tutoring</a>.',
+                'tutorato-h3': 'Arithmetic, 2024-2025',
+                'tutorato-p3': 'Appointment for exam simulation: Room G, Fibonacci campus, December 12th from 4 PM to 6 PM.',
+                'tutorato-p4': 'Text of the second midterm simulation with solutions: <a href="simulazione_compitino_2425.pdf" download>Simulation & Solutions.</a>',
+                'tutorato-p5': '<a href="esercizi_16dicembre.pdf" download>Exercises</a> for the week of December 16th. I know you have the midterm these days, feel free to use it (whenever you want) as practice. If you want feedback on your solutions, you can send them to me and I will return them corrected. <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRYHE4j_j28WXvL6kzqQ3LLuaiJl2QPg76fsS11Ucl871MLQ/viewform?usp=dialog" target="_blank">Submit solutions</a>.',
+                'tutorato-p6': 'Here are the <a href="soluzioni_esercizi_16dicembre.pdf" download>Solutions</a>. Exercise 5 contains theory not covered in class.'
+            },
+            fr: {
+                'page-title': 'Alessandro Fenu - Page Personnelle',
+                'nav-home': 'Accueil',
+                'nav-documents': 'Documents',
+                'nav-tutorato': 'Tutorat',
+                'home-greeting': 'Salut !',
+                'home-p1': 'Je suis Alessandro Fenu. J\'ai fait ma licence en Mathématiques à l\'Università di Pisa, avec un mémoire en Topologie Algébrique. J\'ai fait mon master à la fois en Italie, à l\'Università di Pisa, et à Paris, où j\'ai suivi le M2 de Mathématiques Fondamentales à l\'Université Paris Cité et Sorbonne Université.',
+                'home-p2': 'Mon mémoire de master, sous la direction du professeur Grégory Ginot et en codirection avec le professeur Filippo Gianluca Callegaro, porte sur l\'<a href="masterthesis.pdf" target="_blank">invariance par homotopie réelle des espaces de configurations</a>. Je l\'ai soutenu à l\'Università di Pisa et au <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
+                'home-p3': 'Je collabore actuellement avec un professeur de Sorbonne Université sur un preprint en Intelligence Artificielle. Mes principaux intérêts sont les espaces de configurations et les méthodes homotopiques en topologie algébrique, et je m\'intéresse de plus en plus aux aspects computationnels de la topologie algébrique.',
+                'home-p4': 'Je suis également inscrit à la Prépa à l\'Agrégation de l\'UFR de Mathématiques de l\'Université Paris Cité, et je suis colleur en prépa Mathématiques et Physique au <a href="https://lyc-fenelon.ac-paris.fr/" target="_blank">Lycée Fénelon</a> à Paris.',
+                'home-p5': 'J\'aime les mathématiques, les sushis et les gens.',
+                'home-p6': 'Vous pouvez me contacter sur :',
+                'home-contact1': 'Telegram',
+                'home-contact2': 'E-mail personnel',
+                'home-contact3': 'E-mail universitaire (Université Paris Cité)',
+                'docs-title': 'Documents pertinents.',
+                'docs-intro': 'Dans cette section, je télécharge des documents que j\'ai rédigés (potentiellement pleins d\'erreurs et en correction continue).',
+                'doc-item-master': 'Mémoire de Master : invariance par homotopie réelle des espaces de configurations, sous la direction du professeur Grégory Ginot, en codirection avec le professeur Filippo Gianluca Callegaro.',
+                'doc-item1': 'Mémoire de Licence : Théorème de Complétion de Groupe et Espaces de configurations',
+                'doc-item2': 'Suites spectrales : une version LaTeX des notes de la dernière partie du cours de Topologie Algébrique A de 2022-2023. Partie d\'une version plus large (encore loin d\'être terminée).',
+                'doc-item3': 'Notes de Topologie Algébrique A : notes du cours de Topologie Algébrique A de l\'année 2022-2023 basées sur les manuscrits fournis pendant le cours. Elles sont encore à compléter et probablement pleines de mes erreurs.',
+                'doc-item4': 'Opérades & Principe de Reconnaissance : une version super-résumée du théorème de May sur la reconnaissance des espaces de lacets itérés via les opérades. Il manque une partie fondamentale de la preuve, qui découle cependant de mon mémoire.',
+                'doc-item5': 'Première approche des ∞-catégories : une version étendue de mon séminaire d\'introduction sur les catégories infinies. Essentiellement mon examen de Théorie des Catégories.',
+                'doc-item6': 'Algèbres d\'Orlik-Solomon et théorème d\'Orlik-Solomon : un document en italien sur le théorème d\'isomorphisme entre l\'homologie d\'un arrangement d\'hyperplans complexes et l\'homologie entière de son complémentaire.',
+                'tutorato-title': 'Tutorat',
+                'tutorato-fenelon-h3': 'Prépa MP au Lycée Fénelon, 2026-2027',
+                'tutorato-fenelon-p1': 'Pour l\'instant, je n\'ai pas besoin de mettre en ligne de documents. N\'hésitez pas à me contacter à tout moment par e-mail universitaire (<a href="mailto:alessandro.fenu@etu.u-paris.fr">alessandro.fenu@etu.u-paris.fr</a>).',
+                'tutorato-p1': 'En 2024/2025 j\'ai été tuteur d\'Arithmétique : vous trouverez encore ici les énoncés et les solutions de ces séances.',
+                'tutorato-p2': 'Je rappelle également que le PHC gère une page où se trouvent toutes les informations sur toutes les séances de tutorat, à partir de 2023 : <a href="https://tutorato.phc.dm.unipi.it/" target="_blank">Tutorat PHC</a>.',
+                'tutorato-h3': 'Arithmétique, 2024-2025',
+                'tutorato-p3': 'Rendez-vous pour la simulation d\'examen : Salle G, pôle Fibonacci, le 12 décembre de 16h à 18h.',
+                'tutorato-p4': 'Texte de la simulation du deuxième partiel avec solutions : <a href="simulazione_compitino_2425.pdf" download>Simulation & Solutions.</a>',
+                'tutorato-p5': '<a href="esercizi_16dicembre.pdf" download>Exercices</a> de la semaine du 16 décembre. Je sais que vous avez le partiel ces jours-ci, n\'hésitez pas à les utiliser (quand vous le souhaitez) pour vous entraîner. Si vous souhaitez un retour sur vos solutions, vous pouvez me les envoyer et je vous les retournerai corrigées. <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRYHE4j_j28WXvL6kzqQ3LLuaiJl2QPg76fsS11Ucl871MLQ/viewform?usp=dialog" target="_blank">Soumettre les solutions</a>.',
+                'tutorato-p6': 'Voici les <a href="soluzioni_esercizi_16dicembre.pdf" download>Solutions</a>. L\'exercice 5 contient de la théorie non vue en cours.'
+            }
+        };
+
+        const langButtons = document.querySelectorAll('.language-selector button');
+
+        // Funzione per cambiare la lingua
+        function changeLanguage(lang) {
+            // Aggiorna l'attributo 'lang' del tag <html> per l'accessibilità
+            document.documentElement.lang = lang;
+            document.title = translations[lang]['page-title']; // Aggiorna il titolo della pagina
+
+            // Itera su tutte le chiavi di traduzione
+            for (const key in translations[lang]) {
+                const element = document.getElementById(key);
+                if (element) {
+                    // Per le liste di contatti, ricostruiamo l'HTML interno per preservare il link
+                    if (key.startsWith('home-contact')) {
+                        element.innerHTML = `${translations[lang][key]} ${element.querySelector('a').outerHTML}`;
+                    } else if (key.startsWith('doc-item')) {
+                        // Per i documenti: il testo prima di ': ' diventa il titolo del link, il resto la descrizione
+                        const link = element.querySelector('a');
+                        const [title, ...description] = translations[lang][key].split(': ');
+                        link.textContent = title.trim();
+                        element.innerHTML = `${link.outerHTML}: ${description.join(': ')}`;
+                    } else {
+                        // innerHTML (non innerText) per mantenere i link contenuti nei testi
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            }
+            
+            // Aggiorna lo stile del pulsante attivo
+            langButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.id === `lang-${lang}`) {
+                    button.classList.add('active');
+                }
+            });
+        }
+        
+        // --- CODICE ORIGINALE (leggermente riorganizzato) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.site-nav a');
+            const sections = document.querySelectorAll('.section');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const siteNav = document.querySelector('.site-nav');
+
+            const showSection = (sectionId) => {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (`#${section.id}` === sectionId) {
+                        section.classList.add('active');
+                    }
+                });
+            };
+
+            const setActiveNavLink = (link) => {
+                 navLinks.forEach(navLink => navLink.classList.remove('active'));
+                 if (link) link.classList.add('active');
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    showSection(targetId);
+                    setActiveNavLink(this);
+                    if (siteNav.classList.contains('open')) {
+                         siteNav.classList.remove('open');
+                    }
+                    const mainContentTop = document.querySelector('main').offsetTop - document.querySelector('.site-header').offsetHeight;
+                    window.scrollTo({ top: mainContentTop, behavior: 'smooth' });
+                });
+            });
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
+            }
+
+            // --- Logica di caricamento iniziale ---
+            const initialHash = window.location.hash;
+            if (initialHash && document.querySelector(initialHash)) {
+                 showSection(initialHash);
+                 setActiveNavLink(document.querySelector(`.site-nav a[href="${initialHash}"]`));
+            } else {
+                 showSection(`#${sections[0].id}`);
+                 setActiveNavLink(document.querySelector(`.site-nav a[href="#${sections[0].id}"]`));
+            }
+            
+            // --- INIZIALIZZAZIONE LINGUA ---
+            // Imposta la lingua di default (inglese) al caricamento della pagina
+            changeLanguage('en');
+        });
+    </script>
+</body>
+</html>
