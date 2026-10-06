@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compute! - Alessandro Fenu</title>
+    <meta name="description" content="Integral homology of unordered configuration spaces of the torus, the punctured torus, the annulus and the plane: precomputed tables, and exact computation in your browser beyond them.">
+    <link rel="canonical" href="https://alefenu.com/compute.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+    <style>
+        /* Same look as index.html */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #232223;
+            color: #cccccc;
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .site-header {
+            background-color: #32302C;
+            color: #94A3A1;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6em;
+            color: #94A3A1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .site-header h1 a { color: inherit; }
+        .site-header h1 a:hover { text-decoration: none; color: #847C6D; }
+
+        .site-nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .site-nav li { margin: 0 15px; }
+
+        .site-nav a {
+            color: #94A3A1;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #847C6D;
+            transition: width 0.3s ease-out;
+        }
+
+        .site-nav a:hover::after,
+        .site-nav a.active::after { width: 100%; }
+        .site-nav a:hover,
+        .site-nav a.active { color: #847C6D; text-decoration: none; }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94A3A1;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .menu-toggle:hover { transform: rotate(90deg); }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: #363C3D;
+            color: #cccccc;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #847C6D;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #94A3A1;
+            padding-bottom: 5px;
+        }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; margin-top: 30px; }
+
+        p { margin-bottom: 15px; color: #cccccc; }
+        ul { padding-left: 20px; margin-bottom: 15px; color: #cccccc; }
+        ul li { margin-bottom: 10px; }
+
+        a {
+            color: #847C6D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover { color: #94A3A1; text-decoration: underline; }
+
+        code {
+            background: #2b3031;
+            color: #d8d8d8;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            overflow-wrap: anywhere;
+        }
+
+        /* ---------- The calculator ---------- */
+        .formula-box {
+            background-color: #2b3031;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.35);
+            padding: 36px 20px 30px;
+            text-align: center;
+        }
+
+        .formula {
+            display: inline-flex;
+            align-items: baseline;
+            flex-wrap: nowrap;
+            font-size: 3.2em;
+            color: #e8e8e8;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .formula .katex { font-size: 1em; }
+
+        .formula .sub {
+            font-size: 0.6em;
+            position: relative;
+            top: 0.42em;
+            margin: 0 0.06em 0 0.02em;
+        }
+
+        .formula input {
+            font-family: KaTeX_Main, 'Times New Roman', serif;
+            font-size: 1em;
+            color: #e8e8e8;
+            background: rgba(148, 163, 161, 0.08);
+            border: none;
+            border-bottom: 2px dashed #847C6D;
+            border-radius: 3px 3px 0 0;
+            text-align: center;
+            width: 1.3ch;
+            min-width: 1.3ch;
+            padding: 0 0.15em;
+            outline: none;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .formula input::placeholder { color: #6f7774; font-style: italic; }
+        .formula input:focus { border-bottom: 2px solid #94A3A1; background: rgba(148, 163, 161, 0.16); }
+
+        .space-wrap { position: relative; display: inline-block; }
+
+        .space-btn {
+            font-size: 1em;
+            color: #e8e8e8;
+            background: rgba(148, 163, 161, 0.08);
+            border: none;
+            border-bottom: 2px dashed #847C6D;
+            border-radius: 3px 3px 0 0;
+            cursor: pointer;
+            padding: 0 0.12em;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.12em;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .space-btn:hover, .space-btn:focus-visible, .space-btn[aria-expanded="true"] {
+            border-bottom: 2px solid #94A3A1;
+            background: rgba(148, 163, 161, 0.16);
+            outline: none;
+        }
+        .space-btn .fa-caret-down { font-size: 0.3em; color: #847C6D; align-self: center; }
+
+        .space-menu {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(100% + 8px);
+            z-index: 50;
+            list-style: none;
+            margin: 0;
+            padding: 6px;
+            background: #32302C;
+            border: 1px solid #847C6D;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+            font-size: 1rem;
+            white-space: nowrap;
+            text-align: left;
+        }
+        .space-menu.open { display: block; }
+        .space-menu li {
+            margin: 0;
+            padding: 8px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            color: #cccccc;
+        }
+        .space-menu li .katex { font-size: 1.25em; color: #e8e8e8; min-width: 5.5em; display: inline-block; }
+        .space-menu li small { color: #94A3A1; }
+        .space-menu li:hover, .space-menu li.focused { background: rgba(132, 124, 109, 0.25); }
+        .space-menu li[aria-selected="true"] { box-shadow: inset 3px 0 0 #847C6D; }
+
+        .result {
+            margin-top: 22px;
+            min-height: 2.2em;
+            font-size: 2em;
+            color: #e8e8e8;
+            overflow-wrap: anywhere;
+        }
+        .result .katex { font-size: 1.05em; }
+        .result.hint { font-size: 1.05em; color: #94A3A1; font-style: italic; }
+
+        .details-line {
+            margin-top: 6px;
+            font-size: 0.95em;
+            color: #94A3A1;
+            min-height: 1.5em;
+        }
+        .details-line .katex { font-size: 1.05em; }
+
+        .badge {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 1px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+            vertical-align: 1px;
+        }
+        .badge.table { background: #94A3A1; color: #232223; }
+        .badge.browser { background: #847C6D; color: #232223; }
+        .badge.theory { background: transparent; color: #94A3A1; border: 1px solid #94A3A1; }
+
+        /* Out-of-range panel */
+        .oor {
+            display: none;
+            margin-top: 24px;
+            text-align: left;
+            border: 1px solid #847C6D;
+            border-radius: 8px;
+            padding: 22px 26px;
+            background: rgba(132, 124, 109, 0.08);
+        }
+        .oor.show { display: block; }
+        .oor h3 { margin-top: 0; font-size: 1.3em; }
+        .oor ul { margin-bottom: 10px; }
+        .oor li { margin-bottom: 6px; }
+
+        .estimates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin: 16px 0 18px;
+        }
+        .estimate {
+            background: #2b3031;
+            border-radius: 6px;
+            padding: 10px 14px;
+        }
+        .estimate .label {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
+            color: #94A3A1;
+        }
+        .estimate .value { font-size: 1.35em; color: #e8e8e8; font-weight: 700; }
+
+        .verdict {
+            border-left: 4px solid #94A3A1;
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            background: #2b3031;
+            border-radius: 0 6px 6px 0;
+        }
+        .verdict.ok { border-left-color: #8fb08a; }
+        .verdict.warn { border-left-color: #d1a856; }
+        .verdict.no { border-left-color: #c97a6d; }
+        .verdict strong { color: #e8e8e8; }
+
+        .btn {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.05em;
+            background: #847C6D;
+            color: #232223;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 26px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.15s;
+        }
+        .btn:hover { background: #94A3A1; }
+        .btn:active { transform: translateY(1px); }
+        .btn:disabled { background: #4a5052; color: #8a8f8d; cursor: not-allowed; }
+        .btn.secondary { background: none; border: 1px solid #847C6D; color: #94A3A1; }
+        .btn.secondary:hover { background: #847C6D; color: #232223; }
+
+        .run-status { margin-top: 14px; color: #94A3A1; min-height: 1.5em; }
+        .run-status .fa-spinner { margin-right: 8px; }
+        .run-status.error { color: #e0a090; }
+
+        /* All degrees table */
+        details.all {
+            margin-top: 26px;
+            text-align: left;
+        }
+        details.all summary {
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #847C6D;
+        }
+        details.all summary:hover { color: #94A3A1; }
+        .all-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .all-table td { padding: 5px 10px; border-bottom: 1px solid rgba(148, 163, 161, 0.15); vertical-align: baseline; }
+        .all-table td:first-child { white-space: nowrap; width: 1%; }
+        .all-table tr { cursor: pointer; }
+        .all-table tr:hover td { background: rgba(132, 124, 109, 0.12); }
+        .all-table tr.current td { background: rgba(132, 124, 109, 0.22); }
+
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            .site-header { flex-direction: column; height: auto; padding: 10px 20px; }
+            .header-content { flex-direction: column; align-items: flex-start; width: 100%; }
+            .site-header h1 { margin-bottom: 10px; }
+            .site-nav {
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 10px;
+                display: none;
+                text-align: center;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                flex-grow: 0;
+            }
+            .site-nav.open { display: block; max-height: 300px; opacity: 1; }
+            .site-nav ul { flex-direction: column; align-items: center; }
+            .site-nav li { margin: 8px 0; }
+            .site-nav a { font-size: 1.1em; }
+            .menu-toggle { display: block; position: absolute; right: 20px; top: 10px; }
+            .section { padding: 30px 20px; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .formula { font-size: 2.3em; }
+            .result { font-size: 1.5em; }
+            .oor { padding: 18px 16px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding-top: 100px; }
+            .site-header { padding: 8px 15px; }
+            .site-header h1 { font-size: 1.4em; }
+            .section { padding: 25px 15px; }
+            h2 { font-size: 1.6em; }
+            .formula-box { padding: 26px 8px 22px; }
+            .formula { font-size: 1.75em; }
+            .result { font-size: 1.25em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1><a href="index.html">Alessandro Fenu</a></h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#documents">Documents</a></li>
+                    <li><a href="index.html#tutorato">Tutoring</a></li>
+                    <li><a href="compute.html" class="active">Compute!</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Compute!</h2>
+            <p>Exact integral homology of the unordered configuration spaces
+                <span class="tex" data-tex="B_k(S) = \{\text{$k$ distinct unordered points in } S\}"></span>.
+                Type a degree and a number of points, and pick the surface. Values in the precomputed range appear
+                immediately; beyond it, you can run the same exact algorithm on your own computer, inside this page.</p>
+
+            <div class="formula-box">
+                <div class="formula" id="formula">
+                    <span class="tex" data-tex="H"></span>
+                    <span class="sub"><input id="in-i" type="text" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="i" aria-label="Degree i"></span>
+                    <span class="tex" data-tex="\big("></span>
+                    <span class="tex" data-tex="B"></span>
+                    <span class="sub"><input id="in-k" type="text" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="k" aria-label="Number of points k"></span>
+                    <span class="tex" data-tex="("></span>
+                    <span class="space-wrap">
+                        <button class="space-btn" id="space-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Surface">
+                            <span id="space-tex"></span><i class="fas fa-caret-down"></i>
+                        </button>
+                        <ul class="space-menu" id="space-menu" role="listbox" aria-label="Surface"></ul>
+                    </span>
+                    <span class="tex" data-tex=")"></span>
+                    <span class="tex" data-tex="\big)"></span>
+                </div>
+
+                <div class="result hint" id="result" aria-live="polite">Type a degree i and a number of points k.</div>
+                <div class="details-line" id="details"></div>
+
+                <div class="oor" id="oor">
+                    <h3 id="oor-title">Outside the precomputed range</h3>
+                    <p id="oor-intro"></p>
+                    <div class="estimates">
+                        <div class="estimate"><div class="label">Peak memory</div><div class="value" id="est-mem"></div></div>
+                        <div class="estimate"><div class="label">Time (one core)</div><div class="value" id="est-time"></div></div>
+                        <div class="estimate"><div class="label">Download</div><div class="value" id="est-dl"></div></div>
+                    </div>
+                    <div class="verdict" id="verdict"></div>
+                    <ul id="oor-notes"></ul>
+                    <button class="btn" id="calc-btn"><i class="fas fa-play"></i>&nbsp; Calculate</button>
+                    <button class="btn secondary" id="cancel-btn" style="display:none"><i class="fas fa-stop"></i>&nbsp; Cancel</button>
+                    <div class="run-status" id="run-status"></div>
+                </div>
+
+                <details class="all" id="all" style="display:none">
+                    <summary id="all-summary">All degrees</summary>
+                    <table class="all-table"><tbody id="all-body"></tbody></table>
+                </details>
+            </div>
+
+            <h3>What is computed, and how</h3>
+            <ul>
+                <li><strong>Torus and punctured torus</strong>, <span class="tex" data-tex="k \le 35"></span>: exact integral homology
+                    from Napolitano's Borel&ndash;Moore cell complex, computed through a chain-homotopy-equivalent complex that is
+                    exponentially smaller (at <span class="tex" data-tex="k=26"></span>: 139&thinsp;144 cells instead of
+                    <span class="tex" data-tex="3.4\cdot 10^{12}"></span>). The integers are handled exactly (Smith normal form one prime
+                    at a time, and exact ranks over <span class="tex" data-tex="\mathbb{Q}"></span>); the set of torsion primes is
+                    certified, not guessed. The table was cross-checked against Knudsen's rational model, the Bianchi&ndash;Stavrou formulas
+                    for the punctured torus, and Napolitano's published values.</li>
+                <li><strong>Plane and annulus</strong>: exact integral homology from the Fox&ndash;Neuwirth column complexes
+                    (bar and Hochschild complexes of the column algebra), with exact ranks over <span class="tex" data-tex="\mathbb{Q}"></span>
+                    and Smith normal forms over <span class="tex" data-tex="\mathbb{Z}_{(p)}"></span> for every prime
+                    <span class="tex" data-tex="p \le k"></span>. For the plane, <span class="tex" data-tex="B_k(\mathbb{R}^2)"></span> is
+                    a classifying space of the braid group, so this is the homology of <span class="tex" data-tex="\mathrm{Br}_k"></span>.</li>
+                <li>Ordinary homology is read off from Borel&ndash;Moore homology of the orientable
+                    <span class="tex" data-tex="2k"></span>-manifold <span class="tex" data-tex="B_k(S)"></span>:
+                    <span class="tex" data-tex="H_i \cong \mathbb{Z}^{\operatorname{rk} H^{BM}_{2k-i}} \oplus \operatorname{tors} H^{BM}_{2k-i-1}"></span>.
+                    Groups are written with invariant factors <span class="tex" data-tex="d_1 \mid d_2 \mid \cdots"></span>.</li>
+                <li>The in-browser engine for the torus is the same C++ program (<a href="compute/src/homology_optimized.cpp">source</a>),
+                    compiled to WebAssembly and run on one core; for the plane and annulus it is the original Python code
+                    (<a href="compute/py/colcx.py">source</a>), run by Pyodide. Nothing is sent to a server.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+    (() => {
+        // ------------------------------------------------------------------ spaces
+        // maxDeg(k): H_i(B_k(S)) = 0 for i > maxDeg(k), because the cell complexes have no Borel-Moore cells
+        // below degree 2k - maxDeg(k) - 1.
+        // bench: single-core native measurements {k: [seconds, MB]} of the engine (C++ for the torus, CPython
+        // for the plane and annulus); the estimates scale them by the measured browser overhead below.
+        const SPACES = {
+            torus: {
+                tex: 'T^2', name: 'Torus', engine: 'ho', pu: false, maxDeg: k => k + 1,
+                bench: { 28: [5.13, 154], 29: [6.91, 208], 30: [12.1, 318], 31: [18.8, 430], 32: [44.0, 655], 33: [82.7, 883] }
+            },
+            punctured: {
+                tex: 'T^2 \\smallsetminus \\mathrm{pt}', name: 'Punctured torus', engine: 'ho', pu: true, maxDeg: k => k,
+                bench: { 28: [3.01, 130], 29: [4.26, 181], 30: [6.99, 265], 31: [9.83, 372], 32: [16.1, 542], 33: [22.7, 762] }
+            },
+            annulus: {
+                tex: 'S^1 \\times \\mathbb{R}', name: 'Annulus (open)', engine: 'py', surface: 'annulus', maxDeg: k => k,
+                bench: { 9: [0.28, 28], 10: [1.56, 28], 11: [12.0, 36], 12: [113, 60] }
+            },
+            plane: {
+                tex: '\\mathbb{R}^2', name: 'Plane (braid groups)', engine: 'py', surface: 'plane', maxDeg: k => Math.max(k - 1, 0),
+                bench: { 10: [0.19, 28], 11: [1.3, 28], 12: [9.4, 36], 13: [96.7, 60] }
+            }
+        };
+        const ORDER = ['torus', 'punctured', 'annulus', 'plane'];
+        // Browser overhead relative to the native benchmark: time factor, memory factor, fixed MB (runtime itself).
+        const OVERHEAD = { ho: [1.6, 1.0, 20], py: [2.5, 1.0, 150] };
+        const WASM_LIMIT_MB = 4096;                 // a WebAssembly (wasm32) instance cannot address more
+
+        let DATA = null;                            // compute/data.json
+        let space = 'torus';
+        const computed = loadCache();               // results computed in this browser: {space: {k: H}}
+        let worker = null, timer = null;
+
+        // ------------------------------------------------------------------ helpers
+        const $ = id => document.getElementById(id);
+        const tex = (s, display = false) => katex.renderToString(s, { throwOnError: false, displayMode: display });
+        document.querySelectorAll('.tex').forEach(el => { el.innerHTML = tex(el.dataset.tex); });
+
+        function loadCache() {
+            try { return JSON.parse(localStorage.getItem('compute-cache-v1')) || {}; } catch (e) { return {}; }
+        }
+        function saveCache() {
+            try { localStorage.setItem('compute-cache-v1', JSON.stringify(computed)); } catch (e) { /* private mode */ }
+        }
+
+        // A group is [rank, d1, m1, d2, m2, ...]  =  Z^rank + (Z/d1)^m1 + ...
+        function groupTex(g) {
+            const parts = [];
+            if (g[0] === 1) parts.push('\\mathbb{Z}');
+            else if (g[0] > 1) parts.push(`\\mathbb{Z}^{${g[0]}}`);
+            for (let j = 1; j < g.length; j += 2) {
+                const d = g[j], m = g[j + 1];
+                parts.push(m === 1 ? `\\mathbb{Z}/${d}` : `(\\mathbb{Z}/${d})^{${m}}`);
+            }
+            return parts.length ? parts.join(' \\oplus ') : '0';
+        }
+
+        // p-primary decomposition of the torsion, as {p: {exponent: multiplicity}}
+        function primaryTex(g) {
+            const prim = {};
+            for (let j = 1; j < g.length; j += 2) {
+                let d = BigInt(g[j]); const m = g[j + 1];
+                for (let p = 2n; p * p <= d; p++) {
+                    let e = 0; while (d % p === 0n) { d /= p; e++; }
+                    if (e) { prim[p] = prim[p] || {}; prim[p][e] = (prim[p][e] || 0) + m; }
+                }
+                if (d > 1n) { prim[d] = prim[d] || {}; prim[d][1] = (prim[d][1] || 0) + m; }
+            }
+            const parts = [];
+            Object.keys(prim).map(BigInt).sort((a, b) => (a < b ? -1 : 1)).forEach(p => {
+                Object.keys(prim[p]).map(Number).sort((a, b) => a - b).forEach(e => {
+                    const q = e === 1 ? `${p}` : `${p}^{${e}}`, m = prim[p][e];
+                    parts.push(m === 1 ? `\\mathbb{Z}/${q}` : `(\\mathbb{Z}/${q})^{${m}}`);
+                });
+            });
+            return parts.join(' \\oplus ');
+        }
+
+        const hasTorsion = g => g.length > 1;
+        const needsPrimary = g => {           // only worth showing when some invariant factor is not a prime power
+            for (let j = 1; j < g.length; j += 2) {
+                let d = BigInt(g[j]), n = 0;
+                for (let p = 2n; p * p <= d; p++) if (d % p === 0n) { n++; while (d % p === 0n) d /= p; }
+                if (d > 1n) n++;
+                if (n > 1) return true;
+            }
+            return false;
+        };
+
+        // ------------------------------------------------------------------ BM -> ordinary
+        function runs(factors) {
+            const c = new Map();
+            factors.map(String).forEach(f => c.set(f, (c.get(f) || 0) + 1));
+            return [...c.entries()].sort((a, b) => (BigInt(a[0]) < BigInt(b[0]) ? -1 : 1))
+                .flatMap(([d, m]) => [Number.isSafeInteger(Number(d)) ? Number(d) : d, m]);
+        }
+        function invariantFromPrimary(prim) {          // {p: [valuations]} -> [d_1 | d_2 | ...]
+            const n = Math.max(0, ...Object.values(prim).map(v => v.length));
+            const fs = Array(n).fill(1n);
+            for (const [p, vals] of Object.entries(prim)) {
+                [...vals].sort((a, b) => b - a).forEach((v, j) => { fs[n - 1 - j] *= BigInt(p) ** BigInt(v); });
+            }
+            return fs.map(String);
+        }
+        function ordinaryFromBM(k, bm, format) {
+            const get = n => {
+                const e = bm[String(n)];
+                if (!e) return [0, []];
+                return [e[0], format === 'bm-primary' ? invariantFromPrimary(e[1]) : e[1]];
+            };
+            const H = [];
+            for (let i = 0; i <= 2 * k; i++) H.push([get(2 * k - i)[0], ...runs(get(2 * k - i - 1)[1])]);
+            while (H.length > 1 && H[H.length - 1].length === 1 && H[H.length - 1][0] === 0) H.pop();
+            return H;
+        }
+
+        // ------------------------------------------------------------------ estimates
+        function estimate(sp, k) {
+            const S = SPACES[sp], ks = Object.keys(S.bench).map(Number).sort((a, b) => a - b);
+            const last = ks[ks.length - 1], first = ks[Math.max(0, ks.length - 4)];
+            const val = (j, kk) => {
+                if (S.bench[kk]) return S.bench[kk][j];
+                const ratio = Math.pow(S.bench[last][j] / S.bench[first][j], 1 / (last - first));
+                return S.bench[last][j] * Math.pow(ratio, kk - last);
+            };
+            const [ft, fm, base] = OVERHEAD[S.engine];
+            return { secs: val(0, k) * ft, mb: val(1, k) * fm + base };
+        }
+        const fmtTime = s => {
+            if (!isFinite(s) || s > 3.15e9) return 'centuries';
+            if (s < 60) return `${Math.max(1, Math.round(s))} s`;
+            if (s < 3600) return `${Math.round(s / 60)} min`;
+            if (s < 86400 * 2) return `${(s / 3600).toFixed(s < 36000 ? 1 : 0)} h`;
+            if (s < 86400 * 365) return `${Math.round(s / 86400)} days`;
+            return `${(s / 86400 / 365).toPrecision(2)} years`;
+        };
+        const fmtMem = mb => {
+            if (!isFinite(mb) || mb > 1e9) return 'astronomical';
+            if (mb < 1024) return `${Math.round(mb / 10) * 10 || 10} MB`;
+            if (mb < 1024 * 1024) return `${(mb / 1024).toFixed(mb < 10240 ? 1 : 0)} GB`;
+            return `${(mb / 1024 / 1024).toPrecision(2)} TB`;
+        };
+
+        // ------------------------------------------------------------------ space selector
+        const menu = $('space-menu'), btn = $('space-btn');
+        ORDER.forEach(sp => {
+            const li = document.createElement('li');
+            li.setAttribute('role', 'option');
+            li.dataset.space = sp;
+            li.innerHTML = `${tex(SPACES[sp].tex)}<span>${SPACES[sp].name}</span>`;
+            li.addEventListener('click', () => { setSpace(sp); closeMenu(); btn.focus(); });
+            menu.appendChild(li);
+        });
+        function setSpace(sp) {
+            space = sp;
+            $('space-tex').innerHTML = tex(SPACES[sp].tex);
+            menu.querySelectorAll('li').forEach(li => li.setAttribute('aria-selected', li.dataset.space === sp));
+            update();
+        }
+        let focusIdx = 0;
+        function openMenu() {
+            menu.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+            focusIdx = ORDER.indexOf(space); markFocus();
+        }
+        function closeMenu() { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+        function markFocus() { menu.querySelectorAll('li').forEach((li, j) => li.classList.toggle('focused', j === focusIdx)); }
+        btn.addEventListener('click', e => { e.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu(); });
+        btn.addEventListener('keydown', e => {
+            const open = menu.classList.contains('open');
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (!open) return openMenu();
+                focusIdx = (focusIdx + (e.key === 'ArrowDown' ? 1 : ORDER.length - 1)) % ORDER.length; markFocus();
+            } else if ((e.key === 'Enter' || e.key === ' ') && open) {
+                e.preventDefault(); setSpace(ORDER[focusIdx]); closeMenu();
+            } else if (e.key === 'Escape') closeMenu();
+        });
+        document.addEventListener('click', e => { if (!e.target.closest('.space-wrap')) closeMenu(); });
+
+        // ------------------------------------------------------------------ inputs
+        const inI = $('in-i'), inK = $('in-k');
+        [inI, inK].forEach(inp => {
+            inp.addEventListener('input', () => {
+                const clean = inp.value.replace(/\D/g, '').slice(0, 4);
+                if (clean !== inp.value) inp.value = clean;
+                fit(inp); update();
+            });
+        });
+        inI.addEventListener('keydown', e => { if (e.key === 'Enter' || (e.key === 'ArrowRight' && inI.selectionStart === inI.value.length)) { e.preventDefault(); inK.focus(); } });
+        inK.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' && inK.selectionStart === 0) { e.preventDefault(); inI.focus(); } });
+        function fit(inp) { inp.style.width = Math.max(1.3, inp.value.length * 1.05 + 0.25) + 'ch'; }
+
+        // ------------------------------------------------------------------ main update
+        function lookup(sp, k) {                  // ordinary homology list for (sp, k), or null
+            if (DATA && DATA[sp] && DATA[sp].H[k]) return { H: DATA[sp].H[k], src: 'table' };
+            if (computed[sp] && computed[sp][k]) return { H: computed[sp][k], src: 'browser' };
+            return null;
+        }
+
+        function update() {
+            const iS = inI.value, kS = inK.value;
+            const S = SPACES[space];
+            const res = $('result'), det = $('details');
+            $('oor').classList.remove('show');
+            $('all').style.display = 'none';
+            try {
+                const q = new URLSearchParams({ space });
+                if (iS) q.set('i', iS); if (kS) q.set('k', kS);
+                history.replaceState(null, '', '?' + q.toString());
+            } catch (e) { /* file:// */ }
+
+            if (iS === '' || kS === '') {
+                res.className = 'result hint';
+                res.textContent = iS === '' && kS === '' ? 'Type a degree i and a number of points k.'
+                    : iS === '' ? 'Now type the degree i.' : 'Now type the number of points k.';
+                det.innerHTML = '';
+                return;
+            }
+            if (!DATA) { res.className = 'result hint'; res.textContent = 'Loading the tables…'; det.innerHTML = ''; return; }
+
+            const i = parseInt(iS, 10), k = parseInt(kS, 10);
+            const found = lookup(space, k);
+            const lhs = `H_{${i}}\\big(B_{${k}}(${S.tex})\\big)`;
+
+            if (found) {
+                const g = found.H[i] || [0];
+                res.className = 'result';
+                res.innerHTML = tex(`\\cong ${groupTex(g)}`);
+                let info = found.src === 'table'
+                    ? `<span class="badge table">table</span>`
+                    : `<span class="badge browser">computed in this browser</span>`;
+                if (i >= found.H.length) info += `zero: ${tex(`H_i(B_{${k}}(${S.tex})) = 0`)} for ${tex(`i \\ge ${found.H.length}`)}.`;
+                else if (hasTorsion(g) && needsPrimary(g)) info += `primary decomposition: ${tex(primaryTex(g))}`;
+                else if (hasTorsion(g)) info += `torsion of order ${tex(torsionOrder(g))}`;
+                else info += g[0] ? `free of rank ${g[0]}` : 'trivial group';
+                det.innerHTML = info;
+                fillAll(found.H, k, i);
+                return;
+            }
+
+            // Outside every table: settle what theory settles, otherwise offer the computation.
+            if (i === 0) {
+                res.className = 'result'; res.innerHTML = tex('\\cong \\mathbb{Z}');
+                det.innerHTML = `<span class="badge theory">theory</span>${tex(`B_{${k}}(${S.tex})`)} is connected.`;
+                return;
+            }
+            if (i > S.maxDeg(k)) {
+                res.className = 'result'; res.innerHTML = tex('\\cong 0');
+                det.innerHTML = `<span class="badge theory">theory</span>the cell complex of ${tex(`B_{${k}}(${S.tex})`)} has no cells that could contribute in degrees ${tex(`i > ${S.maxDeg(k)}`)}.`;
+                return;
+            }
+            res.className = 'result hint';
+            res.innerHTML = `${tex(lhs)} is not in the precomputed table.`;
+            det.innerHTML = '';
+            showOOR(k);
+        }
+
+        function torsionOrder(g) {
+            const parts = [];
+            for (let j = 1; j < g.length; j += 2) parts.push(g[j + 1] === 1 ? `${g[j]}` : `${g[j]}^{${g[j + 1]}}`);
+            return parts.join(' \\cdot ');
+        }
+
+        function fillAll(H, k, cur) {
+            const body = $('all-body'); body.innerHTML = '';
+            H.forEach((g, j) => {
+                const tr = document.createElement('tr');
+                if (j === cur) tr.className = 'current';
+                tr.innerHTML = `<td>${tex(`H_{${j}}`)}</td><td>${tex(groupTex(g))}</td>`;
+                tr.addEventListener('click', () => { inI.value = String(j); fit(inI); update(); });
+                body.appendChild(tr);
+            });
+            $('all-summary').innerHTML = `All degrees of ${tex(`H_*\\big(B_{${k}}(${SPACES[space].tex})\\big)`)} (higher degrees vanish)`;
+            $('all').style.display = 'block';
+        }
+
+        // ------------------------------------------------------------------ out of range
+        function showOOR(k) {
+            const S = SPACES[space], kmax = DATA[space].kmax;
+            const { secs, mb } = estimate(space, k);
+            const running = worker !== null;
+            $('oor').classList.add('show');
+            $('oor-intro').innerHTML = `The table for ${tex(S.tex)} covers ${tex(`k \\le ${kmax}`)}.
+                You can compute ${tex(`k = ${k}`)} right here, with your own computer: the page starts the exact algorithm
+                in a background thread, so it stays responsive while it works.`;
+            $('est-mem').textContent = '≈ ' + fmtMem(mb);
+            $('est-time').textContent = '≈ ' + fmtTime(secs);
+            $('est-dl').textContent = S.engine === 'ho' ? '≈ 0.5 MB' : '≈ 15 MB';
+
+            const dm = navigator.deviceMemory;                // Chrome/Edge only, rounded down, capped at 8
+            const ramNote = dm ? ` Your device reports at least ${dm} GB of RAM.` : '';
+            let cls, text, allow = true;
+            if (mb > WASM_LIMIT_MB * 0.95) {
+                cls = 'no'; allow = false;
+                text = `<strong>Your browser cannot do this.</strong> It needs about ${fmtMem(mb)} of memory, and a WebAssembly
+                    program in a browser tab can use at most 4 GB, whatever your computer has.
+                    Run the command-line program below on a machine with enough RAM instead.`;
+            } else if (secs > 6 * 3600) {
+                cls = 'no';
+                text = `<strong>Not realistic in a browser.</strong> It fits in memory, but it would run for about ${fmtTime(secs)};
+                    browsers throttle or kill pages that run this long. You may still try.`;
+            } else if (mb > 2048 || secs > 1800) {
+                cls = 'warn';
+                text = `<strong>Borderline.</strong> Use a desktop browser on a computer with at least ${Math.ceil(mb / 1024) + 4} GB of RAM,
+                    close other heavy tabs, and expect about ${fmtTime(secs)}. Phones and tablets will almost certainly fail.${ramNote}`;
+            } else {
+                cls = 'ok';
+                text = `<strong>Should work</strong> on an ordinary laptop or desktop (about ${fmtMem(mb)}, ${fmtTime(secs)}).
+                    On a phone it may be slower, or the browser may stop it.${ramNote}`;
+            }
+            $('verdict').className = 'verdict ' + cls;
+            $('verdict').innerHTML = text;
+
+            const notes = [
+                `The estimates are extrapolated from measurements of the same program at smaller ${tex('k')}, on one core of a 2017 laptop; your mileage may vary by a factor of 2 or so. Each extra point multiplies the cost by roughly ${S.engine === 'ho' ? '1.4 (memory) and 1.7 (time)' : '9'}.`,
+                `It computes all of ${tex(`H_*\\big(B_{${k}}(${S.tex})\\big)`)} at once: afterwards every degree is instant, and this browser remembers the result.`,
+                `It uses a single core and runs entirely on your computer; nothing is sent anywhere. Keep this tab open, and preferably in the foreground.`,
+                `There is no progress bar: the algorithm does not know in advance how long its eliminations take. You can cancel at any time.`,
+            ];
+            if (S.engine === 'ho') {
+                notes.push(`Locally, the same program runs multi-threaded and without the 4 GB limit:
+                    <code>g++ -O2 -std=c++17 -pthread -o homology_optimized homology_optimized.cpp -lgmpxx -lgmp</code>, then
+                    <code>./homology_optimized ${k}${S.pu ? ' pu' : ''}</code> (<a href="compute/src/homology_optimized.cpp">source</a>).`);
+            } else {
+                notes.push(`The first run downloads Pyodide (Python compiled to WebAssembly) from a CDN. Locally:
+                    <code>python3 colcx.py ${S.surface} ${k}</code> with <a href="compute/py/colcx.py">colcx.py</a>, <a href="compute/py/napolitano.py">napolitano.py</a>, <a href="compute/py/exact.py">exact.py</a>, <a href="compute/py/exact_snf.py">exact_snf.py</a>, <a href="compute/py/reduction.py">reduction.py</a> in one folder (needs numpy).`);
+            }
+            $('oor-notes').innerHTML = notes.map(n => `<li>${n}</li>`).join('');
+            $('calc-btn').disabled = !allow || running;
+            $('calc-btn').style.display = running ? 'none' : '';
+            $('cancel-btn').style.display = running ? '' : 'none';
+            if (!running && !$('run-status').classList.contains('error')) $('run-status').innerHTML = '';
+        }
+
+        $('calc-btn').addEventListener('click', () => {
+            const k = parseInt(inK.value, 10), sp = space, S = SPACES[sp];
+            const t0 = performance.now();
+            let started = null;
+            worker = new Worker('compute/worker.js');
+            $('run-status').className = 'run-status';
+            const status = msg => {
+                const el = ((started ? performance.now() - started : performance.now() - t0) / 1000);
+                $('run-status').innerHTML = `<i class="fas fa-spinner fa-spin"></i>${msg} ${started ? `(${fmtTime(el)} elapsed, estimate ${fmtTime(estimate(sp, k).secs)})` : ''}`;
+            };
+            let lastMsg = 'Starting…';
+            status(lastMsg);
+            timer = setInterval(() => status(lastMsg), 1000);
+            const finish = () => { clearInterval(timer); timer = null; if (worker) worker.terminate(); worker = null; };
+            worker.onmessage = e => {
+                const m = e.data;
+                if (m.type === 'status') { lastMsg = m.message; if (m.started) started = performance.now(); status(lastMsg); }
+                else if (m.type === 'done') {
+                    const secs = (performance.now() - (started || t0)) / 1000;
+                    finish();
+                    computed[sp] = computed[sp] || {};
+                    computed[sp][k] = ordinaryFromBM(k, m.bm, m.format);
+                    saveCache();
+                    $('run-status').innerHTML = '';
+                    if (space === sp && parseInt(inK.value, 10) === k) update();
+                    $('details').innerHTML += ` <span style="opacity:.7">(${fmtTime(secs)})</span>`;
+                } else if (m.type === 'error') {
+                    finish();
+                    $('run-status').className = 'run-status error';
+                    $('run-status').innerHTML = `<i class="fas fa-triangle-exclamation"></i> The computation failed: ${m.message}`;
+                    update();
+                }
+            };
+            worker.onerror = e => {
+                finish();
+                $('run-status').className = 'run-status error';
+                $('run-status').innerHTML = `<i class="fas fa-triangle-exclamation"></i> The computation failed${e.message ? ': ' + e.message : ''}. This usually means the browser ran out of memory.`;
+                update();
+            };
+            worker.postMessage({ engine: S.engine, k, pu: !!S.pu, surface: S.surface });
+            update();
+        });
+
+        $('cancel-btn').addEventListener('click', () => {
+            if (worker) { worker.terminate(); worker = null; }
+            clearInterval(timer); timer = null;
+            $('run-status').className = 'run-status';
+            $('run-status').innerHTML = 'Cancelled.';
+            update();
+        });
+
+        // ------------------------------------------------------------------ start
+        const menuToggle = document.querySelector('.menu-toggle');
+        menuToggle.addEventListener('click', () => document.querySelector('.site-nav').classList.toggle('open'));
+
+        const q = new URLSearchParams(location.search);
+        if (SPACES[q.get('space')]) space = q.get('space');
+        if (/^\d{1,4}$/.test(q.get('i') || '')) inI.value = q.get('i');
+        if (/^\d{1,4}$/.test(q.get('k') || '')) inK.value = q.get('k');
+        fit(inI); fit(inK);
+        setSpace(space);
+        fetch('compute/data.json').then(r => r.json()).then(d => { DATA = d; update(); })
+            .catch(() => { $('result').className = 'result hint'; $('result').textContent = 'Could not load the tables (compute/data.json).'; });
+    })();
+    </script>
+</body>
+</html>

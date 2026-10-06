@@ -7,6 +7,10 @@
     <!-- Search engines and link previews -->
     <meta name="description" content="Personal page of Alessandro Fenu: configuration spaces, homotopical methods and computational aspects of algebraic topology. Theses, notes and teaching material.">
     <link rel="canonical" href="https://alefenu.com/">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta property="og:type" content="profile">
     <meta property="og:title" content="Alessandro Fenu">
     <meta property="og:description" content="Configuration spaces, homotopical methods and computational aspects of algebraic topology. Theses, notes and teaching material.">
@@ -422,6 +426,7 @@
                     <li><a href="#home" id="nav-home">Home</a></li>
                     <li><a href="#documents" id="nav-documents">Documents</a></li>
                     <li><a href="#tutorato" id="nav-tutorato">Tutoring</a></li>
+                    <li><a href="compute.html" id="nav-compute">Compute!</a></li>
                 </ul>
             </nav>
             <button class="menu-toggle" aria-label="Toggle navigation menu">
@@ -494,6 +499,7 @@
                 'nav-home': 'Home',
                 'nav-documents': 'Documenti',
                 'nav-tutorato': 'Tutorato',
+                'nav-compute': 'Calcola!',
                 'home-greeting': 'Ciao!',
                 'home-p1': 'Sono Alessandro Fenu. Ho fatto la triennale in Matematica all\'Università di Pisa, con una tesi in Topologia Algebrica. Ho fatto la magistrale sia in Italia, all\'Università di Pisa, sia a Parigi, dove ho completato il M2 in Mathématiques Fondamentales a Université Paris Cité e Sorbonne Université.',
                 'home-p2': 'La mia tesi magistrale, con relatore il prof. Grégory Ginot e correlatore il prof. Filippo Gianluca Callegaro, è sull\'<a href="masterthesis.pdf" target="_blank">invarianza omotopica reale degli spazi di configurazioni</a>. L\'ho discussa all\'Università di Pisa e al <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
@@ -530,6 +536,7 @@
                 'nav-home': 'Home',
                 'nav-documents': 'Documents',
                 'nav-tutorato': 'Tutoring',
+                'nav-compute': 'Compute!',
                 'home-greeting': 'Hello!',
                 'home-p1': 'I\'m Alessandro Fenu. I did my bachelor\'s in Mathematics at the Università di Pisa, with a thesis in Algebraic Topology. I did my master\'s both in Italy, at the Università di Pisa, and in Paris, where I completed the M2 in Mathématiques Fondamentales at Université Paris Cité and Sorbonne Université.',
                 'home-p2': 'My master\'s thesis, supervised by Prof. Grégory Ginot and co-supervised by Prof. Filippo Gianluca Callegaro, is on the <a href="masterthesis.pdf" target="_blank">real homotopy invariance of configuration spaces</a>. I defended it at the Università di Pisa and at <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
@@ -566,6 +573,7 @@
                 'nav-home': 'Accueil',
                 'nav-documents': 'Documents',
                 'nav-tutorato': 'Tutorat',
+                'nav-compute': 'Calculer !',
                 'home-greeting': 'Salut !',
                 'home-p1': 'Je suis Alessandro Fenu. J\'ai fait ma licence en Mathématiques à l\'Università di Pisa, avec un mémoire en Topologie Algébrique. J\'ai fait mon master à la fois en Italie, à l\'Università di Pisa, et à Paris, où j\'ai suivi le M2 de Mathématiques Fondamentales à l\'Université Paris Cité et Sorbonne Université.',
                 'home-p2': 'Mon mémoire de master, sous la direction du professeur Grégory Ginot et en codirection avec le professeur Filippo Gianluca Callegaro, porte sur l\'<a href="masterthesis.pdf" target="_blank">invariance par homotopie réelle des espaces de configurations</a>. Je l\'ai soutenu à l\'Università di Pisa et au <a href="https://www.math.univ-paris13.fr/laga/" target="_blank">LAGA</a> (Université Sorbonne Paris Nord).',
@@ -659,6 +667,7 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
+                    if (!this.getAttribute('href').startsWith('#')) return; // separate pages (Compute!)
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     showSection(targetId);
