@@ -286,21 +286,7 @@
             min-height: 1.5em;
         }
         .details-line .katex { font-size: 1.05em; }
-
-        .badge {
-            display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 1px 8px;
-            border-radius: 4px;
-            margin-right: 6px;
-            vertical-align: 1px;
-        }
-        .badge.table { background: #94A3A1; color: #232223; }
-        .badge.browser { background: #847C6D; color: #232223; }
-        .badge.theory { background: transparent; color: #94A3A1; border: 1px solid #94A3A1; }
+        .details-line:empty, .run-status:empty { display: none; }
 
         /* Out-of-range panel */
         .oor {
@@ -313,9 +299,7 @@
             background: rgba(132, 124, 109, 0.08);
         }
         .oor.show { display: block; }
-        .oor h3 { margin-top: 0; font-size: 1.3em; }
-        .oor ul { margin-bottom: 10px; }
-        .oor li { margin-bottom: 6px; }
+        #oor-intro { margin: 0 0 14px; }
 
         .estimates {
             display: grid;
@@ -337,17 +321,6 @@
         }
         .estimate .value { font-size: 1.35em; color: #e8e8e8; font-weight: 700; }
 
-        .verdict {
-            border-left: 4px solid #94A3A1;
-            padding: 8px 14px;
-            margin-bottom: 16px;
-            background: #2b3031;
-            border-radius: 0 6px 6px 0;
-        }
-        .verdict.ok { border-left-color: #8fb08a; }
-        .verdict.warn { border-left-color: #d1a856; }
-        .verdict.no { border-left-color: #c97a6d; }
-        .verdict strong { color: #e8e8e8; }
 
         .btn {
             font-family: 'Oswald', sans-serif;
@@ -457,8 +430,7 @@
             <h2>Compute!</h2>
             <p>Exact integral homology of the unordered configuration spaces
                 <span class="tex" data-tex="B_k(S) = \{\text{$k$ distinct unordered points in } S\}"></span>.
-                Type a degree and a number of points, and pick the surface. Values in the precomputed range appear
-                immediately; beyond it, you can run the same exact algorithm on your own computer, inside this page.</p>
+                Type a degree and a number of points, and pick the surface.</p>
 
             <div class="formula-box">
                 <div class="formula" id="formula">
@@ -482,15 +454,7 @@
                 <div class="details-line" id="details"></div>
 
                 <div class="oor" id="oor">
-                    <h3 id="oor-title">Outside the precomputed range</h3>
                     <p id="oor-intro"></p>
-                    <div class="estimates">
-                        <div class="estimate"><div class="label">Peak memory</div><div class="value" id="est-mem"></div></div>
-                        <div class="estimate"><div class="label">Time (one core)</div><div class="value" id="est-time"></div></div>
-                        <div class="estimate"><div class="label">Download</div><div class="value" id="est-dl"></div></div>
-                    </div>
-                    <div class="verdict" id="verdict"></div>
-                    <ul id="oor-notes"></ul>
                     <button class="btn" id="calc-btn"><i class="fas fa-play"></i>&nbsp; Calculate</button>
                     <button class="btn secondary" id="cancel-btn" style="display:none"><i class="fas fa-stop"></i>&nbsp; Cancel</button>
                     <div class="run-status" id="run-status"></div>
@@ -502,28 +466,6 @@
                 </details>
             </div>
 
-            <h3>What is computed, and how</h3>
-            <ul>
-                <li><strong>Torus and punctured torus</strong>, <span class="tex" data-tex="k \le 35"></span>: exact integral homology
-                    from Napolitano's Borel&ndash;Moore cell complex, computed through a chain-homotopy-equivalent complex that is
-                    exponentially smaller (at <span class="tex" data-tex="k=26"></span>: 139&thinsp;144 cells instead of
-                    <span class="tex" data-tex="3.4\cdot 10^{12}"></span>). The integers are handled exactly (Smith normal form one prime
-                    at a time, and exact ranks over <span class="tex" data-tex="\mathbb{Q}"></span>); the set of torsion primes is
-                    certified, not guessed. The table was cross-checked against Knudsen's rational model, the Bianchi&ndash;Stavrou formulas
-                    for the punctured torus, and Napolitano's published values.</li>
-                <li><strong>Plane and annulus</strong>: exact integral homology from the Fox&ndash;Neuwirth column complexes
-                    (bar and Hochschild complexes of the column algebra), with exact ranks over <span class="tex" data-tex="\mathbb{Q}"></span>
-                    and Smith normal forms over <span class="tex" data-tex="\mathbb{Z}_{(p)}"></span> for every prime
-                    <span class="tex" data-tex="p \le k"></span>. For the plane, <span class="tex" data-tex="B_k(\mathbb{R}^2)"></span> is
-                    a classifying space of the braid group, so this is the homology of <span class="tex" data-tex="\mathrm{Br}_k"></span>.</li>
-                <li>Ordinary homology is read off from Borel&ndash;Moore homology of the orientable
-                    <span class="tex" data-tex="2k"></span>-manifold <span class="tex" data-tex="B_k(S)"></span>:
-                    <span class="tex" data-tex="H_i \cong \mathbb{Z}^{\operatorname{rk} H^{BM}_{2k-i}} \oplus \operatorname{tors} H^{BM}_{2k-i-1}"></span>.
-                    Groups are written with invariant factors <span class="tex" data-tex="d_1 \mid d_2 \mid \cdots"></span>.</li>
-                <li>The in-browser engine for the torus is the same C++ program (<a href="compute/src/homology_optimized.cpp">source</a>),
-                    compiled to WebAssembly and run on one core; for the plane and annulus it is the original Python code
-                    (<a href="compute/py/colcx.py">source</a>), run by Pyodide. Nothing is sent to a server.</li>
-            </ul>
         </section>
     </main>
 
@@ -665,11 +607,12 @@
             if (s < 86400 * 365) return `${Math.round(s / 86400)} days`;
             return `${(s / 86400 / 365).toPrecision(2)} years`;
         };
-        const fmtMem = mb => {
-            if (!isFinite(mb) || mb > 1e9) return 'astronomical';
-            if (mb < 1024) return `${Math.round(mb / 10) * 10 || 10} MB`;
-            if (mb < 1024 * 1024) return `${(mb / 1024).toFixed(mb < 10240 ? 1 : 0)} GB`;
-            return `${(mb / 1024 / 1024).toPrecision(2)} TB`;
+        const fmtHours = s => {
+            const h = s / 3600;
+            if (!isFinite(h) || h > 1e15) return 'more than 10<sup>15</sup> hours';
+            if (h < 0.1) return 'less than 0.1 hours';
+            const r = h < 10 ? Number(h.toPrecision(2)) : Math.round(Number(h.toPrecision(2)));
+            return `${r.toLocaleString('en-US')} ${r === 1 ? 'hour' : 'hours'}`;
         };
 
         // ------------------------------------------------------------------ space selector
@@ -757,14 +700,7 @@
                 const g = found.H[i] || [0];
                 res.className = 'result';
                 res.innerHTML = tex(`\\cong ${groupTex(g)}`);
-                let info = found.src === 'table'
-                    ? `<span class="badge table">table</span>`
-                    : `<span class="badge browser">computed in this browser</span>`;
-                if (i >= found.H.length) info += `zero: ${tex(`H_i(B_{${k}}(${S.tex})) = 0`)} for ${tex(`i \\ge ${found.H.length}`)}.`;
-                else if (hasTorsion(g) && needsPrimary(g)) info += `primary decomposition: ${tex(primaryTex(g))}`;
-                else if (hasTorsion(g)) info += `torsion of order ${tex(torsionOrder(g))}`;
-                else info += g[0] ? `free of rank ${g[0]}` : 'trivial group';
-                det.innerHTML = info;
+                det.innerHTML = '';
                 fillAll(found.H, k, i);
                 return;
             }
@@ -772,12 +708,12 @@
             // Outside every table: settle what theory settles, otherwise offer the computation.
             if (i === 0) {
                 res.className = 'result'; res.innerHTML = tex('\\cong \\mathbb{Z}');
-                det.innerHTML = `<span class="badge theory">theory</span>${tex(`B_{${k}}(${S.tex})`)} is connected.`;
+                det.innerHTML = '';
                 return;
             }
             if (i > S.maxDeg(k)) {
                 res.className = 'result'; res.innerHTML = tex('\\cong 0');
-                det.innerHTML = `<span class="badge theory">theory</span>the cell complex of ${tex(`B_{${k}}(${S.tex})`)} has no cells that could contribute in degrees ${tex(`i > ${S.maxDeg(k)}`)}.`;
+                det.innerHTML = '';
                 return;
             }
             res.className = 'result hint';
@@ -801,62 +737,17 @@
                 tr.addEventListener('click', () => { inI.value = String(j); fit(inI); update(); });
                 body.appendChild(tr);
             });
-            $('all-summary').innerHTML = `All degrees of ${tex(`H_*\\big(B_{${k}}(${SPACES[space].tex})\\big)`)} (higher degrees vanish)`;
+            $('all-summary').innerHTML = `All degrees of ${tex(`H_*\\big(B_{${k}}(${SPACES[space].tex})\\big)`)}`;
             $('all').style.display = 'block';
         }
 
         // ------------------------------------------------------------------ out of range
         function showOOR(k) {
-            const S = SPACES[space], kmax = DATA[space].kmax;
             const { secs, mb } = estimate(space, k);
             const running = worker !== null;
+            const allow = mb <= WASM_LIMIT_MB * 0.95;
             $('oor').classList.add('show');
-            $('oor-intro').innerHTML = `The table for ${tex(S.tex)} covers ${tex(`k \\le ${kmax}`)}.
-                You can compute ${tex(`k = ${k}`)} right here, with your own computer: the page starts the exact algorithm
-                in a background thread, so it stays responsive while it works.`;
-            $('est-mem').textContent = '≈ ' + fmtMem(mb);
-            $('est-time').textContent = '≈ ' + fmtTime(secs);
-            $('est-dl').textContent = S.engine === 'ho' ? '≈ 0.5 MB' : '≈ 15 MB';
-
-            const dm = navigator.deviceMemory;                // Chrome/Edge only, rounded down, capped at 8
-            const ramNote = dm ? ` Your device reports at least ${dm} GB of RAM.` : '';
-            let cls, text, allow = true;
-            if (mb > WASM_LIMIT_MB * 0.95) {
-                cls = 'no'; allow = false;
-                text = `<strong>Your browser cannot do this.</strong> It needs about ${fmtMem(mb)} of memory, and a WebAssembly
-                    program in a browser tab can use at most 4 GB, whatever your computer has.
-                    Run the command-line program below on a machine with enough RAM instead.`;
-            } else if (secs > 6 * 3600) {
-                cls = 'no';
-                text = `<strong>Not realistic in a browser.</strong> It fits in memory, but it would run for about ${fmtTime(secs)};
-                    browsers throttle or kill pages that run this long. You may still try.`;
-            } else if (mb > 2048 || secs > 1800) {
-                cls = 'warn';
-                text = `<strong>Borderline.</strong> Use a desktop browser on a computer with at least ${Math.ceil(mb / 1024) + 4} GB of RAM,
-                    close other heavy tabs, and expect about ${fmtTime(secs)}. Phones and tablets will almost certainly fail.${ramNote}`;
-            } else {
-                cls = 'ok';
-                text = `<strong>Should work</strong> on an ordinary laptop or desktop (about ${fmtMem(mb)}, ${fmtTime(secs)}).
-                    On a phone it may be slower, or the browser may stop it.${ramNote}`;
-            }
-            $('verdict').className = 'verdict ' + cls;
-            $('verdict').innerHTML = text;
-
-            const notes = [
-                `The estimates are extrapolated from measurements of the same program at smaller ${tex('k')}, on one core of a 2017 laptop; your mileage may vary by a factor of 2 or so. Each extra point multiplies the cost by roughly ${S.engine === 'ho' ? '1.4 (memory) and 1.7 (time)' : '9'}.`,
-                `It computes all of ${tex(`H_*\\big(B_{${k}}(${S.tex})\\big)`)} at once: afterwards every degree is instant, and this browser remembers the result.`,
-                `It uses a single core and runs entirely on your computer; nothing is sent anywhere. Keep this tab open, and preferably in the foreground.`,
-                `There is no progress bar: the algorithm does not know in advance how long its eliminations take. You can cancel at any time.`,
-            ];
-            if (S.engine === 'ho') {
-                notes.push(`Locally, the same program runs multi-threaded and without the 4 GB limit:
-                    <code>g++ -O2 -std=c++17 -pthread -o homology_optimized homology_optimized.cpp -lgmpxx -lgmp</code>, then
-                    <code>./homology_optimized ${k}${S.pu ? ' pu' : ''}</code> (<a href="compute/src/homology_optimized.cpp">source</a>).`);
-            } else {
-                notes.push(`The first run downloads Pyodide (Python compiled to WebAssembly) from a CDN. Locally:
-                    <code>python3 colcx.py ${S.surface} ${k}</code> with <a href="compute/py/colcx.py">colcx.py</a>, <a href="compute/py/napolitano.py">napolitano.py</a>, <a href="compute/py/exact.py">exact.py</a>, <a href="compute/py/exact_snf.py">exact_snf.py</a>, <a href="compute/py/reduction.py">reduction.py</a> in one folder (needs numpy).`);
-            }
-            $('oor-notes').innerHTML = notes.map(n => `<li>${n}</li>`).join('');
+            $('oor-intro').innerHTML = `Estimated time: ${fmtHours(secs)}.` + (allow ? '' : ' Too large for a browser.');
             $('calc-btn').disabled = !allow || running;
             $('calc-btn').style.display = running ? 'none' : '';
             $('cancel-btn').style.display = running ? '' : 'none';
@@ -871,7 +762,7 @@
             $('run-status').className = 'run-status';
             const status = msg => {
                 const el = ((started ? performance.now() - started : performance.now() - t0) / 1000);
-                $('run-status').innerHTML = `<i class="fas fa-spinner fa-spin"></i>${msg} ${started ? `(${fmtTime(el)} elapsed, estimate ${fmtTime(estimate(sp, k).secs)})` : ''}`;
+                $('run-status').innerHTML = `<i class="fas fa-spinner fa-spin"></i>${msg} ${started ? `(${fmtTime(el)})` : ''}`;
             };
             let lastMsg = 'Starting…';
             status(lastMsg);
@@ -881,14 +772,12 @@
                 const m = e.data;
                 if (m.type === 'status') { lastMsg = m.message; if (m.started) started = performance.now(); status(lastMsg); }
                 else if (m.type === 'done') {
-                    const secs = (performance.now() - (started || t0)) / 1000;
                     finish();
                     computed[sp] = computed[sp] || {};
                     computed[sp][k] = ordinaryFromBM(k, m.bm, m.format);
                     saveCache();
                     $('run-status').innerHTML = '';
                     if (space === sp && parseInt(inK.value, 10) === k) update();
-                    $('details').innerHTML += ` <span style="opacity:.7">(${fmtTime(secs)})</span>`;
                 } else if (m.type === 'error') {
                     finish();
                     $('run-status').className = 'run-status error';

@@ -7,7 +7,7 @@ const PY_FILES = ['colcx.py', 'napolitano.py', 'exact.py', 'exact_snf.py', 'redu
 function fail(msg) { postMessage({ type: 'error', message: String(msg) }); }
 
 async function runHO(k, pu) {
-    postMessage({ type: 'status', message: 'Loading the WebAssembly engine…' });
+    postMessage({ type: 'status', message: 'Loading…' });
     importScripts('ho.js');
     const M = await createHO({ onAbort: what => fail('The engine stopped: ' + what + ' (most likely the browser refused more memory).') });
     postMessage({ type: 'status', message: 'Computing…', started: true });
@@ -17,7 +17,7 @@ async function runHO(k, pu) {
 }
 
 async function runPy(k, surface) {
-    postMessage({ type: 'status', message: 'Downloading Python (Pyodide, about 15 MB, only the first time)…' });
+    postMessage({ type: 'status', message: 'Loading…' });
     importScripts(PYODIDE + 'pyodide.js');
     const py = await loadPyodide({ indexURL: PYODIDE });
     await py.loadPackage('numpy');
