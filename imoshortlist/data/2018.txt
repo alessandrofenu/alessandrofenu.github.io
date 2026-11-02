@@ -1,0 +1,131 @@
+# A1 (Switzerland)
+Let $\mathbb{Q}_{>0}$ denote the set of all positive rational numbers. Determine all functions $f : \mathbb{Q}_{>0} \to \mathbb{Q}_{>0}$ satisfying
+$$f\bigl(x^2f(y)^2\bigr) = f(x)^2f(y)$$
+for all $x, y \in \mathbb{Q}_{>0}$.
+
+# A2 (Slovakia)
+Find all positive integers $n \ge 3$ for which there exist real numbers $a_1, a_2, \dots, a_n$, $a_{n+1} = a_1$, $a_{n+2} = a_2$ such that
+$$a_ia_{i+1} + 1 = a_{i+2}$$
+for all $i = 1, 2, \dots, n$.
+
+# A3 (Luxembourg)
+Given any set $S$ of positive integers, show that at least one of the following two assertions holds:
+
+(1) There exist distinct finite subsets $F$ and $G$ of $S$ such that $\sum_{x \in F} 1/x = \sum_{x \in G} 1/x$;
+
+(2) There exists a positive rational number $r < 1$ such that $\sum_{x \in F} 1/x \ne r$ for all finite subsets $F$ of $S$.
+
+# A4 (Belgium)
+Let $a_0, a_1, a_2, \dots$ be a sequence of real numbers such that $a_0 = 0$, $a_1 = 1$, and for every $n \ge 2$ there exists $1 \le k \le n$ satisfying
+$$a_n = \frac{a_{n-1} + \cdots + a_{n-k}}{k}.$$
+Find the maximal possible value of $a_{2018} - a_{2017}$.
+
+# A5 (South Korea)
+Determine all functions $f : (0, \infty) \to \mathbb{R}$ satisfying
+$$\left(x + \frac{1}{x}\right)f(y) = f(xy) + f\left(\frac{y}{x}\right)$$
+for all $x, y > 0$.
+
+# A6 (Brazil)
+Let $m, n \ge 2$ be integers. Let $f(x_1, \dots, x_n)$ be a polynomial with real coefficients such that
+$$f(x_1, \dots, x_n) = \left\lfloor \frac{x_1 + \ldots + x_n}{m} \right\rfloor \quad \text{for every } x_1, \dots, x_n \in \{0, 1, \dots, m-1\}.$$
+Prove that the total degree of $f$ is at least $n$.
+
+# A7 (Taiwan)
+Find the maximal value of
+$$S = \sqrt[3]{\frac{a}{b+7}} + \sqrt[3]{\frac{b}{c+7}} + \sqrt[3]{\frac{c}{d+7}} + \sqrt[3]{\frac{d}{a+7}},$$
+where $a, b, c, d$ are nonnegative real numbers which satisfy $a + b + c + d = 100$.
+
+# C1 (Iceland)
+Let $n \ge 3$ be an integer. Prove that there exists a set $S$ of $2n$ positive integers satisfying the following property: For every $m = 2, 3, \dots, n$ the set $S$ can be partitioned into two subsets with equal sums of elements, with one of subsets of cardinality $m$.
+
+# C2 (Armenia)
+Queenie and Horst play a game on a $20 \times 20$ chessboard. In the beginning the board is empty. In every turn, Horst places a black knight on an empty square in such a way that his new knight does not attack any previous knights. Then Queenie places a white queen on an empty square. The game gets finished when somebody cannot move.
+
+Find the maximal positive $K$ such that, regardless of the strategy of Queenie, Horst can put at least $K$ knights on the board.
+
+# C3 (Netherlands)
+Let $n$ be a given positive integer. Sisyphus performs a sequence of turns on a board consisting of $n + 1$ squares in a row, numbered $0$ to $n$ from left to right. Initially, $n$ stones are put into square $0$, and the other squares are empty. At every turn, Sisyphus chooses any nonempty square, say with $k$ stones, takes one of those stones and moves it to the right by at most $k$ squares (the stone should stay within the board). Sisyphus' aim is to move all $n$ stones to square $n$.
+
+Prove that Sisyphus cannot reach the aim in less than
+$$\left\lceil \frac{n}{1} \right\rceil + \left\lceil \frac{n}{2} \right\rceil + \left\lceil \frac{n}{3} \right\rceil + \cdots + \left\lceil \frac{n}{n} \right\rceil$$
+turns. (As usual, $\lceil x \rceil$ stands for the least integer not smaller than $x$.)
+
+# C4 (Iran)
+An *anti-Pascal pyramid* is a finite set of numbers, placed in a triangle-shaped array so that the first row of the array contains one number, the second row contains two numbers, the third row contains three numbers and so on; and, except for the numbers in the bottom row, each number equals the absolute value of the difference of the two numbers below it. For instance, the triangle below is an anti-Pascal pyramid with four rows, in which every integer from $1$ to $1 + 2 + 3 + 4 = 10$ occurs exactly once:
+$$\begin{array}{ccccccc} & & & 4 & & & \\ & & 2 & & 6 & & \\ & 5 & & 7 & & 1 & \\ 8 & & 3 & & 10 & & 9 \end{array}$$
+Is it possible to form an anti-Pascal pyramid with $2018$ rows, using every integer from $1$ to $1 + 2 + \cdots + 2018$ exactly once?
+
+# C5 (Russia)
+Let $k$ be a positive integer. The organising committee of a tennis tournament is to schedule the matches for $2k$ players so that every two players play once, each day exactly one match is played, and each player arrives to the tournament site the day of his first match, and departs the day of his last match. For every day a player is present on the tournament, the committee has to pay $1$ coin to the hotel. The organisers want to design the schedule so as to minimise the total cost of all players' stays. Determine this minimum cost.
+
+# C6 (Serbia)
+Let $a$ and $b$ be distinct positive integers. The following infinite process takes place on an initially empty board.
+
+(i) If there is at least a pair of equal numbers on the board, we choose such a pair and increase one of its components by $a$ and the other by $b$.
+
+(ii) If no such pair exists, we write down two times the number $0$.
+
+Prove that, no matter how we make the choices in (i), operation (ii) will be performed only finitely many times.
+
+# C7 (India)
+Consider $2018$ pairwise crossing circles no three of which are concurrent. These circles subdivide the plane into regions bounded by circular *edges* that meet at *vertices*. Notice that there are an even number of vertices on each circle. Given the circle, alternately colour the vertices on that circle red and blue. In doing so for each circle, every vertex is coloured twice — once for each of the two circles that cross at that point. If the two colourings agree at a vertex, then it is assigned that colour; otherwise, it becomes yellow. Show that, if some circle contains at least $2061$ yellow points, then the vertices of some region are all yellow.
+
+# G1 (Greece)
+Let $ABC$ be an acute-angled triangle with circumcircle $\Gamma$. Let $D$ and $E$ be points on the segments $AB$ and $AC$, respectively, such that $AD = AE$. The perpendicular bisectors of the segments $BD$ and $CE$ intersect the small arcs $\overgroup{AB}$ and $\overgroup{AC}$ at points $F$ and $G$ respectively. Prove that $DE \parallel FG$.
+
+# G2 (Australia)
+Let $ABC$ be a triangle with $AB = AC$, and let $M$ be the midpoint of $BC$. Let $P$ be a point such that $PB < PC$ and $PA$ is parallel to $BC$. Let $X$ and $Y$ be points on the lines $PB$ and $PC$, respectively, so that $B$ lies on the segment $PX$, $C$ lies on the segment $PY$, and $\angle PXM = \angle PYM$. Prove that the quadrilateral $APXY$ is cyclic.
+
+# G3 (South Africa)
+A circle $\omega$ of radius $1$ is given. A collection $T$ of triangles is called *good*, if the following conditions hold:
+
+(i) each triangle from $T$ is inscribed in $\omega$;
+
+(ii) no two triangles from $T$ have a common interior point.
+
+Determine all positive real numbers $t$ such that, for each positive integer $n$, there exists a good collection of $n$ triangles, each of perimeter greater than $t$.
+
+# G4 (Mongolia)
+A point $T$ is chosen inside a triangle $ABC$. Let $A_1$, $B_1$, and $C_1$ be the reflections of $T$ in $BC$, $CA$, and $AB$, respectively. Let $\Omega$ be the circumcircle of the triangle $A_1B_1C_1$. The lines $A_1T$, $B_1T$, and $C_1T$ meet $\Omega$ again at $A_2$, $B_2$, and $C_2$, respectively. Prove that the lines $AA_2$, $BB_2$, and $CC_2$ are concurrent on $\Omega$.
+
+# G5 (Denmark)
+Let $ABC$ be a triangle with circumcircle $\omega$ and incentre $I$. A line $\ell$ intersects the lines $AI$, $BI$, and $CI$ at points $D$, $E$, and $F$, respectively, distinct from the points $A$, $B$, $C$, and $I$. The perpendicular bisectors $x$, $y$, and $z$ of the segments $AD$, $BE$, and $CF$, respectively determine a triangle $\Theta$. Show that the circumcircle of the triangle $\Theta$ is tangent to $\omega$.
+
+# G6 (Poland)
+A convex quadrilateral $ABCD$ satisfies $AB \cdot CD = BC \cdot DA$. A point $X$ is chosen inside the quadrilateral so that $\angle XAB = \angle XCD$ and $\angle XBC = \angle XDA$. Prove that $\angle AXB + \angle CXD = 180^\circ$.
+
+# G7 (Russia)
+Let $O$ be the circumcentre, and $\Omega$ be the circumcircle of an acute-angled triangle $ABC$. Let $P$ be an arbitrary point on $\Omega$, distinct from $A$, $B$, $C$, and their antipodes in $\Omega$. Denote the circumcentres of the triangles $AOP$, $BOP$, and $COP$ by $O_A$, $O_B$, and $O_C$, respectively. The lines $\ell_A$, $\ell_B$, and $\ell_C$ perpendicular to $BC$, $CA$, and $AB$ pass through $O_A$, $O_B$, and $O_C$, respectively. Prove that the circumcircle of the triangle formed by $\ell_A$, $\ell_B$, and $\ell_C$ is tangent to the line $OP$.
+
+# N1 (Ukraine)
+Determine all pairs $(n, k)$ of distinct positive integers such that there exists a positive integer $s$ for which the numbers of divisors of $sn$ and of $sk$ are equal.
+
+# N2 (Indonesia)
+Let $n > 1$ be a positive integer. Each cell of an $n \times n$ table contains an integer. Suppose that the following conditions are satisfied:
+
+(i) Each number in the table is congruent to $1$ modulo $n$;
+
+(ii) The sum of numbers in any row, as well as the sum of numbers in any column, is congruent to $n$ modulo $n^2$.
+
+Let $R_i$ be the product of the numbers in the $i$th row, and $C_j$ be the product of the numbers in the $j$th column. Prove that the sums $R_1 + \cdots + R_n$ and $C_1 + \cdots + C_n$ are congruent modulo $n^4$.
+
+# N3 (Serbia)
+Define the sequence $a_0, a_1, a_2, \dots$ by $a_n = 2^n + 2^{\lfloor n/2 \rfloor}$. Prove that there are infinitely many terms of the sequence which can be expressed as a sum of (two or more) distinct terms of the sequence, as well as infinitely many of those which cannot be expressed in such a way.
+
+# N4 (Mongolia)
+Let $a_1, a_2, \dots, a_n, \dots$ be a sequence of positive integers such that
+$$\frac{a_1}{a_2} + \frac{a_2}{a_3} + \cdots + \frac{a_{n-1}}{a_n} + \frac{a_n}{a_1}$$
+is an integer for all $n \ge k$, where $k$ is some positive integer. Prove that there exists a positive integer $m$ such that $a_n = a_{n+1}$ for all $n \ge m$.
+
+# N5 (Russia)
+Four positive integers $x$, $y$, $z$, and $t$ satisfy the relations
+$$xy - zt = x + y = z + t.$$
+Is it possible that both $xy$ and $zt$ are perfect squares?
+
+# N6 (Mexico)
+Let $f : \{1, 2, 3, \dots\} \to \{2, 3, \dots\}$ be a function such that $f(m + n) \mid f(m) + f(n)$ for all pairs $m, n$ of positive integers. Prove that there exists a positive integer $c > 1$ which divides all values of $f$.
+
+# N7 (Thailand)
+Let $n \ge 2018$ be an integer, and let $a_1, a_2, \dots, a_n, b_1, b_2, \dots, b_n$ be pairwise distinct positive integers not exceeding $5n$. Suppose that the sequence
+$$\frac{a_1}{b_1}, \frac{a_2}{b_2}, \dots, \frac{a_n}{b_n}$$
+forms an arithmetic progression. Prove that the terms of the sequence are equal.

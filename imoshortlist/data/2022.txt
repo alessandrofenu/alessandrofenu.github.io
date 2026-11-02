@@ -1,0 +1,151 @@
+# A1 (Nigeria)
+Let $(a_n)_{n \ge 1}$ be a sequence of positive real numbers with the property that
+$$(a_{n+1})^2 + a_na_{n+2} \le a_n + a_{n+2}$$
+for all positive integers $n$. Show that $a_{2022} \le 1$.
+
+# A2 (Slovakia)
+Let $k \ge 2$ be an integer. Find the smallest integer $n \ge k + 1$ with the property that there exists a set of $n$ distinct real numbers such that each of its elements can be written as a sum of $k$ other distinct elements of the set.
+
+# A3 (Netherlands)
+Let $\mathbb{R}_{>0}$ be the set of positive real numbers. Find all functions $f : \mathbb{R}_{>0} \to \mathbb{R}_{>0}$ such that, for every $x \in \mathbb{R}_{>0}$, there exists a unique $y \in \mathbb{R}_{>0}$ satisfying
+$$xf(y) + yf(x) \le 2.$$
+
+# A4 (Trinidad and Tobago)
+Let $n \ge 3$ be an integer, and let $x_1, x_2, \dots, x_n$ be real numbers in the interval $[0, 1]$. Let $s = x_1 + x_2 + \ldots + x_n$, and assume that $s \ge 3$. Prove that there exist integers $i$ and $j$ with $1 \le i < j \le n$ such that
+$$2^{j-i}x_ix_j > 2^{s-3}.$$
+
+# A5 (Czech Republic)
+Find all positive integers $n \ge 2$ for which there exist $n$ real numbers $a_1 < \cdots < a_n$ and a real number $r > 0$ such that the $\frac{1}{2}n(n-1)$ differences $a_j - a_i$ for $1 \le i < j \le n$ are equal, in some order, to the numbers $r^1, r^2, \dots, r^{\frac{1}{2}n(n-1)}$.
+
+# A6 (Indonesia)
+Let $\mathbb{R}$ be the set of real numbers. We denote by $\mathcal{F}$ the set of all functions $f : \mathbb{R} \to \mathbb{R}$ such that
+$$f(x + f(y)) = f(x) + f(y)$$
+for every $x, y \in \mathbb{R}$. Find all rational numbers $q$ such that for every function $f \in \mathcal{F}$, there exists some $z \in \mathbb{R}$ satisfying $f(z) = qz$.
+
+# A7 (Belarus)
+For a positive integer $n$ we denote by $s(n)$ the sum of the digits of $n$. Let $P(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$ be a polynomial, where $n \ge 2$ and $a_i$ is a positive integer for all $0 \le i \le n-1$. Could it be the case that, for all positive integers $k$, $s(k)$ and $s(P(k))$ have the same parity?
+
+# A8 (Canada)
+For a positive integer $n$, an *$n$-sequence* is a sequence $(a_0, \dots, a_n)$ of non-negative integers satisfying the following condition: if $i$ and $j$ are non-negative integers with $i + j \le n$, then $a_i + a_j \le n$ and $a_{a_i + a_j} = a_{i+j}$.
+
+Let $f(n)$ be the number of $n$-sequences. Prove that there exist positive real numbers $c_1$, $c_2$ and $\lambda$ such that
+$$c_1\lambda^n < f(n) < c_2\lambda^n$$
+for all positive integers $n$.
+
+# C1 (Czech Republic)
+A *$\pm 1$-sequence* is a sequence of $2022$ numbers $a_1, \dots, a_{2022}$, each equal to either $+1$ or $-1$. Determine the largest $C$ so that, for any $\pm 1$-sequence, there exists an integer $k$ and indices $1 \le t_1 < \ldots < t_k \le 2022$ so that $t_{i+1} - t_i \le 2$ for all $i$, and
+$$\left| \sum_{i=1}^{k} a_{t_i} \right| \ge C.$$
+
+# C2 (France)
+The Bank of Oslo issues coins made out of two types of metal: aluminium (denoted $A$) and copper (denoted $C$). Morgane has $n$ aluminium coins, and $n$ copper coins, and arranges her $2n$ coins in a row in some arbitrary initial order. Given a fixed positive integer $k \le 2n$, she repeatedly performs the following operation: identify the largest subsequence containing the $k$-th coin from the left which consists of consecutive coins made of the same metal, and move all coins in that subsequence to the left end of the row. For example, if $n = 4$ and $k = 4$, the process starting from the configuration $AACCCACA$ would be
+$$AACCCACA \to CCCAAACA \to AAACCCCA \to CCCCAAAA \to \cdots.$$
+Find all pairs $(n, k)$ with $1 \le k \le 2n$ such that for every initial configuration, at some point of the process there will be at most one aluminium coin adjacent to a copper coin.
+
+# C3 (Colombia)
+In each square of a garden shaped like a $2022 \times 2022$ board, there is initially a tree of height $0$. A gardener and a lumberjack alternate turns playing the following game, with the gardener taking the first turn:
+
+- The gardener chooses a square in the garden. Each tree on that square and all the surrounding squares (of which there are at most eight) then becomes one unit taller.
+- The lumberjack then chooses four different squares on the board. Each tree of positive height on those squares then becomes one unit shorter.
+
+We say that a tree is *majestic* if its height is at least $10^6$. Determine the largest number $K$ such that the gardener can ensure there are eventually $K$ majestic trees on the board, no matter how the lumberjack plays.
+
+# C4 (Israel)
+Let $n > 3$ be a positive integer. Suppose that $n$ children are arranged in a circle, and $n$ coins are distributed between them (some children may have no coins). At every step, a child with at least $2$ coins may give $1$ coin to each of their immediate neighbours on the right and left. Determine all initial distributions of coins from which it is possible that, after a finite number of steps, each child has exactly one coin.
+
+# C5 (Germany)
+Let $m, n \ge 2$ be integers, let $X$ be a set with $n$ elements, and let $X_1, X_2, \dots, X_m$ be pairwise distinct non-empty, not necessary disjoint subsets of $X$. A function $f : X \to \{1, 2, \dots, n+1\}$ is called *nice* if there exists an index $k$ such that
+$$\sum_{x \in X_k} f(x) > \sum_{x \in X_i} f(x) \quad \text{for all } i \ne k.$$
+Prove that the number of nice functions is at least $n^n$.
+
+# C6 (Croatia)
+Let $n$ be a positive integer. We start with $n$ piles of pebbles, each initially containing a single pebble. One can perform moves of the following form: choose two piles, take an equal number of pebbles from each pile and form a new pile out of these pebbles. For each positive integer $n$, find the smallest number of non-empty piles that one can obtain by performing a finite sequence of moves of this form.
+
+# C7 (Czech Republic)
+Lucy starts by writing $s$ integer-valued $2022$-tuples on a blackboard. After doing that, she can take any two (not necessarily distinct) tuples $\mathbf{v} = (v_1, \dots, v_{2022})$ and $\mathbf{w} = (w_1, \dots, w_{2022})$ that she has already written, and apply one of the following operations to obtain a new tuple:
+$$\mathbf{v} + \mathbf{w} = (v_1 + w_1, \dots, v_{2022} + w_{2022})$$
+$$\mathbf{v} \vee \mathbf{w} = (\max(v_1, w_1), \dots, \max(v_{2022}, w_{2022}))$$
+and then write this tuple on the blackboard.
+
+It turns out that, in this way, Lucy can write any integer-valued $2022$-tuple on the blackboard after finitely many steps. What is the smallest possible number $s$ of tuples that she initially wrote?
+
+# C8 (Serbia)
+Alice fills the fields of an $n \times n$ board with numbers from $1$ to $n^2$, each number being used exactly once. She then counts the total number of good paths on the board. A *good path* is a sequence of fields of arbitrary length (including $1$) such that:
+
+(i) The first field in the sequence is one that is only adjacent to fields with larger numbers,
+
+(ii) Each subsequent field in the sequence is adjacent to the previous field,
+
+(iii) The numbers written on the fields in the sequence are in increasing order.
+
+Two fields are considered adjacent if they share a common side. Find the smallest possible number of good paths Alice can obtain, as a function of $n$.
+
+# C9 (USA)
+Let $\mathbb{Z}_{\ge 0}$ be the set of non-negative integers, and let $f : \mathbb{Z}_{\ge 0} \times \mathbb{Z}_{\ge 0} \to \mathbb{Z}_{\ge 0}$ be a bijection such that whenever $f(x_1, y_1) > f(x_2, y_2)$, we have $f(x_1 + 1, y_1) > f(x_2 + 1, y_2)$ and $f(x_1, y_1 + 1) > f(x_2, y_2 + 1)$.
+
+Let $N$ be the number of pairs of integers $(x, y)$, with $0 \le x, y < 100$, such that $f(x, y)$ is odd. Find the smallest and largest possible value of $N$.
+
+# G1 (Slovakia)
+Let $ABCDE$ be a convex pentagon such that $BC = DE$. Assume there is a point $T$ inside $ABCDE$ with $TB = TD$, $TC = TE$ and $\angle TBA = \angle AET$. Let lines $CD$ and $CT$ intersect line $AB$ at points $P$ and $Q$, respectively, and let lines $CD$ and $DT$ intersect line $AE$ at points $R$ and $S$, respectively. Assume that points $P, B, A, Q$ and $R, E, A, S$ respectively, are collinear and occur on their lines in this order. Prove that the points $P$, $S$, $Q$, $R$ are concyclic.
+
+# G2 (Netherlands)
+In the acute-angled triangle $ABC$, the point $F$ is the foot of the altitude from $A$, and $P$ is a point on the segment $AF$. The lines through $P$ parallel to $AC$ and $AB$ meet $BC$ at $D$ and $E$, respectively. Points $X \ne A$ and $Y \ne A$ lie on the circles $ABD$ and $ACE$, respectively, such that $DA = DX$ and $EA = EY$.
+
+Prove that $B$, $C$, $X$ and $Y$ are concyclic.
+
+# G3 (Slovakia)
+Let $ABCD$ be a cyclic quadrilateral. Assume that the points $Q, A, B, P$ are collinear in this order, in such a way that the line $AC$ is tangent to the circle $ADQ$, and the line $BD$ is tangent to the circle $BCP$. Let $M$ and $N$ be the midpoints of $BC$ and $AD$, respectively. Prove that the following three lines are concurrent: line $CD$, the tangent of circle $ANQ$ at point $A$, and the tangent to circle $BMP$ at point $B$.
+
+# G4 (United Kingdom)
+Let $ABC$ be an acute-angled triangle with $AC > AB$, let $O$ be its circumcentre, and let $D$ be a point on the segment $BC$. The line through $D$ perpendicular to $BC$ intersects the lines $AO$, $AC$ and $AB$ at $W$, $X$ and $Y$, respectively. The circumcircles of triangles $AXY$ and $ABC$ intersect again at $Z \ne A$.
+
+Prove that if $OW = OD$, then $DZ$ is tangent to the circle $AXY$.
+
+# G5 (Vietnam)
+Let $ABC$ be a triangle, and let $\ell_1$ and $\ell_2$ be two parallel lines. For $i = 1, 2$, let $\ell_i$ meet the lines $BC$, $CA$, and $AB$ at $X_i$, $Y_i$, and $Z_i$, respectively. Suppose that the line through $X_i$ perpendicular to $BC$, the line through $Y_i$ perpendicular to $CA$, and finally the line through $Z_i$ perpendicular to $AB$, determine a non-degenerate triangle $\Delta_i$.
+
+Show that the circumcircles of $\Delta_1$ and $\Delta_2$ are tangent to each other.
+
+# G6 (Iran)
+In an acute-angled triangle $ABC$, point $H$ is the foot of the altitude from $A$. Let $P$ be a moving point such that the bisectors $k$ and $\ell$ of angles $PBC$ and $PCB$, respectively, intersect each other on the line segment $AH$. Let $k$ and $AC$ meet at $E$, let $\ell$ and $AB$ meet at $F$, and let $EF$ and $AH$ meet at $Q$. Prove that, as $P$ varies, the line $PQ$ passes through a fixed point.
+
+# G7 (Denmark)
+Let $ABC$ and $A'B'C'$ be two triangles having the same circumcircle $\omega$, and the same orthocentre $H$. Let $\Omega$ be the circumcircle of the triangle determined by the lines $AA'$, $BB'$ and $CC'$. Prove that $H$, the centre of $\omega$, and the centre of $\Omega$ are collinear.
+
+# G8 (Australia)
+Let $AA'BCC'B'$ be a convex cyclic hexagon such that $AC$ is tangent to the incircle of the triangle $A'B'C'$, and $A'C'$ is tangent to the incircle of the triangle $ABC$. Let the lines $AB$ and $A'B'$ meet at $X$ and let the lines $BC$ and $B'C'$ meet at $Y$.
+
+Prove that if $XBYB'$ is a convex quadrilateral, then it has an incircle.
+
+# N1 (Cyprus)
+A number is called *Norwegian* if it has three distinct positive divisors whose sum is equal to $2022$. Determine the smallest Norwegian number.
+
+(Note: The total number of positive divisors of a Norwegian number is allowed to be larger than $3$.)
+
+# N2 (Nigeria)
+Find all positive integers $n > 2$ such that
+$$n! \;\Bigm|\; \prod_{\substack{p < q \le n, \\ p, q \text{ primes}}} (p + q).$$
+
+# N3 (Croatia)
+Let $a > 1$ be a positive integer, and let $d > 1$ be a positive integer coprime to $a$. Let $x_1 = 1$ and, for $k \ge 1$, define
+$$x_{k+1} = \begin{cases} x_k + d & \text{if } a \text{ doesn't divide } x_k, \\ x_k/a & \text{if } a \text{ divides } x_k. \end{cases}$$
+Find the greatest positive integer $n$ for which there exists an index $k$ such that $x_k$ is divisible by $a^n$.
+
+# N4 (Belgium)
+Find all triples of positive integers $(a, b, p)$ with $p$ prime and
+$$a^p = b! + p.$$
+
+# N5 (United Kingdom)
+For each $1 \le i \le 9$ and $T \in \mathbb{N}$, define $d_i(T)$ to be the total number of times the digit $i$ appears when all the multiples of $1829$ between $1$ and $T$ inclusive are written out in base $10$.
+
+Show that there are infinitely many $T \in \mathbb{N}$ such that there are precisely two distinct values among $d_1(T), d_2(T), \dots, d_9(T)$.
+
+# N6 (Costa Rica)
+Let $Q$ be a set of prime numbers, not necessarily finite. For a positive integer $n$ consider its prime factorisation; define $p(n)$ to be the sum of all the exponents and $q(n)$ to be the sum of the exponents corresponding only to primes in $Q$. A positive integer $n$ is called *special* if $p(n) + p(n+1)$ and $q(n) + q(n+1)$ are both even integers. Prove that there is a constant $c > 0$ independent of the set $Q$ such that for any positive integer $N > 100$, the number of special integers in $[1, N]$ is at least $cN$.
+
+(For example, if $Q = \{3, 7\}$, then $p(42) = 3$, $q(42) = 2$, $p(63) = 3$, $q(63) = 3$, $p(2022) = 3$, $q(2022) = 1$.)
+
+# N7 (USA)
+Let $k$ be a positive integer and let $S$ be a finite set of odd prime numbers. Prove that there is at most one way (modulo rotation and reflection) to place the elements of $S$ around a circle such that the product of any two neighbors is of the form $x^2 + x + k$ for some positive integer $x$.
+
+# N8 (Belgium)
+Prove that $5^n - 3^n$ is not divisible by $2^n + 65$ for any positive integer $n$.

@@ -1,0 +1,162 @@
+# A1 (Trinidad and Tobago)
+Let $a_1, a_2, \dots, a_n$, $k$, and $M$ be positive integers such that
+$$\frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n} = k \quad \text{and} \quad a_1a_2\ldots a_n = M.$$
+If $M > 1$, prove that the polynomial
+$$P(x) = M(x+1)^k - (x + a_1)(x + a_2)\cdots(x + a_n)$$
+has no positive roots.
+
+# A2 (Austria)
+Let $q$ be a real number. Gugu has a napkin with ten distinct real numbers written on it, and he writes the following three lines of real numbers on the blackboard:
+
+- In the first line, Gugu writes down every number of the form $a - b$, where $a$ and $b$ are two (not necessarily distinct) numbers on his napkin.
+- In the second line, Gugu writes down every number of the form $qab$, where $a$ and $b$ are two (not necessarily distinct) numbers from the *first line*.
+- In the third line, Gugu writes down every number of the form $a^2 + b^2 - c^2 - d^2$, where $a, b, c, d$ are four (not necessarily distinct) numbers from the *first line*.
+
+Determine all values of $q$ such that, regardless of the numbers on Gugu's napkin, every number in the second line is also a number in the third line.
+
+# A3 (India)
+Let $S$ be a finite set, and let $\mathcal{A}$ be the set of all functions from $S$ to $S$. Let $f$ be an element of $\mathcal{A}$, and let $T = f(S)$ be the image of $S$ under $f$. Suppose that $f \circ g \circ f \ne g \circ f \circ g$ for every $g$ in $\mathcal{A}$ with $g \ne f$. Show that $f(T) = T$.
+
+# A4 (Russia)
+A sequence of real numbers $a_1, a_2, \dots$ satisfies the relation
+$$a_n = -\max_{i+j=n} (a_i + a_j) \quad \text{for all } n > 2017.$$
+Prove that this sequence is bounded, i.e., there is a constant $M$ such that $|a_n| \le M$ for all positive integers $n$.
+
+# A5 (Serbia)
+An integer $n \ge 3$ is given. We call an $n$-tuple of real numbers $(x_1, x_2, \dots, x_n)$ *Shiny* if for each permutation $y_1, y_2, \dots, y_n$ of these numbers we have
+$$\sum_{i=1}^{n-1} y_iy_{i+1} = y_1y_2 + y_2y_3 + y_3y_4 + \cdots + y_{n-1}y_n \ge -1.$$
+Find the largest constant $K = K(n)$ such that
+$$\sum_{1 \le i < j \le n} x_ix_j \ge K$$
+holds for every Shiny $n$-tuple $(x_1, x_2, \dots, x_n)$.
+
+# A6 (Albania)
+Find all functions $f : \mathbb{R} \to \mathbb{R}$ such that
+$$f(f(x)f(y)) + f(x+y) = f(xy)$$
+for all $x, y \in \mathbb{R}$.
+
+# A7 (Australia)
+Let $a_0, a_1, a_2, \dots$ be a sequence of integers and $b_0, b_1, b_2, \dots$ be a sequence of *positive* integers such that $a_0 = 0$, $a_1 = 1$, and
+$$a_{n+1} = \begin{cases} a_nb_n + a_{n-1}, & \text{if } b_{n-1} = 1 \\ a_nb_n - a_{n-1}, & \text{if } b_{n-1} > 1 \end{cases} \qquad \text{for } n = 1, 2, \dots.$$
+Prove that at least one of the two numbers $a_{2017}$ and $a_{2018}$ must be greater than or equal to $2017$.
+
+# A8 (Netherlands)
+Assume that a function $f : \mathbb{R} \to \mathbb{R}$ satisfies the following condition:
+
+*For every $x, y \in \mathbb{R}$ such that $\bigl(f(x) + y\bigr)\bigl(f(y) + x\bigr) > 0$, we have $f(x) + y = f(y) + x$.*
+
+Prove that $f(x) + y \le f(y) + x$ whenever $x > y$.
+
+# C1 (Singapore)
+A rectangle $\mathcal{R}$ with odd integer side lengths is divided into small rectangles with integer side lengths. Prove that there is at least one among the small rectangles whose distances from the four sides of $\mathcal{R}$ are either all odd or all even.
+
+# C2 (Australia)
+Let $n$ be a positive integer. Define a *chameleon* to be any sequence of $3n$ letters, with exactly $n$ occurrences of each of the letters $a$, $b$, and $c$. Define a *swap* to be the transposition of two adjacent letters in a chameleon. Prove that for any chameleon $X$, there exists a chameleon $Y$ such that $X$ cannot be changed to $Y$ using fewer than $3n^2/2$ swaps.
+
+# C3 (Thailand)
+Sir Alex plays the following game on a row of $9$ cells. Initially, all cells are empty. In each move, Sir Alex is allowed to perform exactly one of the following two operations:
+
+(1) Choose any number of the form $2^j$, where $j$ is a non-negative integer, and put it into an empty cell.
+
+(2) Choose two (not necessarily adjacent) cells with the same number in them; denote that number by $2^j$. Replace the number in one of the cells with $2^{j+1}$ and erase the number in the other cell.
+
+At the end of the game, one cell contains the number $2^n$, where $n$ is a given positive integer, while the other cells are empty. Determine the maximum number of moves that Sir Alex could have made, in terms of $n$.
+
+# C4 (Russia)
+Let $N \ge 2$ be an integer. $N(N+1)$ soccer players, no two of the same height, stand in a row in some order. Coach Ralph wants to remove $N(N-1)$ people from this row so that in the remaining row of $2N$ players, no one stands between the two tallest ones, no one stands between the third and the fourth tallest ones, $\dots$, and finally no one stands between the two shortest ones. Show that this is always possible.
+
+# C5 (Austria)
+A hunter and an invisible rabbit play a game in the Euclidean plane. The hunter's starting point $H_0$ coincides with the rabbit's starting point $R_0$. In the $n$th round of the game ($n \ge 1$), the following happens.
+
+(1) First the invisible rabbit moves secretly and unobserved from its current point $R_{n-1}$ to some new point $R_n$ with $R_{n-1}R_n = 1$.
+
+(2) The hunter has a tracking device (e.g. dog) that returns an approximate position $R'_n$ of the rabbit, so that $R_nR'_n \le 1$.
+
+(3) The hunter then visibly moves from point $H_{n-1}$ to a new point $H_n$ with $H_{n-1}H_n = 1$.
+
+Is there a strategy for the hunter that guarantees that after $10^9$ such rounds the distance between the hunter and the rabbit is below $100$?
+
+# C6 (Russia)
+Let $n > 1$ be an integer. An $n \times n \times n$ cube is composed of $n^3$ unit cubes. Each unit cube is painted with one color. For each $n \times n \times 1$ box consisting of $n^2$ unit cubes (of any of the three possible orientations), we consider the set of the colors present in that box (each color is listed only once). This way, we get $3n$ sets of colors, split into three groups according to the orientation. It happens that for every set in any group, the same set appears in both of the other groups. Determine, in terms of $n$, the maximal possible number of colors that are present.
+
+# C7 (USA)
+For any finite sets $X$ and $Y$ of positive integers, denote by $f_X(k)$ the $k$th smallest positive integer not in $X$, and let
+$$X * Y = X \cup \{f_X(y) : y \in Y\}.$$
+Let $A$ be a set of $a > 0$ positive integers, and let $B$ be a set of $b > 0$ positive integers. Prove that if $A * B = B * A$, then
+$$\underbrace{A * (A * \cdots * (A * (A * A)) \ldots)}_{A \text{ appears } b \text{ times}} = \underbrace{B * (B * \cdots * (B * (B * B)) \ldots)}_{B \text{ appears } a \text{ times}}.$$
+
+# C8 (Bulgaria)
+Let $n$ be a given positive integer. In the Cartesian plane, each lattice point with nonnegative coordinates initially contains a butterfly, and there are no other butterflies. The *neighborhood* of a lattice point $c$ consists of all lattice points within the axis-aligned $(2n+1) \times (2n+1)$ square centered at $c$, apart from $c$ itself. We call a butterfly *lonely*, *crowded*, or *comfortable*, depending on whether the number of butterflies in its neighborhood $N$ is respectively less than, greater than, or equal to half of the number of lattice points in $N$.
+
+Every minute, all lonely butterflies fly away simultaneously. This process goes on for as long as there are any lonely butterflies. Assuming that the process eventually stops, determine the number of comfortable butterflies at the final state.
+
+# G1 (Italy)
+Let $ABCDE$ be a convex pentagon such that $AB = BC = CD$, $\angle EAB = \angle BCD$, and $\angle EDC = \angle CBA$. Prove that the perpendicular line from $E$ to $BC$ and the line segments $AC$ and $BD$ are concurrent.
+
+# G2 (Luxembourg)
+Let $R$ and $S$ be distinct points on circle $\Omega$, and let $t$ denote the tangent line to $\Omega$ at $R$. Point $R'$ is the reflection of $R$ with respect to $S$. A point $I$ is chosen on the smaller arc $RS$ of $\Omega$ so that the circumcircle $\Gamma$ of triangle $ISR'$ intersects $t$ at two different points. Denote by $A$ the common point of $\Gamma$ and $t$ that is closest to $R$. Line $AI$ meets $\Omega$ again at $J$. Show that $JR'$ is tangent to $\Gamma$.
+
+# G3 (Ukraine)
+Let $O$ be the circumcenter of an acute scalene triangle $ABC$. Line $OA$ intersects the altitudes of $ABC$ through $B$ and $C$ at $P$ and $Q$, respectively. The altitudes meet at $H$. Prove that the circumcenter of triangle $PQH$ lies on a median of triangle $ABC$.
+
+# G4 (Denmark)
+In triangle $ABC$, let $\omega$ be the excircle opposite $A$. Let $D$, $E$, and $F$ be the points where $\omega$ is tangent to lines $BC$, $CA$, and $AB$, respectively. The circle $AEF$ intersects line $BC$ at $P$ and $Q$. Let $M$ be the midpoint of $AD$. Prove that the circle $MPQ$ is tangent to $\omega$.
+
+# G5 (Ukraine)
+Let $ABCC_1B_1A_1$ be a convex hexagon such that $AB = BC$, and suppose that the line segments $AA_1$, $BB_1$, and $CC_1$ have the same perpendicular bisector. Let the diagonals $AC_1$ and $A_1C$ meet at $D$, and denote by $\omega$ the circle $ABC$. Let $\omega$ intersect the circle $A_1BC_1$ again at $E \ne B$. Prove that the lines $BB_1$ and $DE$ intersect on $\omega$.
+
+# G6 (Czech Republic)
+Let $n \ge 3$ be an integer. Two regular $n$-gons $\mathcal{A}$ and $\mathcal{B}$ are given in the plane. Prove that the vertices of $\mathcal{A}$ that lie inside $\mathcal{B}$ or on its boundary are consecutive.
+
+(That is, prove that there exists a line separating those vertices of $\mathcal{A}$ that lie inside $\mathcal{B}$ or on its boundary from the other vertices of $\mathcal{A}$.)
+
+# G7 (Kazakhstan)
+A convex quadrilateral $ABCD$ has an inscribed circle with center $I$. Let $I_a$, $I_b$, $I_c$, and $I_d$ be the incenters of the triangles $DAB$, $ABC$, $BCD$, and $CDA$, respectively. Suppose that the common external tangents of the circles $AI_bI_d$ and $CI_bI_d$ meet at $X$, and the common external tangents of the circles $BI_aI_c$ and $DI_aI_c$ meet at $Y$. Prove that $\angle XIY = 90^\circ$.
+
+# G8 (Australia)
+There are $2017$ mutually external circles drawn on a blackboard, such that no two are tangent and no three share a common tangent. A *tangent segment* is a line segment that is a common tangent to two circles, starting at one tangent point and ending at the other one. Luciano is drawing tangent segments on the blackboard, one at a time, so that no tangent segment intersects any other circles or previously drawn tangent segments. Luciano keeps drawing tangent segments until no more can be drawn. Find all possible numbers of tangent segments when he stops drawing.
+
+# N1 (South Africa)
+The sequence $a_0, a_1, a_2, \dots$ of positive integers satisfies
+$$a_{n+1} = \begin{cases} \sqrt{a_n}, & \text{if } \sqrt{a_n} \text{ is an integer} \\ a_n + 3, & \text{otherwise} \end{cases} \qquad \text{for every } n \ge 0.$$
+Determine all values of $a_0 > 1$ for which there is at least one number $a$ such that $a_n = a$ for infinitely many values of $n$.
+
+# N2 (Morocco)
+Let $p \ge 2$ be a prime number. Eduardo and Fernando play the following game making moves alternately: in each move, the current player chooses an index $i$ in the set $\{0, 1, \dots, p-1\}$ that was not chosen before by either of the two players and then chooses an element $a_i$ of the set $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$. Eduardo has the first move. The game ends after all the indices $i \in \{0, 1, \dots, p-1\}$ have been chosen. Then the following number is computed:
+$$M = a_0 + 10 \cdot a_1 + \cdots + 10^{p-1} \cdot a_{p-1} = \sum_{j=0}^{p-1} a_j \cdot 10^j.$$
+The goal of Eduardo is to make the number $M$ divisible by $p$, and the goal of Fernando is to prevent this.
+
+Prove that Eduardo has a winning strategy.
+
+# N3 (Thailand)
+Determine all integers $n \ge 2$ with the following property: for any integers $a_1, a_2, \dots, a_n$ whose sum is not divisible by $n$, there exists an index $1 \le i \le n$ such that none of the numbers
+$$a_i, \ a_i + a_{i+1}, \ \dots, \ a_i + a_{i+1} + \cdots + a_{i+n-1}$$
+is divisible by $n$. (We let $a_i = a_{i-n}$ when $i > n$.)
+
+# N4 (Turkey)
+Call a rational number *short* if it has finitely many digits in its decimal expansion. For a positive integer $m$, we say that a positive integer $t$ is *$m$-tastic* if there exists a number $c \in \{1, 2, 3, \dots, 2017\}$ such that $\dfrac{10^t - 1}{c \cdot m}$ is short, and such that $\dfrac{10^k - 1}{c \cdot m}$ is not short for any $1 \le k < t$. Let $S(m)$ be the set of $m$-tastic numbers. Consider $S(m)$ for $m = 1, 2, \dots$. What is the maximum number of elements in $S(m)$?
+
+# N5 (Japan)
+Find all pairs $(p, q)$ of prime numbers with $p > q$ for which the number
+$$\frac{(p+q)^{p+q}(p-q)^{p-q} - 1}{(p+q)^{p-q}(p-q)^{p+q} - 1}$$
+is an integer.
+
+# N6 (Singapore)
+Find the smallest positive integer $n$, or show that no such $n$ exists, with the following property: there are infinitely many distinct $n$-tuples of positive rational numbers $(a_1, a_2, \dots, a_n)$ such that both
+$$a_1 + a_2 + \cdots + a_n \quad \text{and} \quad \frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}$$
+are integers.
+
+# N7 (USA)
+Say that an ordered pair $(x, y)$ of integers is an *irreducible lattice point* if $x$ and $y$ are relatively prime. For any finite set $S$ of irreducible lattice points, show that there is a homogenous polynomial in two variables, $f(x, y)$, with integer coefficients, of degree at least $1$, such that $f(x, y) = 1$ for each $(x, y)$ in the set $S$.
+
+*Note:* A homogenous polynomial of degree $n$ is any nonzero polynomial of the form
+$$f(x, y) = a_0x^n + a_1x^{n-1}y + a_2x^{n-2}y^2 + \cdots + a_{n-1}xy^{n-1} + a_ny^n.$$
+
+# N8 (Italy)
+Let $p$ be an odd prime number and $\mathbb{Z}_{>0}$ be the set of positive integers. Suppose that a function $f : \mathbb{Z}_{>0} \times \mathbb{Z}_{>0} \to \{0, 1\}$ satisfies the following properties:
+
+- $f(1, 1) = 0$;
+- $f(a, b) + f(b, a) = 1$ for any pair of relatively prime positive integers $(a, b)$ not both equal to $1$;
+- $f(a + b, b) = f(a, b)$ for any pair of relatively prime positive integers $(a, b)$.
+
+Prove that
+$$\sum_{n=1}^{p-1} f(n^2, p) \ge \sqrt{2p} - 2.$$

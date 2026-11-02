@@ -1,0 +1,143 @@
+# A1 (France)
+Determine all functions $f : \mathbb{R} \to \mathbb{R}$ such that the equality
+$$f\bigl([x]y\bigr) = f(x)\bigl[f(y)\bigr]$$
+holds for all $x, y \in \mathbb{R}$. Here, by $[x]$ we denote the greatest integer not exceeding $x$.
+
+# A2 (Ukraine)
+Let the real numbers $a, b, c, d$ satisfy the relations $a + b + c + d = 6$ and $a^2 + b^2 + c^2 + d^2 = 12$. Prove that
+$$36 \le 4(a^3 + b^3 + c^3 + d^3) - (a^4 + b^4 + c^4 + d^4) \le 48.$$
+
+# A3 (Russia)
+Let $x_1, \dots, x_{100}$ be nonnegative real numbers such that $x_i + x_{i+1} + x_{i+2} \le 1$ for all $i = 1, \dots, 100$ (we put $x_{101} = x_1$, $x_{102} = x_2$). Find the maximal possible value of the sum
+$$S = \sum_{i=1}^{100} x_i x_{i+2}.$$
+
+# A4 (Austria)
+A sequence $x_1, x_2, \dots$ is defined by $x_1 = 1$ and $x_{2k} = -x_k$, $x_{2k-1} = (-1)^{k+1}x_k$ for all $k \ge 1$. Prove that $x_1 + x_2 + \cdots + x_n \ge 0$ for all $n \ge 1$.
+
+# A5 (Switzerland)
+Denote by $\mathbb{Q}^+$ the set of all positive rational numbers. Determine all functions $f : \mathbb{Q}^+ \to \mathbb{Q}^+$ which satisfy the following equation for all $x, y \in \mathbb{Q}^+$:
+$$f\bigl(f(x)^2 y\bigr) = x^3 f(xy).$$
+
+# A6 (Germany)
+Suppose that $f$ and $g$ are two functions defined on the set of positive integers and taking positive integer values. Suppose also that the equations $f(g(n)) = f(n) + 1$ and $g(f(n)) = g(n) + 1$ hold for all positive integers. Prove that $f(n) = g(n)$ for all positive integer $n$.
+
+# A7 (Iran)
+Let $a_1, \dots, a_r$ be positive real numbers. For $n > r$, we inductively define
+$$a_n = \max_{1 \le k \le n-1} (a_k + a_{n-k}).$$
+Prove that there exist positive integers $\ell \le r$ and $N$ such that $a_n = a_{n-\ell} + a_\ell$ for all $n \ge N$.
+
+# A8 (South Korea)
+Given six positive numbers $a, b, c, d, e, f$ such that $a < b < c < d < e < f$. Let $a + c + e = S$ and $b + d + f = T$. Prove that
+$$2ST > \sqrt{3(S+T)\bigl(S(bd + bf + df) + T(ac + ae + ce)\bigr)}.$$
+
+# C1 (Austria)
+In a concert, $20$ singers will perform. For each singer, there is a (possibly empty) set of other singers such that he wishes to perform later than all the singers from that set. Can it happen that there are exactly $2010$ orders of the singers such that all their wishes are satisfied?
+
+# C2 (Croatia)
+On some planet, there are $2^N$ countries ($N \ge 4$). Each country has a flag $N$ units wide and one unit high composed of $N$ fields of size $1 \times 1$, each field being either yellow or blue. No two countries have the same flag.
+
+We say that a set of $N$ flags is *diverse* if these flags can be arranged into an $N \times N$ square so that all $N$ fields on its main diagonal will have the same color. Determine the smallest positive integer $M$ such that among any $M$ distinct flags, there exist $N$ flags forming a diverse set.
+
+# C3 (Russia)
+$2500$ chess kings have to be placed on a $100 \times 100$ chessboard so that
+
+(i) no king can capture any other one (i.e. no two kings are placed in two squares sharing a common vertex);
+
+(ii) each row and each column contains exactly $25$ kings.
+
+Find the number of such arrangements. (Two arrangements differing by rotation or symmetry are supposed to be different.)
+
+# C4 (Netherlands)
+Six stacks $S_1, \dots, S_6$ of coins are standing in a row. In the beginning every stack contains a single coin. There are two types of allowed moves:
+
+*Move 1:* If stack $S_k$ with $1 \le k \le 5$ contains at least one coin, you may remove one coin from $S_k$ and add two coins to $S_{k+1}$.
+
+*Move 2:* If stack $S_k$ with $1 \le k \le 4$ contains at least one coin, then you may remove one coin from $S_k$ and exchange stacks $S_{k+1}$ and $S_{k+2}$.
+
+Decide whether it is possible to achieve by a sequence of such moves that the first five stacks are empty, whereas the sixth stack $S_6$ contains exactly $2010^{2010^{2010}}$ coins.
+
+*C4′.* Same as Problem C4, but the constant $2010^{2010^{2010}}$ is replaced by $2010^{2010}$.
+
+# C5 (South Korea)
+$n \ge 4$ players participated in a tennis tournament. Any two players have played exactly one game, and there was no tie game. We call a company of four players *bad* if one player was defeated by the other three players, and each of these three players won a game and lost another game among themselves. Suppose that there is no bad company in this tournament. Let $w_i$ and $\ell_i$ be respectively the number of wins and losses of the $i$th player. Prove that
+$$\sum_{i=1}^{n} (w_i - \ell_i)^3 \ge 0.$$
+
+# C6 (Canada)
+Given a positive integer $k$ and other two integers $b > w > 1$. There are two strings of pearls, a string of $b$ black pearls and a string of $w$ white pearls. The *length* of a string is the number of pearls on it.
+
+One cuts these strings in some steps by the following rules. In each step:
+
+(i) The strings are ordered by their lengths in a non-increasing order. If there are some strings of equal lengths, then the white ones precede the black ones. Then $k$ first ones (if they consist of more than one pearl) are chosen; if there are less than $k$ strings longer than $1$, then one chooses all of them.
+
+(ii) Next, one cuts each chosen string into two parts differing in length by at most one.
+
+(For instance, if there are strings of $5, 4, 4, 2$ black pearls, strings of $8, 4, 3$ white pearls and $k = 4$, then the strings of $8$ white, $5$ black, $4$ white and $4$ black pearls are cut into the parts $(4, 4)$, $(3, 2)$, $(2, 2)$ and $(2, 2)$, respectively.)
+
+The process stops immediately after the step when a first isolated white pearl appears. Prove that at this stage, there will still exist a string of at least two black pearls.
+
+# C7 (Germany)
+Let $P_1, \dots, P_s$ be arithmetic progressions of integers, the following conditions being satisfied:
+
+(i) each integer belongs to at least one of them;
+
+(ii) each progression contains a number which does not belong to other progressions.
+
+Denote by $n$ the least common multiple of steps of these progressions; let $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ be its prime factorization. Prove that
+$$s \ge 1 + \sum_{i=1}^{k} \alpha_i (p_i - 1).$$
+
+# G1 (United Kingdom)
+Let $ABC$ be an acute triangle with $D, E, F$ the feet of the altitudes lying on $BC, CA, AB$ respectively. One of the intersection points of the line $EF$ and the circumcircle is $P$. The lines $BP$ and $DF$ meet at point $Q$. Prove that $AP = AQ$.
+
+# G2 (Poland)
+Point $P$ lies inside triangle $ABC$. Lines $AP$, $BP$, $CP$ meet the circumcircle of $ABC$ again at points $K$, $L$, $M$, respectively. The tangent to the circumcircle at $C$ meets line $AB$ at $S$. Prove that $SC = SP$ if and only if $MK = ML$.
+
+# G3 (Armenia)
+Let $A_1A_2 \ldots A_n$ be a convex polygon. Point $P$ inside this polygon is chosen so that its projections $P_1, \dots, P_n$ onto lines $A_1A_2, \dots, A_nA_1$ respectively lie on the sides of the polygon. Prove that for arbitrary points $X_1, \dots, X_n$ on sides $A_1A_2, \dots, A_nA_1$ respectively,
+$$\max\left\{ \frac{X_1X_2}{P_1P_2}, \dots, \frac{X_nX_1}{P_nP_1} \right\} \ge 1.$$
+
+# G4 (Hong Kong)
+Let $I$ be the incenter of a triangle $ABC$ and $\Gamma$ be its circumcircle. Let the line $AI$ intersect $\Gamma$ at a point $D \ne A$. Let $F$ and $E$ be points on side $BC$ and arc $BDC$ respectively such that $\angle BAF = \angle CAE < \frac{1}{2}\angle BAC$. Finally, let $G$ be the midpoint of the segment $IF$. Prove that the lines $DG$ and $EI$ intersect on $\Gamma$.
+
+# G5 (Ukraine)
+Let $ABCDE$ be a convex pentagon such that $BC \parallel AE$, $AB = BC + AE$, and $\angle ABC = \angle CDE$. Let $M$ be the midpoint of $CE$, and let $O$ be the circumcenter of triangle $BCD$. Given that $\angle DMO = 90^\circ$, prove that $2\angle BDA = \angle CDE$.
+
+# G6 (Bulgaria)
+The vertices $X$, $Y$, $Z$ of an equilateral triangle $XYZ$ lie respectively on the sides $BC$, $CA$, $AB$ of an acute-angled triangle $ABC$. Prove that the incenter of triangle $ABC$ lies inside triangle $XYZ$.
+
+*G6′.* The vertices $X$, $Y$, $Z$ of an equilateral triangle $XYZ$ lie respectively on the sides $BC$, $CA$, $AB$ of a triangle $ABC$. Prove that if the incenter of triangle $ABC$ lies outside triangle $XYZ$, then one of the angles of triangle $ABC$ is greater than $120^\circ$.
+
+# G7 (Hungary)
+Three circular arcs $\gamma_1$, $\gamma_2$, and $\gamma_3$ connect the points $A$ and $C$. These arcs lie in the same half-plane defined by line $AC$ in such a way that arc $\gamma_2$ lies between the arcs $\gamma_1$ and $\gamma_3$. Point $B$ lies on the segment $AC$. Let $h_1$, $h_2$, and $h_3$ be three rays starting at $B$, lying in the same half-plane, $h_2$ being between $h_1$ and $h_3$. For $i, j = 1, 2, 3$, denote by $V_{ij}$ the point of intersection of $h_i$ and $\gamma_j$ (the official statement includes a figure).
+
+Denote by $\overgroup{V_{ij}V_{kj}}\overgroup{V_{k\ell}V_{i\ell}}$ the curved quadrilateral, whose sides are the segments $V_{ij}V_{i\ell}$, $V_{kj}V_{k\ell}$ and arcs $V_{ij}V_{kj}$ and $V_{i\ell}V_{k\ell}$. We say that this quadrilateral is *circumscribed* if there exists a circle touching these two segments and two arcs.
+
+Prove that if the curved quadrilaterals $\overgroup{V_{11}V_{21}}\overgroup{V_{22}V_{12}}$, $\overgroup{V_{12}V_{22}}\overgroup{V_{23}V_{13}}$, $\overgroup{V_{21}V_{31}}\overgroup{V_{32}V_{22}}$ are circumscribed, then the curved quadrilateral $\overgroup{V_{22}V_{32}}\overgroup{V_{33}V_{23}}$ is circumscribed, too.
+
+# N1 (Canada)
+Find the least positive integer $n$ for which there exists a set $\{s_1, s_2, \dots, s_n\}$ consisting of $n$ distinct positive integers such that
+$$\left(1 - \frac{1}{s_1}\right)\left(1 - \frac{1}{s_2}\right) \cdots \left(1 - \frac{1}{s_n}\right) = \frac{51}{2010}.$$
+
+*N1′.* Same as Problem N1, but the constant $\dfrac{51}{2010}$ is replaced by $\dfrac{42}{2010}$.
+
+# N2 (Australia)
+Find all pairs $(m, n)$ of nonnegative integers for which
+$$m^2 + 2 \cdot 3^n = m\left(2^{n+1} - 1\right).$$
+
+# N3 (Poland)
+Find the smallest number $n$ such that there exist polynomials $f_1, f_2, \dots, f_n$ with rational coefficients satisfying
+$$x^2 + 7 = f_1(x)^2 + f_2(x)^2 + \cdots + f_n(x)^2.$$
+
+# N4 (Turkey)
+Let $a, b$ be integers, and let $P(x) = ax^3 + bx$. For any positive integer $n$ we say that the pair $(a, b)$ is *$n$-good* if $n \mid P(m) - P(k)$ implies $n \mid m - k$ for all integers $m, k$. We say that $(a, b)$ is *very good* if $(a, b)$ is $n$-good for infinitely many positive integers $n$.
+
+(a) Find a pair $(a, b)$ which is $51$-good, but not very good.
+
+(b) Show that all $2010$-good pairs are very good.
+
+# N5 (USA)
+Let $\mathbb{N}$ be the set of all positive integers. Find all functions $f : \mathbb{N} \to \mathbb{N}$ such that the number $\bigl(f(m) + n\bigr)\bigl(m + f(n)\bigr)$ is a square for all $m, n \in \mathbb{N}$.
+
+# N6 (Iran)
+The rows and columns of a $2^n \times 2^n$ table are numbered from $0$ to $2^n - 1$. The cells of the table have been colored with the following property being satisfied: for each $0 \le i, j \le 2^n - 1$, the $j$th cell in the $i$th row and the $(i+j)$th cell in the $j$th row have the same color. (The indices of the cells in a row are considered modulo $2^n$.)
+
+Prove that the maximal possible number of colors is $2^n$.

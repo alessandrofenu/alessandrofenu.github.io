@@ -1,0 +1,142 @@
+# A1 (Czech Republic)
+Find the largest possible integer $k$, such that the following statement is true:
+
+Let $2009$ arbitrary non-degenerated triangles be given. In every triangle the three sides are colored, such that one is blue, one is red and one is white. Now, for every color separately, let us sort the lengths of the sides. We obtain
+$$\begin{aligned} b_1 \le b_2 \le \ldots \le b_{2009} &\quad \text{the lengths of the blue sides,} \\ r_1 \le r_2 \le \ldots \le r_{2009} &\quad \text{the lengths of the red sides,} \\ w_1 \le w_2 \le \ldots \le w_{2009} &\quad \text{the lengths of the white sides.} \end{aligned}$$
+Then there exist $k$ indices $j$ such that we can form a non-degenerated triangle with side lengths $b_j, r_j, w_j$.
+
+# A2 (Estonia)
+Let $a, b, c$ be positive real numbers such that $\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} = a + b + c$. Prove that
+$$\frac{1}{(2a+b+c)^2} + \frac{1}{(2b+c+a)^2} + \frac{1}{(2c+a+b)^2} \le \frac{3}{16}.$$
+
+# A3 (France)
+Determine all functions $f$ from the set of positive integers into the set of positive integers such that for all $x$ and $y$ there exists a non degenerated triangle with sides of lengths
+$$x, \quad f(y) \quad \text{and} \quad f(y + f(x) - 1).$$
+
+# A4 (Belarus)
+Let $a, b, c$ be positive real numbers such that $ab + bc + ca \le 3abc$. Prove that
+$$\sqrt{\frac{a^2+b^2}{a+b}} + \sqrt{\frac{b^2+c^2}{b+c}} + \sqrt{\frac{c^2+a^2}{c+a}} + 3 \le \sqrt{2}\left(\sqrt{a+b} + \sqrt{b+c} + \sqrt{c+a}\right).$$
+
+# A5 (Belarus)
+Let $f$ be any function that maps the set of real numbers into the set of real numbers. Prove that there exist real numbers $x$ and $y$ such that
+$$f\bigl(x - f(y)\bigr) > yf(x) + x.$$
+
+# A6 (USA)
+Suppose that $s_1, s_2, s_3, \dots$ is a strictly increasing sequence of positive integers such that the subsequences
+$$s_{s_1}, s_{s_2}, s_{s_3}, \dots \quad \text{and} \quad s_{s_1+1}, s_{s_2+1}, s_{s_3+1}, \dots$$
+are both arithmetic progressions. Prove that $s_1, s_2, s_3, \dots$ is itself an arithmetic progression.
+
+# A7 (Japan)
+Find all functions $f$ from the set of real numbers into the set of real numbers which satisfy for all real $x, y$ the identity
+$$f\bigl(xf(x+y)\bigr) = f\bigl(yf(x)\bigr) + x^2.$$
+
+# C1 (New Zealand)
+Consider $2009$ cards, each having one gold side and one black side, lying in parallel on a long table. Initially all cards show their gold sides. Two players, standing by the same long side of the table, play a game with alternating moves. Each move consists of choosing a block of $50$ consecutive cards, the leftmost of which is showing gold, and turning them all over, so those which showed gold now show black and vice versa. The last player who can make a legal move wins.
+
+(a) Does the game necessarily end?
+
+(b) Does there exist a winning strategy for the starting player?
+
+# C2 (Romania)
+For any integer $n \ge 2$, let $N(n)$ be the maximal number of triples $(a_i, b_i, c_i)$, $i = 1, \dots, N(n)$, consisting of nonnegative integers $a_i$, $b_i$ and $c_i$ such that the following two conditions are satisfied:
+
+(1) $a_i + b_i + c_i = n$ for all $i = 1, \dots, N(n)$,
+
+(2) If $i \ne j$, then $a_i \ne a_j$, $b_i \ne b_j$ and $c_i \ne c_j$.
+
+Determine $N(n)$ for all $n \ge 2$.
+
+# C3 (Russia)
+Let $n$ be a positive integer. Given a sequence $\varepsilon_1, \dots, \varepsilon_{n-1}$ with $\varepsilon_i = 0$ or $\varepsilon_i = 1$ for each $i = 1, \dots, n-1$, the sequences $a_0, \dots, a_n$ and $b_0, \dots, b_n$ are constructed by the following rules:
+$$a_0 = b_0 = 1, \qquad a_1 = b_1 = 7,$$
+$$a_{i+1} = \begin{cases} 2a_{i-1} + 3a_i, & \text{if } \varepsilon_i = 0, \\ 3a_{i-1} + a_i, & \text{if } \varepsilon_i = 1, \end{cases} \quad \text{for each } i = 1, \dots, n-1,$$
+$$b_{i+1} = \begin{cases} 2b_{i-1} + 3b_i, & \text{if } \varepsilon_{n-i} = 0, \\ 3b_{i-1} + b_i, & \text{if } \varepsilon_{n-i} = 1, \end{cases} \quad \text{for each } i = 1, \dots, n-1.$$
+Prove that $a_n = b_n$.
+
+# C4 (Netherlands)
+For an integer $m \ge 1$, we consider partitions of a $2^m \times 2^m$ chessboard into rectangles consisting of cells of the chessboard, in which each of the $2^m$ cells along one diagonal forms a separate rectangle of side length $1$. Determine the smallest possible sum of rectangle perimeters in such a partition.
+
+# C5 (Netherlands)
+Five identical empty buckets of $2$-liter capacity stand at the vertices of a regular pentagon. Cinderella and her wicked Stepmother go through a sequence of rounds: At the beginning of every round, the Stepmother takes one liter of water from the nearby river and distributes it arbitrarily over the five buckets. Then Cinderella chooses a pair of neighboring buckets, empties them into the river, and puts them back. Then the next round begins. The Stepmother's goal is to make one of these buckets overflow. Cinderella's goal is to prevent this. Can the wicked Stepmother enforce a bucket overflow?
+
+# C6 (Bulgaria)
+On a $999 \times 999$ board a *limp rook* can move in the following way: From any square it can move to any of its adjacent squares, i.e. a square having a common side with it, and every move must be a turn, i.e. the directions of any two consecutive moves must be perpendicular. A *non-intersecting route* of the limp rook consists of a sequence of pairwise different squares that the limp rook can visit in that order by an admissible sequence of moves. Such a non-intersecting route is called *cyclic*, if the limp rook can, after reaching the last square of the route, move directly to the first square of the route and start over.
+
+How many squares does the longest possible cyclic, non-intersecting route of a limp rook visit?
+
+# C7 (Russia)
+*Variant 1.* A grasshopper jumps along the real axis. He starts at point $0$ and makes $2009$ jumps to the right with lengths $1, 2, \dots, 2009$ in an arbitrary order. Let $M$ be a set of $2008$ positive integers less than $1005 \cdot 2009$. Prove that the grasshopper can arrange his jumps in such a way that he never lands on a point from $M$.
+
+*Variant 2.* Let $n$ be a nonnegative integer. A grasshopper jumps along the real axis. He starts at point $0$ and makes $n + 1$ jumps to the right with pairwise different positive integral lengths $a_1, a_2, \dots, a_{n+1}$ in an arbitrary order. Let $M$ be a set of $n$ positive integers in the interval $(0, s)$, where $s = a_1 + a_2 + \cdots + a_{n+1}$. Prove that the grasshopper can arrange his jumps in such a way that he never lands on a point from $M$.
+
+# C8 (Austria)
+For any integer $n \ge 2$, we compute the integer $h(n)$ by applying the following procedure to its decimal representation. Let $r$ be the rightmost digit of $n$.
+
+(1) If $r = 0$, then the decimal representation of $h(n)$ results from the decimal representation of $n$ by removing this rightmost digit $0$.
+
+(2) If $1 \le r \le 9$ we split the decimal representation of $n$ into a maximal right part $R$ that solely consists of digits not less than $r$ and into a left part $L$ that either is empty or ends with a digit strictly smaller than $r$. Then the decimal representation of $h(n)$ consists of the decimal representation of $L$, followed by two copies of the decimal representation of $R - 1$. For instance, for the number $n = 17{,}151{,}345{,}543$, we will have $L = 17{,}151$, $R = 345{,}543$ and $h(n) = 17{,}151{,}345{,}542{,}345{,}542$.
+
+Prove that, starting with an arbitrary integer $n \ge 2$, iterated application of $h$ produces the integer $1$ after finitely many steps.
+
+# G1 (Belgium)
+Let $ABC$ be a triangle with $AB = AC$. The angle bisectors of $A$ and $B$ meet the sides $BC$ and $AC$ in $D$ and $E$, respectively. Let $K$ be the incenter of triangle $ADC$. Suppose that $\angle BEK = 45^\circ$. Find all possible values of $\angle BAC$.
+
+# G2 (Russia)
+Let $ABC$ be a triangle with circumcenter $O$. The points $P$ and $Q$ are interior points of the sides $CA$ and $AB$, respectively. The circle $k$ passes through the midpoints of the segments $BP$, $CQ$, and $PQ$. Prove that if the line $PQ$ is tangent to circle $k$ then $OP = OQ$.
+
+# G3 (Iran)
+Let $ABC$ be a triangle. The incircle of $ABC$ touches the sides $AB$ and $AC$ at the points $Z$ and $Y$, respectively. Let $G$ be the point where the lines $BY$ and $CZ$ meet, and let $R$ and $S$ be points such that the two quadrilaterals $BCYR$ and $BCSZ$ are parallelograms.
+
+Prove that $GR = GS$.
+
+# G4 (United Kingdom)
+Given a cyclic quadrilateral $ABCD$, let the diagonals $AC$ and $BD$ meet at $E$ and the lines $AD$ and $BC$ meet at $F$. The midpoints of $AB$ and $CD$ are $G$ and $H$, respectively. Show that $EF$ is tangent at $E$ to the circle through the points $E$, $G$, and $H$.
+
+# G5 (Poland)
+Let $P$ be a polygon that is convex and symmetric to some point $O$. Prove that for some parallelogram $R$ satisfying $P \subset R$ we have
+$$\frac{|R|}{|P|} \le \sqrt{2}$$
+where $|R|$ and $|P|$ denote the area of the sets $R$ and $P$, respectively.
+
+# G6 (Ukraine)
+Let the sides $AD$ and $BC$ of the quadrilateral $ABCD$ (such that $AB$ is not parallel to $CD$) intersect at point $P$. Points $O_1$ and $O_2$ are the circumcenters and points $H_1$ and $H_2$ are the orthocenters of triangles $ABP$ and $DCP$, respectively. Denote the midpoints of segments $O_1H_1$ and $O_2H_2$ by $E_1$ and $E_2$, respectively. Prove that the perpendicular from $E_1$ on $CD$, the perpendicular from $E_2$ on $AB$ and the line $H_1H_2$ are concurrent.
+
+# G7 (Iran)
+Let $ABC$ be a triangle with incenter $I$ and let $X$, $Y$ and $Z$ be the incenters of the triangles $BIC$, $CIA$ and $AIB$, respectively. Let the triangle $XYZ$ be equilateral. Prove that $ABC$ is equilateral too.
+
+# G8 (Bulgaria)
+Let $ABCD$ be a circumscribed quadrilateral. Let $g$ be a line through $A$ which meets the segment $BC$ in $M$ and the line $CD$ in $N$. Denote by $I_1$, $I_2$, and $I_3$ the incenters of $\triangle ABM$, $\triangle MNC$, and $\triangle NDA$, respectively. Show that the orthocenter of $\triangle I_1I_2I_3$ lies on $g$.
+
+# N1 (Australia)
+A social club has $n$ members. They have the membership numbers $1, 2, \dots, n$, respectively. From time to time members send presents to other members, including items they have already received as presents from other members. In order to avoid the embarrassing situation that a member might receive a present that he or she has sent to other members, the club adds the following rule to its statutes at one of its annual general meetings:
+
+"A member with membership number $a$ is permitted to send a present to a member with membership number $b$ if and only if $a(b-1)$ is a multiple of $n$."
+
+Prove that, if each member follows this rule, none will receive a present from another member that he or she has already sent to other members.
+
+*Alternative formulation:* Let $G$ be a directed graph with $n$ vertices $v_1, v_2, \dots, v_n$, such that there is an edge going from $v_a$ to $v_b$ if and only if $a$ and $b$ are distinct and $a(b-1)$ is a multiple of $n$. Prove that this graph does not contain a directed cycle.
+
+# N2 (Peru)
+A positive integer $N$ is called *balanced*, if $N = 1$ or if $N$ can be written as a product of an even number of not necessarily distinct primes. Given positive integers $a$ and $b$, consider the polynomial $P$ defined by $P(x) = (x+a)(x+b)$.
+
+(a) Prove that there exist distinct positive integers $a$ and $b$ such that all the numbers $P(1), P(2), \dots, P(50)$ are balanced.
+
+(b) Prove that if $P(n)$ is balanced for all positive integers $n$, then $a = b$.
+
+# N3 (Estonia)
+Let $f$ be a non-constant function from the set of positive integers into the set of positive integers, such that $a - b$ divides $f(a) - f(b)$ for all distinct positive integers $a, b$. Prove that there exist infinitely many primes $p$ such that $p$ divides $f(c)$ for some positive integer $c$.
+
+# N4 (North Korea)
+Find all positive integers $n$ such that there exists a sequence of positive integers $a_1, a_2, \dots, a_n$ satisfying
+$$a_{k+1} = \frac{a_k^2 + 1}{a_{k-1} + 1} - 1$$
+for every $k$ with $2 \le k \le n - 1$.
+
+# N5 (Hungary)
+Let $P(x)$ be a non-constant polynomial with integer coefficients. Prove that there is no function $T$ from the set of integers into the set of integers such that the number of integers $x$ with $T^n(x) = x$ is equal to $P(n)$ for every $n \ge 1$, where $T^n$ denotes the $n$-fold application of $T$.
+
+# N6 (Turkey)
+Let $k$ be a positive integer. Show that if there exists a sequence $a_0, a_1, \dots$ of integers satisfying the condition
+$$a_n = \frac{a_{n-1} + n^k}{n} \quad \text{for all } n \ge 1,$$
+then $k - 2$ is divisible by $3$.
+
+# N7 (Mongolia)
+Let $a$ and $b$ be distinct integers greater than $1$. Prove that there exists a positive integer $n$ such that $(a^n - 1)(b^n - 1)$ is not a perfect square.

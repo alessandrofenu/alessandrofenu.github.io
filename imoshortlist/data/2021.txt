@@ -1,0 +1,136 @@
+# A1
+Let $n$ be an integer, and let $A$ be a subset of $\{0, 1, 2, 3, \dots, 5^n\}$ consisting of $4n + 2$ numbers. Prove that there exist $a, b, c \in A$ such that $a < b < c$ and $c + 2a > 3b$.
+
+# A2
+For every integer $n \ge 1$ consider the $n \times n$ table with entry $\left\lfloor \dfrac{ij}{n+1} \right\rfloor$ at the intersection of row $i$ and column $j$, for every $i = 1, \dots, n$ and $j = 1, \dots, n$. Determine all integers $n \ge 1$ for which the sum of the $n^2$ entries in the table is equal to $\frac{1}{4}n^2(n-1)$.
+
+# A3
+Given a positive integer $n$, find the smallest value of $\left\lfloor \dfrac{a_1}{1} \right\rfloor + \left\lfloor \dfrac{a_2}{2} \right\rfloor + \cdots + \left\lfloor \dfrac{a_n}{n} \right\rfloor$ over all permutations $(a_1, a_2, \dots, a_n)$ of $(1, 2, \dots, n)$.
+
+# A4
+Show that for all real numbers $x_1, \dots, x_n$ the following inequality holds:
+$$\sum_{i=1}^{n} \sum_{j=1}^{n} \sqrt{|x_i - x_j|} \le \sum_{i=1}^{n} \sum_{j=1}^{n} \sqrt{|x_i + x_j|}.$$
+
+# A5
+Let $n \ge 2$ be an integer, and let $a_1, a_2, \dots, a_n$ be positive real numbers such that $a_1 + a_2 + \cdots + a_n = 1$. Prove that
+$$\sum_{k=1}^{n} \frac{a_k}{1 - a_k}(a_1 + a_2 + \cdots + a_{k-1})^2 < \frac{1}{3}.$$
+
+# A6
+Let $A$ be a finite set of (not necessarily positive) integers, and let $m \ge 2$ be an integer. Assume that there exist non-empty subsets $B_1, B_2, B_3, \dots, B_m$ of $A$ whose elements add up to the sums $m^1, m^2, m^3, \dots, m^m$, respectively. Prove that $A$ contains at least $m/2$ elements.
+
+# A7
+Let $n \ge 1$ be an integer, and let $x_0, x_1, \dots, x_{n+1}$ be $n + 2$ non-negative real numbers that satisfy $x_ix_{i+1} - x_{i-1}^2 \ge 1$ for all $i = 1, 2, \dots, n$. Show that
+$$x_0 + x_1 + \cdots + x_n + x_{n+1} > \left(\frac{2n}{3}\right)^{3/2}.$$
+
+# A8
+Determine all functions $f : \mathbb{R} \to \mathbb{R}$ that satisfy
+$$\bigl(f(a) - f(b)\bigr)\bigl(f(b) - f(c)\bigr)\bigl(f(c) - f(a)\bigr) = f(ab^2 + bc^2 + ca^2) - f(a^2b + b^2c + c^2a)$$
+for all real numbers $a, b, c$.
+
+# C1
+Let $S$ be an infinite set of positive integers, such that there exist four pairwise distinct $a, b, c, d \in S$ with $\gcd(a, b) \ne \gcd(c, d)$. Prove that there exist three pairwise distinct $x, y, z \in S$ such that $\gcd(x, y) = \gcd(y, z) \ne \gcd(z, x)$.
+
+# C2
+Let $n \ge 3$ be an integer. An integer $m \ge n + 1$ is called *$n$-colourful* if, given infinitely many marbles in each of $n$ colours $C_1, C_2, \dots, C_n$, it is possible to place $m$ of them around a circle so that in any group of $n + 1$ consecutive marbles there is at least one marble of colour $C_i$ for each $i = 1, \dots, n$.
+
+Prove that there are only finitely many positive integers which are not $n$-colourful. Find the largest among them.
+
+# C3
+A thimblerigger has $2021$ thimbles numbered from $1$ through $2021$. The thimbles are arranged in a circle in arbitrary order. The thimblerigger performs a sequence of $2021$ moves; in the $k$th move, he swaps the positions of the two thimbles adjacent to thimble $k$.
+
+Prove that there exists a value of $k$ such that, in the $k$th move, the thimblerigger swaps some thimbles $a$ and $b$ such that $a < k < b$.
+
+# C4
+The kingdom of Anisotropy consists of $n$ cities. For every two cities there exists exactly one direct one-way road between them. We say that a *path from $X$ to $Y$* is a sequence of roads such that one can move from $X$ to $Y$ along this sequence without returning to an already visited city. A collection of paths is called *diverse* if no road belongs to two or more paths in the collection.
+
+Let $A$ and $B$ be two distinct cities in Anisotropy. Let $N_{AB}$ denote the maximal number of paths in a diverse collection of paths from $A$ to $B$. Similarly, let $N_{BA}$ denote the maximal number of paths in a diverse collection of paths from $B$ to $A$. Prove that the equality $N_{AB} = N_{BA}$ holds if and only if the number of roads going out from $A$ is the same as the number of roads going out from $B$.
+
+# C5
+Let $n$ and $k$ be two integers with $n > k \ge 1$. There are $2n + 1$ students standing in a circle. Each student $S$ has $2k$ *neighbours* — namely, the $k$ students closest to $S$ on the right, and the $k$ students closest to $S$ on the left.
+
+Suppose that $n + 1$ of the students are girls, and the other $n$ are boys. Prove that there is a girl with at least $k$ girls among her neighbours.
+
+# C6
+A hunter and an invisible rabbit play a game on an infinite square grid. First the hunter fixes a colouring of the cells with finitely many colours. The rabbit then secretly chooses a cell to start in. Every minute, the rabbit reports the colour of its current cell to the hunter, and then secretly moves to an adjacent cell that it has not visited before (two cells are adjacent if they share a side). The hunter wins if after some finite time either
+
+- the rabbit cannot move; or
+- the hunter can determine the cell in which the rabbit started.
+
+Decide whether there exists a winning strategy for the hunter.
+
+# C7
+Consider a checkered $3m \times 3m$ square, where $m$ is an integer greater than $1$. A frog sits on the lower left corner cell $S$ and wants to get to the upper right corner cell $F$. The frog can hop from any cell to either the next cell to the right or the next cell upwards.
+
+Some cells can be *sticky*, and the frog gets trapped once it hops on such a cell. A set $X$ of cells is called *blocking* if the frog cannot reach $F$ from $S$ when all the cells of $X$ are sticky. A blocking set is *minimal* if it does not contain a smaller blocking set.
+
+(a) Prove that there exists a minimal blocking set containing at least $3m^2 - 3m$ cells.
+
+(b) Prove that every minimal blocking set contains at most $3m^2$ cells.
+
+*Note.* An example of a minimal blocking set for $m = 2$ is shown below. Cells of the set $X$ are marked by letters $x$.
+$$\begin{array}{|c|c|c|c|c|c|} \hline \phantom{x} & \phantom{x} & \phantom{x} & \phantom{x} & \phantom{x} & F \\ \hline x & x & & & & \\ \hline & & x & & & \\ \hline & & & x & & \\ \hline & & & & x & \\ \hline S & x & & & & \\ \hline \end{array}$$
+
+# C8
+Determine the largest $N$ for which there exists a table $T$ of integers with $N$ rows and $100$ columns that has the following properties:
+
+(i) Every row contains the numbers $1, 2, \dots, 100$ in some order.
+
+(ii) For any two distinct rows $r$ and $s$, there is a column $c$ such that $|T(r, c) - T(s, c)| \ge 2$.
+
+Here $T(r, c)$ means the number at the intersection of the row $r$ and the column $c$.
+
+# G1
+Let $ABCD$ be a parallelogram such that $AC = BC$. A point $P$ is chosen on the extension of the segment $AB$ beyond $B$. The circumcircle of the triangle $ACD$ meets the segment $PD$ again at $Q$, and the circumcircle of the triangle $APQ$ meets the segment $PC$ again at $R$. Prove that the lines $CD$, $AQ$, and $BR$ are concurrent.
+
+# G2
+Let $ABCD$ be a convex quadrilateral circumscribed around a circle with centre $I$. Let $\omega$ be the circumcircle of the triangle $ACI$. The extensions of $BA$ and $BC$ beyond $A$ and $C$ meet $\omega$ at $X$ and $Z$, respectively. The extensions of $AD$ and $CD$ beyond $D$ meet $\omega$ at $Y$ and $T$, respectively. Prove that the perimeters of the (possibly self-intersecting) quadrilaterals $ADTX$ and $CDYZ$ are equal.
+
+# G3
+*Version 1.* Let $n$ be a fixed positive integer, and let $S$ be the set of points $(x, y)$ on the Cartesian plane such that both coordinates $x$ and $y$ are nonnegative integers smaller than $2n$ (thus $|S| = 4n^2$). Assume that $\mathcal{F}$ is a set consisting of $n^2$ quadrilaterals such that all their vertices lie in $S$, and each point in $S$ is a vertex of exactly one of the quadrilaterals in $\mathcal{F}$. Determine the largest possible sum of areas of all $n^2$ quadrilaterals in $\mathcal{F}$.
+
+*Version 2.* Let $n$ be a fixed positive integer, and let $S$ be the set of points $(x, y)$ on the Cartesian plane such that both coordinates $x$ and $y$ are nonnegative integers smaller than $2n$ (thus $|S| = 4n^2$). Assume that $\mathcal{F}$ is a set of polygons such that all vertices of polygons in $\mathcal{F}$ lie in $S$, and each point in $S$ is a vertex of exactly one of the polygons in $\mathcal{F}$. Determine the largest possible sum of areas of all polygons in $\mathcal{F}$.
+
+# G4
+Let $ABCD$ be a quadrilateral inscribed in a circle $\Omega$. Let the tangent to $\Omega$ at $D$ intersect the rays $BA$ and $BC$ at points $E$ and $F$, respectively. A point $T$ is chosen inside the triangle $ABC$ so that $TE \parallel CD$ and $TF \parallel AD$. Let $K \ne D$ be a point on the segment $DF$ such that $TD = TK$. Prove that the lines $AC$, $DT$ and $BK$ intersect at one point.
+
+# G5
+Let $ABCD$ be a cyclic quadrilateral whose sides have pairwise different lengths. Let $O$ be the circumcentre of $ABCD$. The internal angle bisectors of $\angle ABC$ and $\angle ADC$ meet $AC$ at $B_1$ and $D_1$, respectively. Let $O_B$ be the centre of the circle which passes through $B$ and is tangent to $AC$ at $D_1$. Similarly, let $O_D$ be the centre of the circle which passes through $D$ and is tangent to $AC$ at $B_1$.
+
+Assume that $BD_1 \parallel DB_1$. Prove that $O$ lies on the line $O_BO_D$.
+
+# G6
+Determine all integers $n \ge 3$ satisfying the following property: every convex $n$-gon whose sides all have length $1$ contains an equilateral triangle of side length $1$. (Every polygon is assumed to contain its boundary.)
+
+# G7
+A point $D$ is chosen inside an acute-angled triangle $ABC$ with $AB > AC$ so that $\angle BAD = \angle DAC$. A point $E$ is constructed on the segment $AC$ so that $\angle ADE = \angle DCB$. Similarly, a point $F$ is constructed on the segment $AB$ so that $\angle ADF = \angle DBC$. A point $X$ is chosen on the line $AC$ so that $CX = BX$. Let $O_1$ and $O_2$ be the circumcentres of the triangles $ADC$ and $DXE$. Prove that the lines $BC$, $EF$, and $O_1O_2$ are concurrent.
+
+# G8
+Let $\omega$ be the circumcircle of a triangle $ABC$, and let $\Omega_A$ be its excircle which is tangent to the segment $BC$. Let $X$ and $Y$ be the intersection points of $\omega$ and $\Omega_A$. Let $P$ and $Q$ be the projections of $A$ onto the tangent lines to $\Omega_A$ at $X$ and $Y$, respectively. The tangent line at $P$ to the circumcircle of the triangle $APX$ intersects the tangent line at $Q$ to the circumcircle of the triangle $AQY$ at a point $R$. Prove that $AR \perp BC$.
+
+# N1
+Determine all integers $n \ge 1$ for which there exists a pair of positive integers $(a, b)$ such that no cube of a prime divides $a^2 + b + 3$ and
+$$\frac{ab + 3b + 8}{a^2 + b + 3} = n.$$
+
+# N2
+Let $n \ge 100$ be an integer. The numbers $n, n+1, \dots, 2n$ are written on $n + 1$ cards, one number per card. The cards are shuffled and divided into two piles. Prove that one of the piles contains two cards such that the sum of their numbers is a perfect square.
+
+# N3
+Find all positive integers $n$ with the following property: the $k$ positive divisors of $n$ have a permutation $(d_1, d_2, \dots, d_k)$ such that for every $i = 1, 2, \dots, k$, the number $d_1 + \cdots + d_i$ is a perfect square.
+
+# N4
+Alice is given a rational number $r > 1$ and a line with two points $B \ne R$, where point $R$ contains a red bead and point $B$ contains a blue bead. Alice plays a solitaire game by performing a sequence of moves. In every move, she chooses a (not necessarily positive) integer $k$, and a bead to move. If that bead is placed at point $X$, and the other bead is placed at $Y$, then Alice moves the chosen bead to point $X'$ with $\overrightarrow{YX'} = r^k\,\overrightarrow{YX}$.
+
+Alice's goal is to move the red bead to the point $B$. Find all rational numbers $r > 1$ such that Alice can reach her goal in at most $2021$ moves.
+
+# N5
+Prove that there are only finitely many quadruples $(a, b, c, n)$ of positive integers such that
+$$n! = a^{n-1} + b^{n-1} + c^{n-1}.$$
+
+# N6
+Determine all integers $n \ge 2$ with the following property: every $n$ pairwise distinct integers whose sum is not divisible by $n$ can be arranged in some order $a_1, a_2, \dots, a_n$ so that $n$ divides $1 \cdot a_1 + 2 \cdot a_2 + \cdots + n \cdot a_n$.
+
+# N7
+Let $a_1, a_2, a_3, \dots$ be an infinite sequence of positive integers such that $a_{n+2m}$ divides $a_n + a_{n+m}$ for all positive integers $n$ and $m$. Prove that this sequence is eventually periodic, i.e. there exist positive integers $N$ and $d$ such that $a_n = a_{n+d}$ for all $n > N$.
+
+# N8
+For a polynomial $P(x)$ with integer coefficients let $P^1(x) = P(x)$ and $P^{k+1}(x) = P(P^k(x))$ for $k \ge 1$. Find all positive integers $n$ for which there exists a polynomial $P(x)$ with integer coefficients such that for every integer $m \ge 1$, the numbers $P^m(1), \dots, P^m(n)$ leave exactly $\lceil n/2^m \rceil$ distinct remainders when divided by $n$.

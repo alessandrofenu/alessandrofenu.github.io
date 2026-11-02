@@ -1,0 +1,130 @@
+# A1 (Austria)
+Let $z_0 < z_1 < z_2 < \cdots$ be an infinite sequence of positive integers. Prove that there exists a unique integer $n \ge 1$ such that
+$$z_n < \frac{z_0 + z_1 + \cdots + z_n}{n} \le z_{n+1}.$$
+
+# A2 (Denmark)
+Define the function $f : (0, 1) \to (0, 1)$ by
+$$f(x) = \begin{cases} x + \frac{1}{2} & \text{if } x < \frac{1}{2}, \\ x^2 & \text{if } x \ge \frac{1}{2}. \end{cases}$$
+Let $a$ and $b$ be two real numbers such that $0 < a < b < 1$. We define the sequences $a_n$ and $b_n$ by $a_0 = a$, $b_0 = b$, and $a_n = f(a_{n-1})$, $b_n = f(b_{n-1})$ for $n > 0$. Show that there exists a positive integer $n$ such that
+$$(a_n - a_{n-1})(b_n - b_{n-1}) < 0.$$
+
+# A3 (Georgia)
+For a sequence $x_1, x_2, \dots, x_n$ of real numbers, we define its *price* as
+$$\max_{1 \le i \le n} |x_1 + \cdots + x_i|.$$
+Given $n$ real numbers, Dave and George want to arrange them into a sequence with a low price. Diligent Dave checks all possible ways and finds the minimum possible price $D$. Greedy George, on the other hand, chooses $x_1$ such that $|x_1|$ is as small as possible; among the remaining numbers, he chooses $x_2$ such that $|x_1 + x_2|$ is as small as possible, and so on. Thus, in the $i$th step he chooses $x_i$ among the remaining numbers so as to minimise the value of $|x_1 + x_2 + \cdots + x_i|$. In each step, if several numbers provide the same value, George chooses one at random. Finally he gets a sequence with price $G$.
+
+Find the least possible constant $c$ such that for every positive integer $n$, for every collection of $n$ real numbers, and for every possible sequence that George might obtain, the resulting values satisfy the inequality $G \le cD$.
+
+# A4 (Netherlands)
+Determine all functions $f : \mathbb{Z} \to \mathbb{Z}$ satisfying
+$$f\bigl(f(m) + n\bigr) + f(m) = f(n) + f(3m) + 2014$$
+for all integers $m$ and $n$.
+
+# A5 (Belgium)
+Consider all polynomials $P(x)$ with real coefficients that have the following property: for any two real numbers $x$ and $y$ one has
+$$|y^2 - P(x)| \le 2|x| \quad \text{if and only if} \quad |x^2 - P(y)| \le 2|y|.$$
+Determine all possible values of $P(0)$.
+
+# A6 (United Kingdom)
+Find all functions $f : \mathbb{Z} \to \mathbb{Z}$ such that
+$$n^2 + 4f(n) = f(f(n))^2$$
+for all $n \in \mathbb{Z}$.
+
+# C1 (Serbia)
+Let $n$ points be given inside a rectangle $R$ such that no two of them lie on a line parallel to one of the sides of $R$. The rectangle $R$ is to be dissected into smaller rectangles with sides parallel to the sides of $R$ in such a way that none of these rectangles contains any of the given points in its interior. Prove that we have to dissect $R$ into at least $n + 1$ smaller rectangles.
+
+# C2 (Iran)
+We have $2^m$ sheets of paper, with the number $1$ written on each of them. We perform the following operation. In every step we choose two distinct sheets; if the numbers on the two sheets are $a$ and $b$, then we erase these numbers and write the number $a + b$ on both sheets. Prove that after $m2^{m-1}$ steps, the sum of the numbers on all the sheets is at least $4^m$.
+
+# C3 (Croatia)
+Let $n \ge 2$ be an integer. Consider an $n \times n$ chessboard divided into $n^2$ unit squares. We call a configuration of $n$ rooks on this board *happy* if every row and every column contains exactly one rook. Find the greatest positive integer $k$ such that for every happy configuration of rooks, we can find a $k \times k$ square without a rook on any of its $k^2$ unit squares.
+
+# C4 (Hungary)
+Construct a tetromino by attaching two $2 \times 1$ dominoes along their longer sides such that the midpoint of the longer side of one domino is a corner of the other domino. This construction yields two kinds of tetrominoes with opposite orientations. Let us call them S- and Z-tetrominoes, respectively.
+
+Assume that a lattice polygon $P$ can be tiled with S-tetrominoes. Prove that no matter how we tile $P$ using only S- and Z-tetrominoes, we always use an even number of Z-tetrominoes.
+
+# C5 (Austria)
+Consider $n \ge 3$ lines in the plane such that no two lines are parallel and no three have a common point. These lines divide the plane into polygonal regions; let $\mathcal{F}$ be the set of regions having finite area. Prove that it is possible to colour $\left\lceil \sqrt{n/2} \right\rceil$ of the lines blue in such a way that no region in $\mathcal{F}$ has a completely blue boundary. (For a real number $x$, $\lceil x \rceil$ denotes the least integer which is not smaller than $x$.)
+
+# C6 (Russia)
+We are given an infinite deck of cards, each with a real number on it. For every real number $x$, there is exactly one card in the deck that has $x$ written on it. Now two players draw disjoint sets $A$ and $B$ of $100$ cards each from this deck. We would like to define a rule that declares one of them a winner. This rule should satisfy the following conditions:
+
+1. The winner only depends on the relative order of the $200$ cards: if the cards are laid down in increasing order face down and we are told which card belongs to which player, but not what numbers are written on them, we can still decide the winner.
+
+2. If we write the elements of both sets in increasing order as $A = \{a_1, a_2, \dots, a_{100}\}$ and $B = \{b_1, b_2, \dots, b_{100}\}$, and $a_i > b_i$ for all $i$, then $A$ beats $B$.
+
+3. If three players draw three disjoint sets $A, B, C$ from the deck, $A$ beats $B$ and $B$ beats $C$, then $A$ also beats $C$.
+
+How many ways are there to define such a rule? Here, we consider two rules as different if there exist two sets $A$ and $B$ such that $A$ beats $B$ according to one rule, but $B$ beats $A$ according to the other.
+
+# C7 (Russia)
+Let $M$ be a set of $n \ge 4$ points in the plane, no three of which are collinear. Initially these points are connected with $n$ segments so that each point in $M$ is the endpoint of exactly two segments. Then, at each step, one may choose two segments $AB$ and $CD$ sharing a common interior point and replace them by the segments $AC$ and $BD$ if none of them is present at this moment. Prove that it is impossible to perform $n^3/4$ or more such moves.
+
+# C8 (Russia)
+A card deck consists of $1024$ cards. On each card, a set of distinct decimal digits is written in such a way that no two of these sets coincide (thus, one of the cards is empty). Two players alternately take cards from the deck, one card per turn. After the deck is empty, each player checks if he can throw out one of his cards so that each of the ten digits occurs on an even number of his remaining cards. If one player can do this but the other one cannot, the one who can is the winner; otherwise a draw is declared.
+
+Determine all possible first moves of the first player after which he has a winning strategy.
+
+# C9 (India)
+There are $n$ circles drawn on a piece of paper in such a way that any two circles intersect in two points, and no three circles pass through the same point. Turbo the snail slides along the circles in the following fashion. Initially he moves on one of the circles in clockwise direction. Turbo always keeps sliding along the current circle until he reaches an intersection with another circle. Then he continues his journey on this new circle and also changes the direction of moving, i.e. from clockwise to anticlockwise or *vice versa*.
+
+Suppose that Turbo's path entirely covers all circles. Prove that $n$ must be odd.
+
+# G1 (Georgia)
+The points $P$ and $Q$ are chosen on the side $BC$ of an acute-angled triangle $ABC$ so that $\angle PAB = \angle ACB$ and $\angle QAC = \angle CBA$. The points $M$ and $N$ are taken on the rays $AP$ and $AQ$, respectively, so that $AP = PM$ and $AQ = QN$. Prove that the lines $BM$ and $CN$ intersect on the circumcircle of the triangle $ABC$.
+
+# G2 (Estonia)
+Let $ABC$ be a triangle. The points $K$, $L$, and $M$ lie on the segments $BC$, $CA$, and $AB$, respectively, such that the lines $AK$, $BL$, and $CM$ intersect in a common point. Prove that it is possible to choose two of the triangles $ALM$, $BMK$, and $CKL$ whose inradii sum up to at least the inradius of the triangle $ABC$.
+
+# G3 (Russia)
+Let $\Omega$ and $O$ be the circumcircle and the circumcentre of an acute-angled triangle $ABC$ with $AB > BC$. The angle bisector of $\angle ABC$ intersects $\Omega$ at $M \ne B$. Let $\Gamma$ be the circle with diameter $BM$. The angle bisectors of $\angle AOB$ and $\angle BOC$ intersect $\Gamma$ at points $P$ and $Q$, respectively. The point $R$ is chosen on the line $PQ$ so that $BR = MR$. Prove that $BR \parallel AC$. (Here we always assume that an angle bisector is a ray.)
+
+# G4 (United Kingdom)
+Consider a fixed circle $\Gamma$ with three fixed points $A$, $B$, and $C$ on it. Also, let us fix a real number $\lambda \in (0, 1)$. For a variable point $P \notin \{A, B, C\}$ on $\Gamma$, let $M$ be the point on the segment $CP$ such that $CM = \lambda \cdot CP$. Let $Q$ be the second point of intersection of the circumcircles of the triangles $AMP$ and $BMC$. Prove that as $P$ varies, the point $Q$ lies on a fixed circle.
+
+# G5 (Iran)
+Let $ABCD$ be a convex quadrilateral with $\angle B = \angle D = 90^\circ$. Point $H$ is the foot of the perpendicular from $A$ to $BD$. The points $S$ and $T$ are chosen on the sides $AB$ and $AD$, respectively, in such a way that $H$ lies inside triangle $SCT$ and
+$$\angle SHC - \angle BSC = 90^\circ, \qquad \angle THC - \angle DTC = 90^\circ.$$
+Prove that the circumcircle of triangle $SHT$ is tangent to the line $BD$.
+
+# G6 (Iran)
+Let $ABC$ be a fixed acute-angled triangle. Consider some points $E$ and $F$ lying on the sides $AC$ and $AB$, respectively, and let $M$ be the midpoint of $EF$. Let the perpendicular bisector of $EF$ intersect the line $BC$ at $K$, and let the perpendicular bisector of $MK$ intersect the lines $AC$ and $AB$ at $S$ and $T$, respectively. We call the pair $(E, F)$ *interesting*, if the quadrilateral $KSAT$ is cyclic.
+
+Suppose that the pairs $(E_1, F_1)$ and $(E_2, F_2)$ are interesting. Prove that
+$$\frac{E_1E_2}{AB} = \frac{F_1F_2}{AC}.$$
+
+# G7 (USA)
+Let $ABC$ be a triangle with circumcircle $\Omega$ and incentre $I$. Let the line passing through $I$ and perpendicular to $CI$ intersect the segment $BC$ and the arc $BC$ (not containing $A$) of $\Omega$ at points $U$ and $V$, respectively. Let the line passing through $U$ and parallel to $AI$ intersect $AV$ at $X$, and let the line passing through $V$ and parallel to $AI$ intersect $AB$ at $Y$. Let $W$ and $Z$ be the midpoints of $AX$ and $BC$, respectively. Prove that if the points $I$, $X$, and $Y$ are collinear, then the points $I$, $W$, and $Z$ are also collinear.
+
+# N1 (Serbia)
+Let $n \ge 2$ be an integer, and let $A_n$ be the set
+$$A_n = \{2^n - 2^k \mid k \in \mathbb{Z},\ 0 \le k < n\}.$$
+Determine the largest positive integer that cannot be written as the sum of one or more (not necessarily distinct) elements of $A_n$.
+
+# N2 (USA)
+Determine all pairs $(x, y)$ of positive integers such that
+$$\sqrt[3]{7x^2 - 13xy + 7y^2} = |x - y| + 1.$$
+
+# N3 (Luxembourg)
+A coin is called a *Cape Town coin* if its value is $1/n$ for some positive integer $n$. Given a collection of Cape Town coins of total value at most $99 + \frac{1}{2}$, prove that it is possible to split this collection into at most $100$ groups each of total value at most $1$.
+
+# N4 (Hong Kong)
+Let $n > 1$ be a given integer. Prove that infinitely many terms of the sequence $(a_k)_{k \ge 1}$, defined by
+$$a_k = \left\lfloor \frac{n^k}{k} \right\rfloor,$$
+are odd. (For a real number $x$, $\lfloor x \rfloor$ denotes the largest integer not exceeding $x$.)
+
+# N5 (Belgium)
+Find all triples $(p, x, y)$ consisting of a prime number $p$ and two positive integers $x$ and $y$ such that $x^{p-1} + y$ and $x + y^{p-1}$ are both powers of $p$.
+
+# N6 (Serbia)
+Let $a_1 < a_2 < \cdots < a_n$ be pairwise coprime positive integers with $a_1$ being prime and $a_1 \ge n + 2$. On the segment $I = [0, a_1a_2\cdots a_n]$ of the real line, mark all integers that are divisible by at least one of the numbers $a_1, \dots, a_n$. These points split $I$ into a number of smaller segments. Prove that the sum of the squares of the lengths of these segments is divisible by $a_1$.
+
+# N7 (Austria)
+Let $c \ge 1$ be an integer. Define a sequence of positive integers by $a_1 = c$ and
+$$a_{n+1} = a_n^3 - 4c \cdot a_n^2 + 5c^2 \cdot a_n + c$$
+for all $n \ge 1$. Prove that for each integer $n \ge 2$ there exists a prime number $p$ dividing $a_n$ but none of the numbers $a_1, \dots, a_{n-1}$.
+
+# N8 (Hungary)
+For every real number $x$, let $\|x\|$ denote the distance between $x$ and the nearest integer. Prove that for every pair $(a, b)$ of positive integers there exist an odd prime $p$ and a positive integer $k$ satisfying
+$$\left\| \frac{a}{p^k} \right\| + \left\| \frac{b}{p^k} \right\| + \left\| \frac{a+b}{p^k} \right\| = 1.$$

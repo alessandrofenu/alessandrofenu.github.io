@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMO Shortlist - Alessandro Fenu</title>
+    <meta name="description" content="IMO Shortlist problems from 2006 onwards, filterable by year, subject and position, with a random problem picker.">
+    <link rel="canonical" href="https://alefenu.com/imoshortlist/">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+    <style>
+        /* Same look as index.html */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #232223;
+            color: #cccccc;
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .site-header {
+            background-color: #32302C;
+            color: #94A3A1;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6em;
+            color: #94A3A1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .site-header h1 a { color: inherit; }
+        .site-header h1 a:hover { text-decoration: none; color: #847C6D; }
+        .site-nav { flex-grow: 1; display: flex; justify-content: center; align-items: center; }
+        .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        .site-nav li { margin: 0 15px; }
+        .site-nav a {
+            color: #94A3A1;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #847C6D;
+            transition: width 0.3s ease-out;
+        }
+        .site-nav a:hover::after { width: 100%; }
+        .site-nav a:hover { color: #847C6D; text-decoration: none; }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94A3A1;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .menu-toggle:hover { transform: rotate(90deg); }
+
+        main { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        .section {
+            background-color: #363C3D;
+            color: #cccccc;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #847C6D;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #94A3A1;
+            padding-bottom: 5px;
+        }
+        h2 { font-size: 2em; }
+        p { margin: 0 0 12px; color: #cccccc; }
+        a { color: #847C6D; text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #94A3A1; text-decoration: underline; }
+
+        /* ---------- Buttons and filters ---------- */
+        button { font-family: inherit; }
+        .random-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #232223;
+            background: #94A3A1;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+        .random-btn:hover { background: #a9b8b6; }
+        .random-btn:active { transform: scale(0.99); }
+        .random-btn i { margin-right: 10px; }
+        .random-note { font-size: 0.85em; color: #94A3A1; text-align: center; margin: 8px 0 0; }
+
+        .filter-group { margin-bottom: 18px; }
+        .filter-label {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94A3A1;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .filter-label .quick { font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0; font-size: 0.85em; }
+        .filter-label .quick button { background: none; border: none; color: #847C6D; cursor: pointer; padding: 0; font-size: 1em; }
+        .filter-label .quick button:hover { color: #94A3A1; text-decoration: underline; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip {
+            min-width: 44px;
+            min-height: 40px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #5a6263;
+            background: #2b3031;
+            color: #cccccc;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+        .chip:hover { border-color: #94A3A1; }
+        .chip[aria-pressed="true"] { background: #847C6D; border-color: #847C6D; color: #fff; }
+        .years { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .years select {
+            font-family: inherit;
+            font-size: 1em;
+            min-height: 40px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid #5a6263;
+            background: #2b3031;
+            color: #cccccc;
+        }
+        .filter-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+        .count { color: #94A3A1; }
+        .reset-btn {
+            background: none;
+            border: 1px solid #5a6263;
+            color: #cccccc;
+            border-radius: 8px;
+            padding: 6px 14px;
+            min-height: 40px;
+            cursor: pointer;
+        }
+        .reset-btn:hover { border-color: #94A3A1; }
+
+        /* ---------- Problems ---------- */
+        .problem {
+            background: #2b3031;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .problem.featured { border-left: 4px solid #94A3A1; }
+        .problem-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .problem-id { font-family: 'Oswald', sans-serif; font-size: 1.15em; color: #94A3A1; letter-spacing: 0.5px; }
+        .problem-id a { color: inherit; }
+        .problem-meta { font-size: 0.85em; color: #8e9596; font-style: italic; }
+        .problem-body p:last-child, .problem-body ul:last-child { margin-bottom: 0; }
+        .problem-body ul { padding-left: 22px; margin: 0 0 12px; }
+        .problem-body li { margin-bottom: 6px; }
+        .katex { font-size: 1.08em; }
+        .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; margin: 10px 0; }
+        .year-heading {
+            font-family: 'Oswald', sans-serif;
+            color: #847C6D;
+            font-size: 1.4em;
+            margin: 26px 0 12px;
+            letter-spacing: 0.5px;
+        }
+        .year-heading:first-child { margin-top: 0; }
+        .year-heading a { font-family: 'Inter', sans-serif; font-size: 0.6em; margin-left: 10px; letter-spacing: 0; }
+        .empty { color: #94A3A1; font-style: italic; }
+        .source { font-size: 0.85em; color: #8e9596; margin-top: 10px; }
+
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            .site-header { flex-direction: column; height: auto; padding: 10px 20px; }
+            .header-content { flex-direction: column; align-items: flex-start; width: 100%; }
+            .site-header h1 { margin-bottom: 10px; }
+            .site-nav {
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 10px;
+                display: none;
+                text-align: center;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                flex-grow: 0;
+            }
+            .site-nav.open { display: block; max-height: 300px; opacity: 1; }
+            .site-nav ul { flex-direction: column; align-items: center; }
+            .site-nav li { margin: 8px 0; }
+            .site-nav a { font-size: 1.1em; }
+            .menu-toggle { display: block; position: absolute; right: 20px; top: 10px; }
+            .section { padding: 26px 18px; }
+            h2 { font-size: 1.7em; }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 70px; }
+            .site-header { padding: 8px 15px; }
+            .site-header h1 { font-size: 1.4em; margin-bottom: 0; }
+            main { padding: 0 10px; margin-top: 10px; }
+            .section { padding: 20px 14px; }
+            h2 { font-size: 1.5em; }
+            .problem { padding: 14px 14px; }
+            .katex { font-size: 1.02em; }
+            .random-btn { font-size: 1.25em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1><a href="../index.html">Alessandro Fenu</a></h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#documents">Documents and links</a></li>
+                    <li><a href="../index.html#tutorato">Tutoring</a></li>
+                    <li><a href="../compute.html">Compute!</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>IMO Shortlist</h2>
+            <button class="random-btn" id="random"><i class="fas fa-dice"></i>Random problem</button>
+            <p class="random-note">Drawn from the problems matching the filters below.</p>
+            <div id="featured"></div>
+        </section>
+
+        <section class="section">
+            <div class="filter-group">
+                <div class="filter-label">Years</div>
+                <div class="years">
+                    <label>from <select id="year-from" aria-label="First year"></select></label>
+                    <label>to <select id="year-to" aria-label="Last year"></select></label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-label">Subject <span class="quick"><button data-all="subject">all</button> · <button data-none="subject">none</button></span></div>
+                <div class="chips" id="subject-chips"></div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-label" title="Position of the problem within its subject in the shortlist">Difficulty <span class="quick"><button data-all="level">all</button> · <button data-none="level">none</button></span></div>
+                <div class="chips" id="level-chips"></div>
+            </div>
+            <div class="filter-footer">
+                <span class="count" id="count">Loading…</span>
+                <button class="reset-btn" id="reset">Reset filters</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div id="list"></div>
+            <p class="source">Statements from the official shortlist booklets at <a href="https://www.imo-official.org/problems.aspx" target="_blank">imo-official.org</a>. Typos: <a href="mailto:alessandrofenuspano@gmail.com">alessandrofenuspano@gmail.com</a>.</p>
+        </section>
+    </main>
+
+    <script>
+        const FIRST_YEAR = 2006, LAST_YEAR = 2025;  // one file per year in data/
+        const DEFAULT_FROM = 2006;
+        const DEFAULT_LEVELS = [1, 2, 3];
+        const SUBJECTS = { A: 'Algebra', C: 'Combinatorics', G: 'Geometry', N: 'Number Theory' };
+
+        let problems = [];
+        const state = { from: DEFAULT_FROM, to: LAST_YEAR, subjects: new Set(Object.keys(SUBJECTS)), levels: new Set(DEFAULT_LEVELS) };
+
+        // ---------- Parsing the data files ----------
+        // Format: "# A1 (Country)" header, then the statement. Blank lines separate
+        // paragraphs, lines starting with "- " are bullet items, *text* is emphasis.
+        const escapeHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        function inline(text) {
+            // Set the math aside so that *emphasis* may contain formulas.
+            const math = [];
+            const plain = text.replace(/\$\$[\s\S]*?\$\$|\$[^$]*\$/g, m => `\u0000${math.push(m) - 1}\u0000`);
+            return escapeHtml(plain)
+                .replace(/\*([^*]+?)\*/g, '<em>$1</em>')
+                .replace(/\u0000(\d+)\u0000/g, (_, i) => escapeHtml(math[i]));
+        }
+        function toHtml(body) {
+            return body.trim().split(/\n\s*\n/).map(block => {
+                const lines = block.split('\n');
+                if (lines.every(l => l.startsWith('- '))) {
+                    return '<ul>' + lines.map(l => `<li>${inline(l.slice(2))}</li>`).join('') + '</ul>';
+                }
+                return `<p>${inline(block)}</p>`;
+            }).join('');
+        }
+        function parseYear(year, text) {
+            return text.split(/^# /m).slice(1).map(chunk => {
+                const nl = chunk.indexOf('\n');
+                const m = chunk.slice(0, nl).match(/^([ACGN])(\d+)\s*(?:\((.*)\))?/);
+                if (!m) return null;
+                return { year, subject: m[1], level: +m[2], id: m[1] + m[2], country: m[3] || '', html: toHtml(chunk.slice(nl + 1)) };
+            }).filter(Boolean);
+        }
+
+        // ---------- Rendering ----------
+        const typeset = el => {
+            if (window.renderMathInElement) {
+                renderMathInElement(el, { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }], throwOnError: false });
+            }
+        };
+        const anchor = p => `${p.year}-${p.id}`;
+        const pdfUrl = y => `https://www.imo-official.org/assets/documents/problems/${y}/IMO${y}SL.pdf`;
+        function card(p, featured) {
+            return `<article class="problem${featured ? ' featured' : ''}" ${featured ? '' : `id="${anchor(p)}"`}>
+                <div class="problem-head">
+                    <span class="problem-id"><a href="#${anchor(p)}">${p.year} ${p.id}</a> · ${SUBJECTS[p.subject]}</span>
+                    <span class="problem-meta">${escapeHtml(p.country)}</span>
+                </div>
+                <div class="problem-body">${p.html}</div>
+            </article>`;
+        }
+        const matches = p => p.year >= state.from && p.year <= state.to && state.subjects.has(p.subject) && state.levels.has(p.level);
+
+        function renderList() {
+            const shown = problems.filter(matches);
+            document.getElementById('count').textContent = `${shown.length} problem${shown.length === 1 ? '' : 's'}`;
+            const list = document.getElementById('list');
+            if (!shown.length) { list.innerHTML = '<p class="empty">No problems match these filters.</p>'; return; }
+            let html = '', year = null;
+            for (const p of shown) {
+                if (p.year !== year) {
+                    year = p.year;
+                    html += `<div class="year-heading">${year}<a href="${pdfUrl(year)}" target="_blank">official PDF</a></div>`;
+                }
+                html += card(p);
+            }
+            list.innerHTML = html;
+            typeset(list);
+        }
+        function feature(p) {
+            const box = document.getElementById('featured');
+            box.innerHTML = p ? `<div style="margin-top:18px">${card(p, true)}</div>` : '<p class="empty" style="margin-top:18px">No problems match the filters.</p>';
+            typeset(box);
+        }
+
+        // ---------- Controls ----------
+        function buildControls() {
+            const years = [...new Set(problems.map(p => p.year))].sort((a, b) => a - b);
+            const from = document.getElementById('year-from'), to = document.getElementById('year-to');
+            from.innerHTML = to.innerHTML = years.map(y => `<option>${y}</option>`).join('');
+            const sync = () => { from.value = state.from; to.value = state.to; };
+            from.onchange = () => { state.from = +from.value; if (state.to < state.from) state.to = state.from; sync(); renderList(); };
+            to.onchange = () => { state.to = +to.value; if (state.from > state.to) state.from = state.to; sync(); renderList(); };
+
+            const maxLevel = Math.max(...problems.map(p => p.level));
+            const groups = {
+                subject: { el: 'subject-chips', set: state.subjects, values: Object.keys(SUBJECTS), label: k => SUBJECTS[k] },
+                level: { el: 'level-chips', set: state.levels, values: Array.from({ length: maxLevel }, (_, i) => i + 1), label: k => k },
+            };
+            for (const [name, g] of Object.entries(groups)) {
+                const box = document.getElementById(g.el);
+                box.innerHTML = g.values.map(v => `<button class="chip" data-v="${v}" aria-pressed="${g.set.has(v)}">${g.label(v)}</button>`).join('');
+                box.onclick = e => {
+                    const b = e.target.closest('.chip'); if (!b) return;
+                    const v = name === 'level' ? +b.dataset.v : b.dataset.v;
+                    g.set.has(v) ? g.set.delete(v) : g.set.add(v);
+                    b.setAttribute('aria-pressed', g.set.has(v));
+                    renderList();
+                };
+                const setAll = on => { g.set.clear(); if (on) g.values.forEach(v => g.set.add(v)); box.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', on)); renderList(); };
+                document.querySelector(`[data-all="${name}"]`).onclick = () => setAll(true);
+                document.querySelector(`[data-none="${name}"]`).onclick = () => setAll(false);
+            }
+            document.getElementById('reset').onclick = () => {
+                state.from = DEFAULT_FROM; state.to = years[years.length - 1];
+                state.subjects = groups.subject.set = new Set(Object.keys(SUBJECTS));
+                state.levels = groups.level.set = new Set(DEFAULT_LEVELS);
+                buildControls(); renderList();
+            };
+            sync();
+        }
+
+        let lastRandom = null;
+        document.getElementById('random').onclick = () => {
+            const pool = problems.filter(matches);
+            let p = pool[Math.floor(Math.random() * pool.length)];
+            if (pool.length > 1 && p === lastRandom) p = pool[(pool.indexOf(p) + 1) % pool.length];
+            lastRandom = p;
+            feature(p);
+        };
+
+        // A link like #2023-A1 shows that problem at the top.
+        function showHash() {
+            const [y, id] = location.hash.slice(1).split('-');
+            const p = problems.find(q => q.year === +y && q.id === id);
+            if (p) { feature(p); window.scrollTo({ top: 0 }); }
+        }
+        window.addEventListener('hashchange', showHash);
+
+        document.querySelector('.menu-toggle').addEventListener('click', () => document.querySelector('.site-nav').classList.toggle('open'));
+
+        // ---------- Load ----------
+        (async () => {
+            const years = Array.from({ length: LAST_YEAR - FIRST_YEAR + 1 }, (_, i) => FIRST_YEAR + i);
+            const texts = await Promise.all(years.map(y => fetch(`data/${y}.txt`).then(r => r.ok ? r.text() : '').catch(() => '')));
+            problems = years.flatMap((y, i) => parseYear(y, texts[i]));
+            const order = 'ACGN';
+            problems.sort((a, b) => a.year - b.year || order.indexOf(a.subject) - order.indexOf(b.subject) || a.level - b.level);
+            if (!problems.length) { document.getElementById('count').textContent = 'Could not load the problems.'; return; }
+            state.to = Math.max(...problems.map(p => p.year));
+            buildControls();
+            // KaTeX loads with "defer"; wait for it before the first render.
+            if (!window.renderMathInElement && document.readyState !== 'complete') await new Promise(r => window.addEventListener('load', r, { once: true }));
+            renderList();
+            showHash();
+        })();
+    </script>
+</body>
+</html>

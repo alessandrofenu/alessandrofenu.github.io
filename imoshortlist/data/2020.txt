@@ -1,0 +1,156 @@
+# A1 (Ireland)
+*Version 1.* Let $n$ be a positive integer, and set $N = 2^n$. Determine the smallest real number $a_n$ such that, for all real $x$,
+$$\sqrt[N]{\frac{x^{2N} + 1}{2}} \le a_n(x-1)^2 + x.$$
+*Version 2.* For every positive integer $N$, determine the smallest real number $b_N$ such that, for all real $x$,
+$$\sqrt[N]{\frac{x^{2N} + 1}{2}} \le b_N(x-1)^2 + x.$$
+
+# A2 (Venezuela)
+Let $\mathcal{A}$ denote the set of all polynomials in three variables $x, y, z$ with integer coefficients. Let $\mathcal{B}$ denote the subset of $\mathcal{A}$ formed by all polynomials which can be expressed as
+$$(x + y + z)P(x, y, z) + (xy + yz + zx)Q(x, y, z) + xyzR(x, y, z)$$
+with $P, Q, R \in \mathcal{A}$. Find the smallest non-negative integer $n$ such that $x^iy^jz^k \in \mathcal{B}$ for all non-negative integers $i, j, k$ satisfying $i + j + k \ge n$.
+
+# A3 (Israel)
+Suppose that $a, b, c, d$ are positive real numbers satisfying $(a + c)(b + d) = ac + bd$. Find the smallest possible value of
+$$\frac{a}{b} + \frac{b}{c} + \frac{c}{d} + \frac{d}{a}.$$
+
+# A4 (Belgium)
+Let $a, b, c, d$ be four real numbers such that $a \ge b \ge c \ge d > 0$ and $a + b + c + d = 1$. Prove that
+$$(a + 2b + 3c + 4d)\,a^ab^bc^cd^d < 1.$$
+
+# A5 (Luxembourg)
+A magician intends to perform the following trick. She announces a positive integer $n$, along with $2n$ real numbers $x_1 < \ldots < x_{2n}$, to the audience. A member of the audience then secretly chooses a polynomial $P(x)$ of degree $n$ with real coefficients, computes the $2n$ values $P(x_1), \dots, P(x_{2n})$, and writes down these $2n$ values on the blackboard in non-decreasing order. After that the magician announces the secret polynomial to the audience.
+
+Can the magician find a strategy to perform such a trick?
+
+# A6 (Slovakia)
+Determine all functions $f : \mathbb{Z} \to \mathbb{Z}$ such that
+$$f^{a^2+b^2}(a + b) = af(a) + bf(b) \quad \text{for every } a, b \in \mathbb{Z}.$$
+Here, $f^n$ denotes the $n$th iteration of $f$, i.e., $f^0(x) = x$ and $f^{n+1}(x) = f(f^n(x))$ for all $n \ge 0$.
+
+# A7 (Iran)
+Let $n$ and $k$ be positive integers. Prove that for $a_1, \dots, a_n \in [1, 2^k]$ one has
+$$\sum_{i=1}^{n} \frac{a_i}{\sqrt{a_1^2 + \ldots + a_i^2}} \le 4\sqrt{kn}.$$
+
+# A8 (Ukraine)
+Let $\mathbb{R}^+$ be the set of positive real numbers. Determine all functions $f : \mathbb{R}^+ \to \mathbb{R}^+$ such that, for all positive real numbers $x$ and $y$,
+$$f\bigl(x + f(xy)\bigr) + y = f(x)f(y) + 1.$$
+
+# C1 (United Kingdom)
+Let $n$ be a positive integer. Find the number of permutations $a_1, a_2, \dots, a_n$ of the sequence $1, 2, \dots, n$ satisfying
+$$a_1 \le 2a_2 \le 3a_3 \le \ldots \le na_n.$$
+
+# C2 (Austria)
+In a regular $100$-gon, $41$ vertices are colored black and the remaining $59$ vertices are colored white. Prove that there exist $24$ convex quadrilaterals $Q_1, \dots, Q_{24}$ whose corners are vertices of the $100$-gon, so that
+
+- the quadrilaterals $Q_1, \dots, Q_{24}$ are pairwise disjoint, and
+- every quadrilateral $Q_i$ has three corners of one color and one corner of the other color.
+
+# C3 (India)
+Let $n$ be an integer with $n \ge 2$. On a slope of a mountain, $n^2$ checkpoints are marked, numbered from $1$ to $n^2$ from the bottom to the top. Each of two cable car companies, $A$ and $B$, operates $k$ cable cars numbered from $1$ to $k$; each cable car provides a transfer from some checkpoint to a higher one. For each company, and for any $i$ and $j$ with $1 \le i < j \le k$, the starting point of car $j$ is higher than the starting point of car $i$; similarly, the finishing point of car $j$ is higher than the finishing point of car $i$. Say that two checkpoints are *linked* by some company if one can start from the lower checkpoint and reach the higher one by using one or more cars of that company (no movement on foot is allowed).
+
+Determine the smallest $k$ for which one can guarantee that there are two checkpoints that are linked by each of the two companies.
+
+# C4 (Croatia)
+The Fibonacci numbers $F_0, F_1, F_2, \dots$ are defined inductively by $F_0 = 0$, $F_1 = 1$, and $F_{n+1} = F_n + F_{n-1}$ for $n \ge 1$. Given an integer $n \ge 2$, determine the smallest size of a set $S$ of integers such that for every $k = 2, 3, \dots, n$ there exist some $x, y \in S$ such that $x - y = F_k$.
+
+# C5 (Netherlands)
+Let $p$ be an odd prime, and put $N = \frac{1}{4}(p^3 - p) - 1$. The numbers $1, 2, \dots, N$ are painted arbitrarily in two colors, red and blue. For any positive integer $n \le N$, denote by $r(n)$ the fraction of integers in $\{1, 2, \dots, n\}$ that are red.
+
+Prove that there exists a positive integer $a \in \{1, 2, \dots, p-1\}$ such that $r(n) \ne a/p$ for all $n = 1, 2, \dots, N$.
+
+# C6 (Hungary)
+$4n$ coins of weights $1, 2, 3, \dots, 4n$ are given. Each coin is colored in one of $n$ colors and there are four coins of each color. Show that all these coins can be partitioned into two sets with the same total weight, such that each set contains two coins of each color.
+
+# C7 (Thailand)
+Consider any rectangular table having finitely many rows and columns, with a real number $a(r, c)$ in the cell in row $r$ and column $c$. A pair $(R, C)$, where $R$ is a set of rows and $C$ a set of columns, is called a *saddle pair* if the following two conditions are satisfied:
+
+(i) For each row $r'$, there is $r \in R$ such that $a(r, c) \ge a(r', c)$ for all $c \in C$;
+
+(ii) For each column $c'$, there is $c \in C$ such that $a(r, c) \le a(r, c')$ for all $r \in R$.
+
+A saddle pair $(R, C)$ is called a *minimal pair* if for each saddle pair $(R', C')$ with $R' \subseteq R$ and $C' \subseteq C$, we have $R' = R$ and $C' = C$.
+
+Prove that any two minimal pairs contain the same number of rows.
+
+# C8 (Austria)
+Players $A$ and $B$ play a game on a blackboard that initially contains $2020$ copies of the number $1$. In every round, player $A$ erases two numbers $x$ and $y$ from the blackboard, and then player $B$ writes one of the numbers $x + y$ and $|x - y|$ on the blackboard. The game terminates as soon as, at the end of some round, one of the following holds:
+
+(1) one of the numbers on the blackboard is larger than the sum of all other numbers;
+
+(2) there are only zeros on the blackboard.
+
+Player $B$ must then give as many cookies to player $A$ as there are numbers on the blackboard. Player $A$ wants to get as many cookies as possible, whereas player $B$ wants to give as few as possible. Determine the number of cookies that $A$ receives if both players play optimally.
+
+# G1 (Luxembourg)
+Let $ABC$ be an isosceles triangle with $BC = CA$, and let $D$ be a point inside side $AB$ such that $AD < DB$. Let $P$ and $Q$ be two points inside sides $BC$ and $CA$, respectively, such that $\angle DPB = \angle DQA = 90^\circ$. Let the perpendicular bisector of $PQ$ meet line segment $CQ$ at $E$, and let the circumcircles of triangles $ABC$ and $CPQ$ meet again at point $F$, different from $C$.
+
+Suppose that $P$, $E$, $F$ are collinear. Prove that $\angle ACB = 90^\circ$.
+
+# G2 (Poland)
+Let $ABCD$ be a convex quadrilateral. Suppose that $P$ is a point in the interior of $ABCD$ such that
+$$\angle PAD : \angle PBA : \angle DPA = 1 : 2 : 3 = \angle CBP : \angle BAP : \angle BPC.$$
+The internal bisectors of angles $ADP$ and $PCB$ meet at a point $Q$ inside the triangle $ABP$. Prove that $AQ = BQ$.
+
+# G3 (Slovakia)
+Let $ABCD$ be a convex quadrilateral with $\angle ABC > 90^\circ$, $\angle CDA > 90^\circ$, and $\angle DAB = \angle BCD$. Denote by $E$ and $F$ the reflections of $A$ in lines $BC$ and $CD$, respectively. Suppose that the segments $AE$ and $AF$ meet the line $BD$ at $K$ and $L$, respectively. Prove that the circumcircles of triangles $BEK$ and $DFL$ are tangent to each other.
+
+# G4 (Iran)
+In the plane, there are $n \ge 6$ pairwise disjoint disks $D_1, D_2, \dots, D_n$ with radii $R_1 \ge R_2 \ge \ldots \ge R_n$. For every $i = 1, 2, \dots, n$, a point $P_i$ is chosen in disk $D_i$. Let $O$ be an arbitrary point in the plane. Prove that
+$$OP_1 + OP_2 + \ldots + OP_n \ge R_6 + R_7 + \ldots + R_n.$$
+(A disk is assumed to contain its boundary.)
+
+# G5 (Poland)
+Let $ABCD$ be a cyclic quadrilateral with no two sides parallel. Let $K$, $L$, $M$, and $N$ be points lying on sides $AB$, $BC$, $CD$, and $DA$, respectively, such that $KLMN$ is a rhombus with $KL \parallel AC$ and $LM \parallel BD$. Let $\omega_1$, $\omega_2$, $\omega_3$, and $\omega_4$ be the incircles of triangles $ANK$, $BKL$, $CLM$, and $DMN$, respectively. Prove that the internal common tangents to $\omega_1$ and $\omega_3$ and the internal common tangents to $\omega_2$ and $\omega_4$ are concurrent.
+
+# G6 (Slovakia)
+Let $I$ and $I_A$ be the incenter and the $A$-excenter of an acute-angled triangle $ABC$ with $AB < AC$. Let the incircle meet $BC$ at $D$. The line $AD$ meets $BI_A$ and $CI_A$ at $E$ and $F$, respectively. Prove that the circumcircles of triangles $AID$ and $I_AEF$ are tangent to each other.
+
+# G7 (Denmark)
+Let $P$ be a point on the circumcircle of an acute-angled triangle $ABC$. Let $D$, $E$, and $F$ be the reflections of $P$ in the midlines of triangle $ABC$ parallel to $BC$, $CA$, and $AB$, respectively. Denote by $\omega_A$, $\omega_B$, and $\omega_C$ the circumcircles of triangles $ADP$, $BEP$, and $CFP$, respectively. Denote by $\omega$ the circumcircle of the triangle formed by the perpendicular bisectors of segments $AD$, $BE$ and $CF$.
+
+Show that $\omega_A$, $\omega_B$, $\omega_C$, and $\omega$ have a common point.
+
+# G8 (Netherlands)
+Let $\Gamma$ and $I$ be the circumcircle and the incenter of an acute-angled triangle $ABC$. Two circles $\omega_B$ and $\omega_C$ passing through $B$ and $C$, respectively, are tangent at $I$. Let $\omega_B$ meet the shorter arc $AB$ of $\Gamma$ and segment $AB$ again at $P$ and $M$, respectively. Similarly, let $\omega_C$ meet the shorter arc $AC$ of $\Gamma$ and segment $AC$ again at $Q$ and $N$, respectively. The rays $PM$ and $QN$ meet at $X$, and the tangents to $\omega_B$ and $\omega_C$ at $B$ and $C$, respectively, meet at $Y$.
+
+Prove that the points $A$, $X$, and $Y$ are collinear.
+
+# G9 (Taiwan)
+Prove that there exists a positive constant $c$ such that the following statement is true:
+
+Assume that $n$ is an integer with $n \ge 2$, and let $\mathcal{S}$ be a set of $n$ points in the plane such that the distance between any two distinct points in $\mathcal{S}$ is at least $1$. Then there is a line $\ell$ separating $\mathcal{S}$ such that the distance from any point of $\mathcal{S}$ to $\ell$ is at least $cn^{-1/3}$.
+
+(A line $\ell$ separates a point set $\mathcal{S}$ if some segment joining two points in $\mathcal{S}$ crosses $\ell$.)
+
+# N1 (South Africa)
+Given a positive integer $k$, show that there exists a prime $p$ such that one can choose distinct integers $a_1, a_2, \dots, a_{k+3} \in \{1, 2, \dots, p-1\}$ such that $p$ divides $a_ia_{i+1}a_{i+2}a_{i+3} - i$ for all $i = 1, 2, \dots, k$.
+
+# N2 (Denmark)
+For each prime $p$, there is a kingdom of $p$-Landia consisting of $p$ islands numbered $1, 2, \dots, p$. Two distinct islands numbered $n$ and $m$ are connected by a bridge if and only if $p$ divides $(n^2 - m + 1)(m^2 - n + 1)$. The bridges may pass over each other, but cannot cross. Prove that for infinitely many $p$ there are two islands in $p$-Landia not connected by a chain of bridges.
+
+# N3 (Estonia)
+Let $n$ be an integer with $n \ge 2$. Does there exist a sequence $(a_1, \dots, a_n)$ of positive integers with not all terms being equal such that the arithmetic mean of every two terms is equal to the geometric mean of some (one or more) terms in this sequence?
+
+# N4 (United Kingdom)
+For any odd prime $p$ and any integer $n$, let $d_p(n) \in \{0, 1, \dots, p-1\}$ denote the remainder when $n$ is divided by $p$. We say that $(a_0, a_1, a_2, \dots)$ is a *$p$-sequence*, if $a_0$ is a positive integer coprime to $p$, and $a_{n+1} = a_n + d_p(a_n)$ for $n \ge 0$.
+
+(a) Do there exist infinitely many primes $p$ for which there exist $p$-sequences $(a_0, a_1, a_2, \dots)$ and $(b_0, b_1, b_2, \dots)$ such that $a_n > b_n$ for infinitely many $n$, and $b_n > a_n$ for infinitely many $n$?
+
+(b) Do there exist infinitely many primes $p$ for which there exist $p$-sequences $(a_0, a_1, a_2, \dots)$ and $(b_0, b_1, b_2, \dots)$ such that $a_0 < b_0$, but $a_n > b_n$ for all $n \ge 1$?
+
+# N5 (Croatia)
+Determine all functions $f$ defined on the set of all positive integers and taking non-negative integer values, satisfying the three conditions:
+
+(i) $f(n) \ne 0$ for at least one $n$;
+
+(ii) $f(xy) = f(x) + f(y)$ for every positive integers $x$ and $y$;
+
+(iii) there are infinitely many positive integers $n$ such that $f(k) = f(n - k)$ for all $k < n$.
+
+# N6 (Cyprus)
+For a positive integer $n$, let $d(n)$ be the number of positive divisors of $n$, and let $\varphi(n)$ be the number of positive integers not exceeding $n$ which are coprime to $n$. Does there exist a constant $C$ such that
+$$\frac{\varphi(d(n))}{d(\varphi(n))} \le C$$
+for all $n \ge 1$?
+
+# N7 (Ukraine)
+Let $\mathcal{S}$ be a set consisting of $n \ge 3$ positive integers, none of which is a sum of two other distinct members of $\mathcal{S}$. Prove that the elements of $\mathcal{S}$ may be ordered as $a_1, a_2, \dots, a_n$ so that $a_i$ does not divide $a_{i-1} + a_{i+1}$ for all $i = 2, 3, \dots, n-1$.

@@ -1,0 +1,133 @@
+# A1 (New Zealand)
+Given a sequence $a_1, a_2, \dots, a_n$ of real numbers. For each $i$ ($1 \le i \le n$) define
+$$d_i = \max\{a_j : 1 \le j \le i\} - \min\{a_j : i \le j \le n\}$$
+and let
+$$d = \max\{d_i : 1 \le i \le n\}.$$
+(a) Prove that for arbitrary real numbers $x_1 \le x_2 \le \ldots \le x_n$,
+$$\max\bigl\{|x_i - a_i| : 1 \le i \le n\bigr\} \ge \frac{d}{2}. \qquad (1)$$
+(b) Show that there exists a sequence $x_1 \le x_2 \le \ldots \le x_n$ of real numbers such that we have equality in (1).
+
+# A2 (Bulgaria)
+Consider those functions $f : \mathbb{N} \to \mathbb{N}$ which satisfy the condition
+$$f(m+n) \ge f(m) + f\bigl(f(n)\bigr) - 1$$
+for all $m, n \in \mathbb{N}$. Find all possible values of $f(2007)$.
+
+($\mathbb{N}$ denotes the set of all positive integers.)
+
+# A3 (Estonia)
+Let $n$ be a positive integer, and let $x$ and $y$ be positive real numbers such that $x^n + y^n = 1$. Prove that
+$$\left( \sum_{k=1}^{n} \frac{1 + x^{2k}}{1 + x^{4k}} \right) \left( \sum_{k=1}^{n} \frac{1 + y^{2k}}{1 + y^{4k}} \right) < \frac{1}{(1-x)(1-y)}.$$
+
+# A4 (Thailand)
+Find all functions $f : \mathbb{R}^+ \to \mathbb{R}^+$ such that
+$$f\bigl(x + f(y)\bigr) = f(x + y) + f(y)$$
+for all $x, y \in \mathbb{R}^+$. (Symbol $\mathbb{R}^+$ denotes the set of all positive real numbers.)
+
+# A5 (Croatia)
+Let $c > 2$, and let $a(1), a(2), \dots$ be a sequence of nonnegative real numbers such that
+$$a(m+n) \le 2a(m) + 2a(n) \quad \text{for all } m, n \ge 1,$$
+and
+$$a(2^k) \le \frac{1}{(k+1)^c} \quad \text{for all } k \ge 0.$$
+Prove that the sequence $a(n)$ is bounded.
+
+# A6 (Poland)
+Let $a_1, a_2, \dots, a_{100}$ be nonnegative real numbers such that $a_1^2 + a_2^2 + \ldots + a_{100}^2 = 1$. Prove that
+$$a_1^2 a_2 + a_2^2 a_3 + \ldots + a_{100}^2 a_1 < \frac{12}{25}.$$
+
+# A7 (Netherlands)
+Let $n > 1$ be an integer. In the space, consider the set
+$$S = \bigl\{(x, y, z) \mid x, y, z \in \{0, 1, \dots, n\},\ x + y + z > 0\bigr\}.$$
+Find the smallest number of planes that jointly contain all $(n+1)^3 - 1$ points of $S$ but none of them passes through the origin.
+
+# C1 (Serbia)
+Let $n > 1$ be an integer. Find all sequences $a_1, a_2, \dots, a_{n^2+n}$ satisfying the following conditions:
+
+(a) $a_i \in \{0, 1\}$ for all $1 \le i \le n^2 + n$;
+
+(b) $a_{i+1} + a_{i+2} + \ldots + a_{i+n} < a_{i+n+1} + a_{i+n+2} + \ldots + a_{i+2n}$ for all $0 \le i \le n^2 - n$.
+
+# C2 (Japan)
+A unit square is dissected into $n > 1$ rectangles such that their sides are parallel to the sides of the square. Any line, parallel to a side of the square and intersecting its interior, also intersects the interior of some rectangle. Prove that in this dissection, there exists a rectangle having no point on the boundary of the square.
+
+# C3 (Netherlands)
+Find all positive integers $n$, for which the numbers in the set $S = \{1, 2, \dots, n\}$ can be colored red and blue, with the following condition being satisfied: the set $S \times S \times S$ contains exactly $2007$ ordered triples $(x, y, z)$ such that (i) $x, y, z$ are of the same color and (ii) $x + y + z$ is divisible by $n$.
+
+# C4 (Iran)
+Let $A_0 = (a_1, \dots, a_n)$ be a finite sequence of real numbers. For each $k \ge 0$, from the sequence $A_k = (x_1, \dots, x_n)$ we construct a new sequence $A_{k+1}$ in the following way.
+
+1. We choose a partition $\{1, \dots, n\} = I \cup J$, where $I$ and $J$ are two disjoint sets, such that the expression
+$$\left| \sum_{i \in I} x_i - \sum_{j \in J} x_j \right|$$
+attains the smallest possible value. (We allow the sets $I$ or $J$ to be empty; in this case the corresponding sum is $0$.) If there are several such partitions, one is chosen arbitrarily.
+
+2. We set $A_{k+1} = (y_1, \dots, y_n)$, where $y_i = x_i + 1$ if $i \in I$, and $y_i = x_i - 1$ if $i \in J$.
+
+Prove that for some $k$, the sequence $A_k$ contains an element $x$ such that $|x| \ge n/2$.
+
+# C5 (Romania)
+In the Cartesian coordinate plane define the strip $S_n = \{(x, y) \mid n \le x < n+1\}$ for every integer $n$. Assume that each strip $S_n$ is colored either red or blue, and let $a$ and $b$ be two distinct positive integers. Prove that there exists a rectangle with side lengths $a$ and $b$ such that its vertices have the same color.
+
+# C6 (Russia)
+In a mathematical competition some competitors are friends; friendship is always mutual. Call a group of competitors a *clique* if each two of them are friends. The number of members in a clique is called its *size*.
+
+It is known that the largest size of cliques is even. Prove that the competitors can be arranged in two rooms such that the largest size of cliques in one room is the same as the largest size of cliques in the other room.
+
+# C7 (Austria)
+Let $\alpha < \dfrac{3 - \sqrt{5}}{2}$ be a positive real number. Prove that there exist positive integers $n$ and $p > \alpha \cdot 2^n$ for which one can select $2p$ pairwise distinct subsets $S_1, \dots, S_p, T_1, \dots, T_p$ of the set $\{1, 2, \dots, n\}$ such that $S_i \cap T_j \ne \varnothing$ for all $1 \le i, j \le p$.
+
+# C8 (Ukraine)
+Given a convex $n$-gon $P$ in the plane. For every three vertices of $P$, consider the triangle determined by them. Call such a triangle *good* if all its sides are of unit length.
+
+Prove that there are not more than $\frac{2}{3}n$ good triangles.
+
+# G1 (Czech Republic)
+In triangle $ABC$, the angle bisector at vertex $C$ intersects the circumcircle and the perpendicular bisectors of sides $BC$ and $CA$ at points $R$, $P$, and $Q$, respectively. The midpoints of $BC$ and $CA$ are $S$ and $T$, respectively. Prove that triangles $RQT$ and $RPS$ have the same area.
+
+# G2 (Canada)
+Given an isosceles triangle $ABC$ with $AB = AC$. The midpoint of side $BC$ is denoted by $M$. Let $X$ be a variable point on the shorter arc $MA$ of the circumcircle of triangle $ABM$. Let $T$ be the point in the angle domain $BMA$, for which $\angle TMX = 90^\circ$ and $TX = BX$. Prove that $\angle MTB - \angle CTM$ does not depend on $X$.
+
+# G3 (Ukraine)
+The diagonals of a trapezoid $ABCD$ intersect at point $P$. Point $Q$ lies between the parallel lines $BC$ and $AD$ such that $\angle AQD = \angle CQB$, and line $CD$ separates points $P$ and $Q$. Prove that $\angle BQP = \angle DAQ$.
+
+# G4 (Luxembourg)
+Consider five points $A, B, C, D, E$ such that $ABCD$ is a parallelogram and $BCED$ is a cyclic quadrilateral. Let $\ell$ be a line passing through $A$, and let $\ell$ intersect segment $DC$ and line $BC$ at points $F$ and $G$, respectively. Suppose that $EF = EG = EC$. Prove that $\ell$ is the bisector of angle $DAB$.
+
+# G5 (United Kingdom)
+Let $ABC$ be a fixed triangle, and let $A_1, B_1, C_1$ be the midpoints of sides $BC, CA, AB$, respectively. Let $P$ be a variable point on the circumcircle. Let lines $PA_1, PB_1, PC_1$ meet the circumcircle again at $A', B', C'$ respectively. Assume that the points $A, B, C, A', B', C'$ are distinct, and lines $AA', BB', CC'$ form a triangle. Prove that the area of this triangle does not depend on $P$.
+
+# G6 (USA)
+Determine the smallest positive real number $k$ with the following property.
+
+Let $ABCD$ be a convex quadrilateral, and let points $A_1, B_1, C_1$ and $D_1$ lie on sides $AB, BC, CD$ and $DA$, respectively. Consider the areas of triangles $AA_1D_1$, $BB_1A_1$, $CC_1B_1$, and $DD_1C_1$; let $S$ be the sum of the two smallest ones, and let $S_1$ be the area of quadrilateral $A_1B_1C_1D_1$. Then we always have $kS_1 \ge S$.
+
+# G7 (Iran)
+Given an acute triangle $ABC$ with angles $\alpha$, $\beta$ and $\gamma$ at vertices $A$, $B$ and $C$, respectively, such that $\beta > \gamma$. Point $I$ is the incenter, and $R$ is the circumradius. Point $D$ is the foot of the altitude from vertex $A$. Point $K$ lies on line $AD$ such that $AK = 2R$, and $D$ separates $A$ and $K$. Finally, lines $DI$ and $KI$ meet sides $AC$ and $BC$ at $E$ and $F$, respectively.
+
+Prove that if $IE = IF$ then $\beta \le 3\gamma$.
+
+# G8 (Poland)
+Point $P$ lies on side $AB$ of a convex quadrilateral $ABCD$. Let $\omega$ be the incircle of triangle $CPD$, and let $I$ be its incenter. Suppose that $\omega$ is tangent to the incircles of triangles $APD$ and $BPC$ at points $K$ and $L$, respectively. Let lines $AC$ and $BD$ meet at $E$, and let lines $AK$ and $BL$ meet at $F$. Prove that points $E$, $I$, and $F$ are collinear.
+
+# N1 (Austria)
+Find all pairs $(k, n)$ of positive integers for which $7^k - 3^n$ divides $k^4 + n^2$.
+
+# N2 (Canada)
+Let $b, n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a_k^n$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
+
+# N3 (Netherlands)
+Let $X$ be a set of $10\,000$ integers, none of them is divisible by $47$. Prove that there exists a $2007$-element subset $Y$ of $X$ such that $a - b + c - d + e$ is not divisible by $47$ for any $a, b, c, d, e \in Y$.
+
+# N4 (Poland)
+For every integer $k \ge 2$, prove that $2^{3k}$ divides the number
+$$\binom{2^{k+1}}{2^k} - \binom{2^k}{2^{k-1}}$$
+but $2^{3k+1}$ does not.
+
+# N5 (Iran)
+Find all surjective functions $f : \mathbb{N} \to \mathbb{N}$ such that for every $m, n \in \mathbb{N}$ and every prime $p$, the number $f(m+n)$ is divisible by $p$ if and only if $f(m) + f(n)$ is divisible by $p$.
+
+($\mathbb{N}$ is the set of all positive integers.)
+
+# N6 (United Kingdom)
+Let $k$ be a positive integer. Prove that the number $(4k^2 - 1)^2$ has a positive divisor of the form $8kn - 1$ if and only if $k$ is even.
+
+# N7 (India)
+For a prime $p$ and a positive integer $n$, denote by $\nu_p(n)$ the exponent of $p$ in the prime factorization of $n!$. Given a positive integer $d$ and a finite set $\{p_1, \dots, p_k\}$ of primes. Show that there are infinitely many positive integers $n$ such that $d \mid \nu_{p_i}(n)$ for all $1 \le i \le k$.

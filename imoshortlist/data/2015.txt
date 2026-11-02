@@ -1,0 +1,139 @@
+# A1 (Serbia)
+Suppose that a sequence $a_1, a_2, \dots$ of positive real numbers satisfies
+$$a_{k+1} \ge \frac{ka_k}{a_k^2 + (k-1)}$$
+for every positive integer $k$. Prove that $a_1 + a_2 + \cdots + a_n \ge n$ for every $n \ge 2$.
+
+# A2 (Croatia)
+Determine all functions $f : \mathbb{Z} \to \mathbb{Z}$ with the property that
+$$f\bigl(x - f(y)\bigr) = f\bigl(f(x)\bigr) - f(y) - 1$$
+holds for all $x, y \in \mathbb{Z}$.
+
+# A3 (Austria)
+Let $n$ be a fixed positive integer. Find the maximum possible value of
+$$\sum_{1 \le r < s \le 2n} (s - r - n)x_rx_s,$$
+where $-1 \le x_i \le 1$ for all $i = 1, 2, \dots, 2n$.
+
+# A4 (Albania)
+Find all functions $f : \mathbb{R} \to \mathbb{R}$ satisfying the equation
+$$f\bigl(x + f(x+y)\bigr) + f(xy) = x + f(x+y) + yf(x)$$
+for all real numbers $x$ and $y$.
+
+# A5 (USA)
+Let $2\mathbb{Z} + 1$ denote the set of odd integers. Find all functions $f : \mathbb{Z} \to 2\mathbb{Z} + 1$ satisfying
+$$f\bigl(x + f(x) + y\bigr) + f\bigl(x - f(x) - y\bigr) = f(x+y) + f(x-y)$$
+for every $x, y \in \mathbb{Z}$.
+
+# A6 (Canada)
+Let $n$ be a fixed integer with $n \ge 2$. We say that two polynomials $P$ and $Q$ with real coefficients are *block-similar* if for each $i \in \{1, 2, \dots, n\}$ the sequences
+$$P(2015i), P(2015i - 1), \dots, P(2015i - 2014) \quad \text{and} \quad Q(2015i), Q(2015i - 1), \dots, Q(2015i - 2014)$$
+are permutations of each other.
+
+(a) Prove that there exist distinct block-similar polynomials of degree $n + 1$.
+
+(b) Prove that there do not exist distinct block-similar polynomials of degree $n$.
+
+# C1 (Estonia)
+In Lineland there are $n \ge 1$ towns, arranged along a road running from left to right. Each town has a *left bulldozer* (put to the left of the town and facing left) and a *right bulldozer* (put to the right of the town and facing right). The sizes of the $2n$ bulldozers are distinct. Every time when a right and a left bulldozer confront each other, the larger bulldozer pushes the smaller one off the road. On the other hand, the bulldozers are quite unprotected at their rears; so, if a bulldozer reaches the rear-end of another one, the first one pushes the second one off the road, regardless of their sizes.
+
+Let $A$ and $B$ be two towns, with $B$ being to the right of $A$. We say that town $A$ can *sweep* town $B$ *away* if the right bulldozer of $A$ can move over to $B$ pushing off all bulldozers it meets. Similarly, $B$ can sweep $A$ away if the left bulldozer of $B$ can move to $A$ pushing off all bulldozers of all towns on its way.
+
+Prove that there is exactly one town which cannot be swept away by any other one.
+
+# C2 (Netherlands)
+Let $\mathcal{V}$ be a finite set of points in the plane. We say that $\mathcal{V}$ is *balanced* if for any two distinct points $A, B \in \mathcal{V}$, there exists a point $C \in \mathcal{V}$ such that $AC = BC$. We say that $\mathcal{V}$ is *center-free* if for any distinct points $A, B, C \in \mathcal{V}$, there does not exist a point $P \in \mathcal{V}$ such that $PA = PB = PC$.
+
+(a) Show that for all $n \ge 3$, there exists a balanced set consisting of $n$ points.
+
+(b) For which $n \ge 3$ does there exist a balanced, center-free set consisting of $n$ points?
+
+# C3 (Ukraine)
+For a finite set $A$ of positive integers, we call a partition of $A$ into two disjoint nonempty subsets $A_1$ and $A_2$ *good* if the least common multiple of the elements in $A_1$ is equal to the greatest common divisor of the elements in $A_2$. Determine the minimum value of $n$ such that there exists a set of $n$ positive integers with exactly $2015$ good partitions.
+
+# C4 (Finland)
+Let $n$ be a positive integer. Two players $A$ and $B$ play a game in which they take turns choosing positive integers $k \le n$. The rules of the game are:
+
+(i) A player cannot choose a number that has been chosen by either player on any previous turn.
+
+(ii) A player cannot choose a number consecutive to any of those the player has already chosen on any previous turn.
+
+(iii) The game is a draw if all numbers have been chosen; otherwise the player who cannot choose a number anymore loses the game.
+
+The player $A$ takes the first turn. Determine the outcome of the game, assuming that both players use optimal strategies.
+
+# C5 (Australia)
+Consider an infinite sequence $a_1, a_2, \dots$ of positive integers with $a_i \le 2015$ for all $i \ge 1$. Suppose that for any two distinct indices $i$ and $j$ we have $i + a_i \ne j + a_j$.
+
+Prove that there exist two positive integers $b$ and $N$ such that
+$$\left| \sum_{i=m+1}^{n} (a_i - b) \right| \le 1007^2$$
+whenever $n > m \ge N$.
+
+# C6 (USA)
+Let $S$ be a nonempty set of positive integers. We say that a positive integer $n$ is *clean* if it has a unique representation as a sum of an odd number of distinct elements from $S$. Prove that there exist infinitely many positive integers that are not clean.
+
+# C7 (Russia)
+In a company of people some pairs are enemies. A group of people is called *unsociable* if the number of members in the group is odd and at least $3$, and it is possible to arrange all its members around a round table so that every two neighbors are enemies. Given that there are at most $2015$ unsociable groups, prove that it is possible to partition the company into $11$ parts so that no two enemies are in the same part.
+
+# G1 (Australia)
+Let $ABC$ be an acute triangle with orthocenter $H$. Let $G$ be the point such that the quadrilateral $ABGH$ is a parallelogram. Let $I$ be the point on the line $GH$ such that $AC$ bisects $HI$. Suppose that the line $AC$ intersects the circumcircle of the triangle $GCI$ at $C$ and $J$. Prove that $IJ = AH$.
+
+# G2 (Greece)
+Let $ABC$ be a triangle inscribed into a circle $\Omega$ with center $O$. A circle $\Gamma$ with center $A$ meets the side $BC$ at points $D$ and $E$ such that $D$ lies between $B$ and $E$. Moreover, let $F$ and $G$ be the common points of $\Gamma$ and $\Omega$. We assume that $F$ lies on the arc $AB$ of $\Omega$ not containing $C$, and $G$ lies on the arc $AC$ of $\Omega$ not containing $B$. The circumcircles of the triangles $BDF$ and $CEG$ meet the sides $AB$ and $AC$ again at $K$ and $L$, respectively. Suppose that the lines $FK$ and $GL$ are distinct and intersect at $X$. Prove that the points $A$, $X$, and $O$ are collinear.
+
+# G3 (Georgia)
+Let $ABC$ be a triangle with $\angle C = 90^\circ$, and let $H$ be the foot of the altitude from $C$. A point $D$ is chosen inside the triangle $CBH$ so that $CH$ bisects $AD$. Let $P$ be the intersection point of the lines $BD$ and $CH$. Let $\omega$ be the semicircle with diameter $BD$ that meets the segment $CB$ at an interior point. A line through $P$ is tangent to $\omega$ at $Q$. Prove that the lines $CQ$ and $AD$ meet on $\omega$.
+
+# G4 (Russia)
+Let $ABC$ be an acute triangle, and let $M$ be the midpoint of $AC$. A circle $\omega$ passing through $B$ and $M$ meets the sides $AB$ and $BC$ again at $P$ and $Q$, respectively. Let $T$ be the point such that the quadrilateral $BPTQ$ is a parallelogram. Suppose that $T$ lies on the circumcircle of the triangle $ABC$. Determine all possible values of $BT/BM$.
+
+# G5 (El Salvador)
+Let $ABC$ be a triangle with $CA \ne CB$. Let $D$, $F$, and $G$ be the midpoints of the sides $AB$, $AC$, and $BC$, respectively. A circle $\Gamma$ passing through $C$ and tangent to $AB$ at $D$ meets the segments $AF$ and $BG$ at $H$ and $I$, respectively. The points $H'$ and $I'$ are symmetric to $H$ and $I$ about $F$ and $G$, respectively. The line $H'I'$ meets $CD$ and $FG$ at $Q$ and $M$, respectively. The line $CM$ meets $\Gamma$ again at $P$. Prove that $CQ = QP$.
+
+# G6 (Ukraine)
+Let $ABC$ be an acute triangle with $AB > AC$, and let $\Gamma$ be its circumcircle. Let $H$, $M$, and $F$ be the orthocenter of the triangle, the midpoint of $BC$, and the foot of the altitude from $A$, respectively. Let $Q$ and $K$ be the two points on $\Gamma$ that satisfy $\angle AQH = 90^\circ$ and $\angle QKH = 90^\circ$. Prove that the circumcircles of the triangles $KQH$ and $KFM$ are tangent to each other.
+
+# G7 (Bulgaria)
+Let $ABCD$ be a convex quadrilateral, and let $P$, $Q$, $R$, and $S$ be points on the sides $AB$, $BC$, $CD$, and $DA$, respectively. Let the line segments $PR$ and $QS$ meet at $O$. Suppose that each of the quadrilaterals $APOS$, $BQOP$, $CROQ$, and $DSOR$ has an incircle. Prove that the lines $AC$, $PQ$, and $RS$ are either concurrent or parallel to each other.
+
+# G8 (Bulgaria)
+A *triangulation* of a convex polygon $\Pi$ is a partitioning of $\Pi$ into triangles by diagonals having no common points other than the vertices of the polygon. We say that a triangulation is a *Thaiangulation* if all triangles in it have the same area.
+
+Prove that any two different Thaiangulations of a convex polygon $\Pi$ differ by exactly two triangles. (In other words, prove that it is possible to replace one pair of triangles in the first Thaiangulation with a different pair of triangles so as to obtain the second Thaiangulation.)
+
+# N1 (Luxembourg)
+Determine all positive integers $M$ for which the sequence $a_0, a_1, a_2, \dots$, defined by $a_0 = \frac{2M+1}{2}$ and $a_{k+1} = a_k\lfloor a_k \rfloor$ for $k = 0, 1, 2, \dots$, contains at least one integer term.
+
+# N2 (United Kingdom)
+Let $a$ and $b$ be positive integers such that $a!\,b!$ is a multiple of $a! + b!$. Prove that $3a \ge 2b + 2$.
+
+# N3 (Austria)
+Let $m$ and $n$ be positive integers such that $m > n$. Define $x_k = (m+k)/(n+k)$ for $k = 1, 2, \dots, n+1$. Prove that if all the numbers $x_1, x_2, \dots, x_{n+1}$ are integers, then $x_1x_2\cdots x_{n+1} - 1$ is divisible by an odd prime.
+
+# N4 (France)
+Suppose that $a_0, a_1, \dots$ and $b_0, b_1, \dots$ are two sequences of positive integers satisfying $a_0, b_0 \ge 2$ and
+$$a_{n+1} = \gcd(a_n, b_n) + 1, \qquad b_{n+1} = \operatorname{lcm}(a_n, b_n) - 1$$
+for all $n \ge 0$. Prove that the sequence $(a_n)$ is eventually periodic; in other words, there exist integers $N \ge 0$ and $t > 0$ such that $a_{n+t} = a_n$ for all $n \ge N$.
+
+# N5 (Serbia)
+Determine all triples $(a, b, c)$ of positive integers for which $ab - c$, $bc - a$, and $ca - b$ are powers of $2$.
+
+*Explanation:* A power of $2$ is an integer of the form $2^n$, where $n$ denotes some nonnegative integer.
+
+# N6 (Singapore)
+Let $\mathbb{Z}_{>0}$ denote the set of positive integers. Consider a function $f : \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$. For any $m, n \in \mathbb{Z}_{>0}$ we write $f^n(m) = \underbrace{f(f(\ldots f}_{n}(m)\ldots))$. Suppose that $f$ has the following two properties:
+
+(i) If $m, n \in \mathbb{Z}_{>0}$, then $\dfrac{f^n(m) - m}{n} \in \mathbb{Z}_{>0}$;
+
+(ii) The set $\mathbb{Z}_{>0} \setminus \{f(n) \mid n \in \mathbb{Z}_{>0}\}$ is finite.
+
+Prove that the sequence $f(1) - 1, f(2) - 2, f(3) - 3, \dots$ is periodic.
+
+# N7 (Canada)
+Let $\mathbb{Z}_{>0}$ denote the set of positive integers. For any positive integer $k$, a function $f : \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$ is called *$k$-good* if $\gcd\bigl(f(m) + n, f(n) + m\bigr) \le k$ for all $m \ne n$. Find all $k$ such that there exists a $k$-good function.
+
+# N8 (Brazil)
+For every positive integer $n$ with prime factorization $n = \prod_{i=1}^{k} p_i^{\alpha_i}$, define
+$$\mho(n) = \sum_{i:\, p_i > 10^{100}} \alpha_i.$$
+That is, $\mho(n)$ is the number of prime factors of $n$ greater than $10^{100}$, counted with multiplicity.
+
+Find all strictly increasing functions $f : \mathbb{Z} \to \mathbb{Z}$ such that
+$$\mho\bigl(f(a) - f(b)\bigr) \le \mho(a - b) \quad \text{for all integers } a \text{ and } b \text{ with } a > b.$$

@@ -1,0 +1,110 @@
+# A1
+For any set $A = \{a_1, a_2, a_3, a_4\}$ of four distinct positive integers with sum $s_A = a_1 + a_2 + a_3 + a_4$, let $p_A$ denote the number of pairs $(i, j)$ with $1 \le i < j \le 4$ for which $a_i + a_j$ divides $s_A$. Among all sets of four distinct positive integers, determine those sets $A$ for which $p_A$ is maximal.
+
+# A2
+Determine all sequences $(x_1, x_2, \dots, x_{2011})$ of positive integers such that for every positive integer $n$ there is an integer $a$ with
+$$x_1^n + 2x_2^n + \cdots + 2011x_{2011}^n = a^{n+1} + 1.$$
+
+# A3
+Determine all pairs $(f, g)$ of functions from the set of real numbers to itself that satisfy
+$$g\bigl(f(x+y)\bigr) = f(x) + (2x + y)g(y)$$
+for all real numbers $x$ and $y$.
+
+# A4
+Determine all pairs $(f, g)$ of functions from the set of positive integers to itself that satisfy
+$$f^{g(n)+1}(n) + g^{f(n)}(n) = f(n+1) - g(n+1) + 1$$
+for every positive integer $n$. Here, $f^k(n)$ means $\underbrace{f(f(\ldots f}_{k}(n)\ldots))$.
+
+# A5
+Prove that for every positive integer $n$, the set $\{2, 3, 4, \dots, 3n+1\}$ can be partitioned into $n$ triples in such a way that the numbers from each triple are the lengths of the sides of some obtuse triangle.
+
+# A6
+Let $f$ be a function from the set of real numbers to itself that satisfies
+$$f(x + y) \le yf(x) + f(f(x))$$
+for all real numbers $x$ and $y$. Prove that $f(x) = 0$ for all $x \le 0$.
+
+# A7
+Let $a$, $b$, and $c$ be positive real numbers satisfying $\min(a+b, b+c, c+a) > \sqrt{2}$ and $a^2 + b^2 + c^2 = 3$. Prove that
+$$\frac{a}{(b+c-a)^2} + \frac{b}{(c+a-b)^2} + \frac{c}{(a+b-c)^2} \ge \frac{3}{(abc)^2}.$$
+
+# C1
+Let $n > 0$ be an integer. We are given a balance and $n$ weights of weight $2^0, 2^1, \dots, 2^{n-1}$. In a sequence of $n$ moves we place all weights on the balance. In the first move we choose a weight and put it on the left pan. In each of the following moves we choose one of the remaining weights and we add it either to the left or to the right pan. Compute the number of ways in which we can perform these $n$ moves in such a way that the right pan is never heavier than the left pan.
+
+# C2
+Suppose that $1000$ students are standing in a circle. Prove that there exists an integer $k$ with $100 \le k \le 300$ such that in this circle there exists a contiguous group of $2k$ students, for which the first half contains the same number of girls as the second half.
+
+# C3
+Let $\mathcal{S}$ be a finite set of at least two points in the plane. Assume that no three points of $\mathcal{S}$ are collinear. By a *windmill* we mean a process as follows. Start with a line $\ell$ going through a point $P \in \mathcal{S}$. Rotate $\ell$ clockwise around the *pivot* $P$ until the line contains another point $Q$ of $\mathcal{S}$. The point $Q$ now takes over as the new pivot. This process continues indefinitely, with the pivot always being a point from $\mathcal{S}$.
+
+Show that for a suitable $P \in \mathcal{S}$ and a suitable starting line $\ell$ containing $P$, the resulting windmill will visit each point of $\mathcal{S}$ as a pivot infinitely often.
+
+# C4
+Determine the greatest positive integer $k$ that satisfies the following property: The set of positive integers can be partitioned into $k$ subsets $A_1, A_2, \dots, A_k$ such that for all integers $n \ge 15$ and all $i \in \{1, 2, \dots, k\}$ there exist two distinct elements of $A_i$ whose sum is $n$.
+
+# C5
+Let $m$ be a positive integer and consider a checkerboard consisting of $m$ by $m$ unit squares. At the midpoints of some of these unit squares there is an ant. At time $0$, each ant starts moving with speed $1$ parallel to some edge of the checkerboard. When two ants moving in opposite directions meet, they both turn $90^\circ$ clockwise and continue moving with speed $1$. When more than two ants meet, or when two ants moving in perpendicular directions meet, the ants continue moving in the same direction as before they met. When an ant reaches one of the edges of the checkerboard, it falls off and will not re-appear.
+
+Considering all possible starting positions, determine the latest possible moment at which the last ant falls off the checkerboard or prove that such a moment does not necessarily exist.
+
+# C6
+Let $n$ be a positive integer and let $W = \ldots x_{-1}x_0x_1x_2\ldots$ be an infinite periodic word consisting of the letters $a$ and $b$. Suppose that the minimal period $N$ of $W$ is greater than $2^n$.
+
+A finite nonempty word $U$ is said to *appear* in $W$ if there exist indices $k \le \ell$ such that $U = x_kx_{k+1}\ldots x_\ell$. A finite word $U$ is called *ubiquitous* if the four words $Ua$, $Ub$, $aU$, and $bU$ all appear in $W$. Prove that there are at least $n$ ubiquitous finite nonempty words.
+
+# C7
+On a square table of $2011$ by $2011$ cells we place a finite number of napkins that each cover a square of $52$ by $52$ cells. In each cell we write the number of napkins covering it, and we record the maximal number $k$ of cells that all contain the same nonzero number. Considering all possible napkin configurations, what is the largest value of $k$?
+
+# G1
+Let $ABC$ be an acute triangle. Let $\omega$ be a circle whose center $L$ lies on the side $BC$. Suppose that $\omega$ is tangent to $AB$ at $B'$ and to $AC$ at $C'$. Suppose also that the circumcenter $O$ of the triangle $ABC$ lies on the shorter arc $B'C'$ of $\omega$. Prove that the circumcircle of $ABC$ and $\omega$ meet at two points.
+
+# G2
+Let $A_1A_2A_3A_4$ be a non-cyclic quadrilateral. Let $O_1$ and $r_1$ be the circumcenter and the circumradius of the triangle $A_2A_3A_4$. Define $O_2, O_3, O_4$ and $r_2, r_3, r_4$ in a similar way. Prove that
+$$\frac{1}{O_1A_1^2 - r_1^2} + \frac{1}{O_2A_2^2 - r_2^2} + \frac{1}{O_3A_3^2 - r_3^2} + \frac{1}{O_4A_4^2 - r_4^2} = 0.$$
+
+# G3
+Let $ABCD$ be a convex quadrilateral whose sides $AD$ and $BC$ are not parallel. Suppose that the circles with diameters $AB$ and $CD$ meet at points $E$ and $F$ inside the quadrilateral. Let $\omega_E$ be the circle through the feet of the perpendiculars from $E$ to the lines $AB$, $BC$, and $CD$. Let $\omega_F$ be the circle through the feet of the perpendiculars from $F$ to the lines $CD$, $DA$, and $AB$. Prove that the midpoint of the segment $EF$ lies on the line through the two intersection points of $\omega_E$ and $\omega_F$.
+
+# G4
+Let $ABC$ be an acute triangle with circumcircle $\Omega$. Let $B_0$ be the midpoint of $AC$ and let $C_0$ be the midpoint of $AB$. Let $D$ be the foot of the altitude from $A$, and let $G$ be the centroid of the triangle $ABC$. Let $\omega$ be a circle through $B_0$ and $C_0$ that is tangent to the circle $\Omega$ at a point $X \ne A$. Prove that the points $D$, $G$, and $X$ are collinear.
+
+# G5
+Let $ABC$ be a triangle with incenter $I$ and circumcircle $\omega$. Let $D$ and $E$ be the second intersection points of $\omega$ with the lines $AI$ and $BI$, respectively. The chord $DE$ meets $AC$ at a point $F$, and $BC$ at a point $G$. Let $P$ be the intersection point of the line through $F$ parallel to $AD$ and the line through $G$ parallel to $BE$. Suppose that the tangents to $\omega$ at $A$ and at $B$ meet at a point $K$. Prove that the three lines $AE$, $BD$, and $KP$ are either parallel or concurrent.
+
+# G6
+Let $ABC$ be a triangle with $AB = AC$, and let $D$ be the midpoint of $AC$. The angle bisector of $\angle BAC$ intersects the circle through $D$, $B$, and $C$ in a point $E$ inside the triangle $ABC$. The line $BD$ intersects the circle through $A$, $E$, and $B$ in two points $B$ and $F$. The lines $AF$ and $BE$ meet at a point $I$, and the lines $CI$ and $BD$ meet at a point $K$. Show that $I$ is the incenter of triangle $KAB$.
+
+# G7
+Let $ABCDEF$ be a convex hexagon all of whose sides are tangent to a circle $\omega$ with center $O$. Suppose that the circumcircle of triangle $ACE$ is concentric with $\omega$. Let $J$ be the foot of the perpendicular from $B$ to $CD$. Suppose that the perpendicular from $B$ to $DF$ intersects the line $EO$ at a point $K$. Let $L$ be the foot of the perpendicular from $K$ to $DE$. Prove that $DJ = DL$.
+
+# G8
+Let $ABC$ be an acute triangle with circumcircle $\omega$. Let $t$ be a tangent line to $\omega$. Let $t_a$, $t_b$, and $t_c$ be the lines obtained by reflecting $t$ in the lines $BC$, $CA$, and $AB$, respectively. Show that the circumcircle of the triangle determined by the lines $t_a$, $t_b$, and $t_c$ is tangent to the circle $\omega$.
+
+# N1
+For any integer $d > 0$, let $f(d)$ be the smallest positive integer that has exactly $d$ positive divisors (so for example we have $f(1) = 1$, $f(5) = 16$, and $f(6) = 12$). Prove that for every integer $k \ge 0$ the number $f(2^k)$ divides $f(2^{k+1})$.
+
+# N2
+Consider a polynomial $P(x) = (x + d_1)(x + d_2) \cdot \ldots \cdot (x + d_9)$, where $d_1, d_2, \dots, d_9$ are nine distinct integers. Prove that there exists an integer $N$ such that for all integers $x \ge N$ the number $P(x)$ is divisible by a prime number greater than $20$.
+
+# N3
+Let $n \ge 1$ be an odd integer. Determine all functions $f$ from the set of integers to itself such that for all integers $x$ and $y$ the difference $f(x) - f(y)$ divides $x^n - y^n$.
+
+# N4
+For each positive integer $k$, let $t(k)$ be the largest odd divisor of $k$. Determine all positive integers $a$ for which there exists a positive integer $n$ such that all the differences
+$$t(n+a) - t(n), \quad t(n+a+1) - t(n+1), \quad \dots, \quad t(n+2a-1) - t(n+a-1)$$
+are divisible by $4$.
+
+# N5
+Let $f$ be a function from the set of integers to the set of positive integers. Suppose that for any two integers $m$ and $n$, the difference $f(m) - f(n)$ is divisible by $f(m - n)$. Prove that for all integers $m, n$ with $f(m) \le f(n)$ the number $f(n)$ is divisible by $f(m)$.
+
+# N6
+Let $P(x)$ and $Q(x)$ be two polynomials with integer coefficients such that no nonconstant polynomial with rational coefficients divides both $P(x)$ and $Q(x)$. Suppose that for every positive integer $n$ the integers $P(n)$ and $Q(n)$ are positive, and $2^{Q(n)} - 1$ divides $3^{P(n)} - 1$. Prove that $Q(x)$ is a constant polynomial.
+
+# N7
+Let $p$ be an odd prime number. For every integer $a$, define the number
+$$S_a = \frac{a}{1} + \frac{a^2}{2} + \cdots + \frac{a^{p-1}}{p-1}.$$
+Let $m$ and $n$ be integers such that
+$$S_3 + S_4 - 3S_2 = \frac{m}{n}.$$
+Prove that $p$ divides $m$.
+
+# N8
+Let $k$ be a positive integer and set $n = 2^k + 1$. Prove that $n$ is a prime number if and only if the following holds: there is a permutation $a_1, \dots, a_{n-1}$ of the numbers $1, 2, \dots, n-1$ and a sequence of integers $g_1, g_2, \dots, g_{n-1}$ such that $n$ divides $g_i^{a_i} - a_{i+1}$ for every $i \in \{1, 2, \dots, n-1\}$, where we set $a_n = a_1$.

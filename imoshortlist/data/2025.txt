@@ -1,0 +1,205 @@
+# A1 (Czech Republic)
+*Quadratic solitaire* is a single-player game. To start the game, the player chooses two distinct nonzero integers $a$ and $b$ and writes the equation $x^2 + ax + b = 0$ on a blackboard. On each turn, if the equation currently written on the blackboard has two distinct nonzero integer solutions $x = u$ and $x = v$, then the player erases the equation and replaces it by one of the equations $x^2 + ux + v = 0$ or $x^2 + vx + u = 0$ of their choosing. Otherwise, the game ends.
+
+Determine all initial choices of $a$ and $b$ such that quadratic solitaire can be played forever.
+
+# A2 (China)
+The *sunshine cost* of a sequence $a_1, a_2, \dots, a_{100}$ of integers is the largest possible value of
+$$|(a_1 + a_2 + \cdots + a_i) - a_j|$$
+as $i$ and $j$ vary over all integers $1, 2, \dots, 100$.
+
+Determine the smallest possible sunshine cost over all sequences $a_1, a_2, \dots, a_{100}$ of pairwise distinct integers.
+
+# A3 (Italy)
+Coral and Joey are playing the *inekoalaty game*, a two-player game whose rules depend on a positive real number $\lambda$ which is known to both players. On the $n$th turn of the game, the following happens:
+
+- If $n$ is odd, Coral chooses a nonnegative real number $x_n$ such that $x_1 + x_2 + \cdots + x_n \le \lambda n$.
+- If $n$ is even, Joey chooses a nonnegative real number $x_n$ such that $x_1^2 + x_2^2 + \cdots + x_n^2 \le n$.
+
+All chosen numbers are known to both players. If a player cannot make a move, the game ends and the other player wins.
+
+Determine all values of $\lambda$ for which Coral has a winning strategy and all those for which Joey has a winning strategy.
+
+# A4 (Mongolia)
+Let $\mathbb{Z}_{\ge 0}$ be the set of all nonnegative integers. Let $f : \mathbb{Z}_{\ge 0} \to \mathbb{Z}_{\ge 0}$ be an unbounded function such that, if $m$ and $n$ are nonnegative integers satisfying
+$$f(m+n) = \max\bigl\{f(0), f(1), \dots, f(m+n)\bigr\},$$
+then
+$$f(m+n) = f(m) + f(n).$$
+Prove that there exist positive integers $A, B, C$ and $D$ such that for all nonnegative integers $n$, $f(An + B) = Cn + D$.
+
+*We say that $f$ is unbounded if for each nonnegative integer $N$, there exists some nonnegative integer $n$ such that $f(n) \ge N$.*
+
+# A5 (Thailand)
+Determine all integers $n \ge 2$ such that the polynomial
+$$P(x, y, z) = x^n + y^n + z^n - x^{n-2}yz - xy^{n-2}z - xyz^{n-2}$$
+can be written as $P(x, y, z) = Q(x, y, z)R(x, y, z)$, where $Q(x, y, z)$ and $R(x, y, z)$ are nonconstant polynomials with integer coefficients.
+
+# A6 (Singapore)
+Let $S$ be a set of positive integers, possibly infinite, such that no positive integer greater than $1$ divides all elements of $S$. Determine all non-periodic infinite sequences $a_1, a_2, a_3, \dots$ of positive integers such that, for all positive integers $n$,
+
+- $a_n \le |a_{n+\ell} - \ell|$ for all $\ell$ in $S$, and
+- $a_n = |a_{n+\ell} - \ell|$ for at least one $\ell$ in $S$.
+
+*We say that an infinite sequence $a_1, a_2, a_3, \dots$ is periodic if there exists a positive integer $t$ such that $a_n = a_{n+t}$ for all positive integers $n$.*
+
+# A7 (Thailand)
+For each integer $k \ge 3$, prove that there exists a unique tuple $(x_1, x_2, \dots, x_k)$ of positive real numbers such that $x_1 \ge x_2 \ge \cdots \ge x_k$ and
+$$\left\lfloor nx_1 + \frac{1}{2} \right\rfloor + \left\lfloor nx_2 + \frac{1}{2} \right\rfloor + \cdots + \left\lfloor nx_k + \frac{1}{2} \right\rfloor = n$$
+for every integer $n$.
+
+*Here $\lfloor z \rfloor$ denotes the greatest integer less than or equal to $z$. For example, $\lfloor -\pi \rfloor = -4$ and $\lfloor 2 \rfloor = \lfloor 2.9 \rfloor = 2$.*
+
+# A8 (France)
+Tim and Tam play a game. To start the game, Tim writes some nonzero real numbers, not necessarily distinct, on a blackboard. In each round, the following happens:
+
+- First, Tam chooses a polynomial $P_k(x) = a_kx^k + a_{k-1}x^{k-1} + \cdots + a_1x + a_0$ whose coefficients $a_k, a_{k-1}, \dots, a_1, a_0$ are all of the numbers currently written on the blackboard in some order. (For example, if the numbers on the blackboard are $4, -3, 4$, then $k = 2$ and Tam may choose the polynomial $4x^2 - 3x + 4$ or $-3x^2 + 4x + 4$ but not $4x - 3$ or $-3x^2 - 3x + 4$.)
+- Then, if the equation $P_k(x) = 0$ has no real solutions, the game is stopped. Otherwise, Tim chooses a real number $r$ such that $P_k(r) = 0$ and writes it on the blackboard, so there is now one more number on the blackboard.
+
+Determine whether Tim can ensure that the game is never stopped, no matter what Tam does.
+
+# C1 (USA)
+Let $n \ge 3$ be an integer, and let $S_n$ be the set of points $(x, y)$ in the plane such that $x$ and $y$ are nonnegative integers and $x + y < n$. A line in the plane is called *interesting* if it is not parallel to the $x$-axis, the $y$-axis, or the line $x + y = 0$.
+
+Determine all nonnegative integers $k$ such that there exist $n$ lines satisfying both of the following:
+
+- the union of the $n$ lines contains every point of $S_n$, and
+- exactly $k$ of the lines are interesting.
+
+# C2 (Colombia)
+There is a row of $n$ paddocks, labelled from left to right with the integers $1$ to $n$, where $n \ge 3$. Skippy the Kangaroo grazes in the paddocks according to the following rule:
+
+If Skippy is grazing in paddock $k$, then she makes a sequence of $k$ hops from a paddock to an adjacent paddock. The first of the $k$ hops is always to the right, unless Skippy is in paddock $n$, in which case it is to the left. Each of the following $k - 1$ hops is in the same direction as the previous hop, unless Skippy is in paddock $1$ or $n$. Skippy grazes in the paddock that she is in after the $k$th hop.
+
+For example, if $n = 8$ and Skippy is grazing in paddock $3$, then the next four paddocks she grazes in are $6$, $4$, $8$ and $2$, in this order.
+
+Skippy continues grazing in this way indefinitely. A paddock is *overgrazed* if Skippy eventually grazes in it, regardless of the paddock that she starts in. Determine all $n \ge 3$ for which there is exactly one overgrazed paddock.
+
+# C3 (Iran)
+There are $2025$ white balls and $2025$ black balls arranged in a row. A *balanced segment* is a contiguous nonempty segment of balls that contains the same number of white balls as black balls. A *balanced removal* is the operation of selecting a balanced segment $S$, removing all the balls in $S$, and shifting left the balls that were to the right of $S$ so that the remaining balls form a contiguous row.
+
+Determine the smallest positive integer $N$ satisfying the following property: for every configuration of balls and for every integer $k$ satisfying $0 \le k \le 2025$, there exists a sequence of at most $N$ balanced removals after which there are exactly $2k$ remaining balls.
+
+# C4 (China)
+Bluey is placing lollies on a $1000 \times 1000$ grid. Initially, every cell of the grid is empty. At each step, Bluey chooses a row or column in which the total number of lollies is a multiple of $3$, chooses an empty cell in this row or column, and places a lolly in it. If there is no such row or column, Bluey stops.
+
+Determine the maximum number of lollies that Bluey can place.
+
+# C5 (Germany)
+Let $n$ be a positive integer, and let $(a_1, a_2, \dots, a_n)$ be any $n$-tuple of distinct integers. An *inversion* is a pair $(i, j)$ of integers satisfying $1 \le i < j \le n$ and $a_i > a_j$. An inversion $(i, j)$ is called *odd* if $j - i$ is odd. Let $A$ be the number of all inversions, and let $B$ be the number of odd inversions.
+
+(a) Prove that $A \le 5B$ for all $n$ and all $n$-tuples $(a_1, a_2, \dots, a_n)$.
+
+(b) Prove that there exist an $n$ and an $n$-tuple $(a_1, a_2, \dots, a_n)$ for which $A > 4.99B$.
+
+# C6 (Spain)
+On a $45 \times 45$ square grid there is an echidna. From any cell, the echidna can move to any other cell that shares a side. The echidna makes a sequence of $2024$ moves, after which it has visited each cell exactly once. Prove that it is possible to write the numbers from $1$ to $2025$, one in each cell, in such a way that:
+
+- For any pair of adjacent cells in the same row, the cell containing the larger number was visited earlier.
+- For any pair of adjacent cells in the same column, the cell containing the larger number was visited later.
+
+# C7 (China)
+Let $\mathcal{P}$ be a regular $100$-gon. An *Aussie triangulation* is formed by dividing $\mathcal{P}$ into a set $\mathcal{T}$ of non-overlapping triangles such that:
+
+- there are exactly $2025$ different points, including the $100$ vertices of $\mathcal{P}$, that are a vertex of at least one triangle in $\mathcal{T}$, and
+- no three of these $2025$ points are collinear.
+
+A *quokkalateral* is a convex quadrilateral that consists of two triangles in $\mathcal{T}$ sharing a common side. Two quokkalaterals may share a triangle in $\mathcal{T}$.
+
+Determine the minimum number of quokkalaterals among all Aussie triangulations.
+
+# C8 (Singapore)
+Consider a $2025 \times 2025$ grid of unit squares. We place on the grid some number of rectangular tiles, possibly of different sizes, such that each side of every tile lies on a grid line and every unit square is covered by at most one tile.
+
+Determine the minimum number of tiles we need to place so that each row and each column has exactly one unit square that is not covered by any tile.
+
+# G1 (Czech Republic)
+Let $ABC$ be a triangle such that $\angle A$ is obtuse. Let $D$ and $E$ be points on sides $AB$ and $AC$, respectively, such that $BDEC$ is cyclic. Suppose the circumcircle of triangle $ADE$ intersects side $BC$ at two points $X$ and $Y$, where $B$, $X$, $Y$ and $C$ lie in that order. Let the circumcircles of triangles $BDX$ and $CEY$ be $\Omega$ and $\Gamma$, respectively. Let $P$ be a point such that $PD$ is tangent to $\Omega$ and $PE$ is tangent to $\Gamma$. Let $Q$ be a point such that $QB$ is tangent to $\Omega$ and $QC$ is tangent to $\Gamma$.
+
+Prove that points $A$, $P$ and $Q$ are collinear.
+
+# G2 (Iran)
+Let $ABC$ be an acute-angled triangle. Let $I_B$ and $I_C$ be the excentres of triangle $ABC$ opposite $B$ and $C$, respectively. Let $E$ be a point on line $BA$ such that $\angle EI_BB = 90^\circ$. Let $F$ be a point on line $CA$ such that $\angle CI_CF = 90^\circ$. Let the circle with centre $I_B$ and radius $I_BE$ intersect the segment $I_BB$ at $X$. Let the circle with centre $I_C$ and radius $I_CF$ intersect the segment $I_CC$ at $Y$.
+
+Prove that $BY$ is perpendicular to $CX$.
+
+*The excentre of a triangle $ABC$ opposite vertex $B$ is the centre of the circle that is tangent to line segment $AC$, to ray $BA$ beyond $A$, and to ray $BC$ beyond $C$. The excentre opposite $C$ is similarly defined.*
+
+# G3 (Kosovo)
+Let $ABC$ be an acute-angled triangle with $AB < AC$. Let $\Gamma$ be the circumcircle of triangle $ABC$. The perpendicular from $B$ to $AC$ intersects $\Gamma$ again at $D \ne B$. Let $Q$ be the point on $\Gamma$ such that $Q \ne B$ and $AB = AQ$. Lines $BQ$ and $AC$ intersect at $R$. Line $DR$ intersects $\Gamma$ again at $S \ne D$. Segment $BC$ intersects the circumcircle of triangle $QRS$ at $T$. Lines $TQ$ and $RS$ intersect at $X$.
+
+Prove that $CX$ is perpendicular to $AB$.
+
+# G4 (Vietnam)
+Let $\Omega$ and $\Gamma$ be circles centred at $M$ and $N$, respectively, such that the radius of $\Omega$ is smaller than the radius of $\Gamma$. Suppose circles $\Omega$ and $\Gamma$ intersect at two distinct points $A$ and $B$. Line $MN$ intersects $\Omega$ at $C$ and $\Gamma$ at $D$, such that points $C$, $M$, $N$ and $D$ lie on the line in that order. Let $P$ be the circumcentre of triangle $ACD$. Line $AP$ intersects $\Omega$ again at $E \ne A$. Line $AP$ intersects $\Gamma$ again at $F \ne A$. Let $H$ be the orthocentre of triangle $PMN$.
+
+Prove that the line passing through $H$ parallel to $AP$ is tangent to the circumcircle of triangle $BEF$.
+
+# G5 (Romania)
+Let $ABCD$ be a convex quadrilateral with $\angle ADC > 90^\circ$. Suppose that points $X$ and $Y$ lie on diagonal $AC$ such that
+$$\angle ADX = \angle YDC = 90^\circ, \qquad \angle CAD = \angle CBX, \qquad \text{and} \qquad \angle DCA = \angle YBA.$$
+Let $O$ be the circumcentre of triangle $BXY$. Suppose point $R \ne O$ lies on the perpendicular bisector of $AC$ such that lines $OR$ and $AC$ are parallel.
+
+Prove that line $RO$ bisects angle $\angle DRB$.
+
+# G6 (India)
+Let $ABC$ be a triangle with $\angle B > \angle A > \angle C$. Let $\Omega$ be the circumcircle of triangle $ABC$. The lines tangent to $\Omega$ at points $B$ and $C$ intersect at $P$. Lines $BP$ and $AC$ intersect at $E$. Lines $CP$ and $AB$ intersect at $F$. Let $D$ be the reflection of point $A$ in line $EF$. The circumcircles of triangles $DEB$ and $DFC$ intersect again at $Q \ne D$. Lines $DP$ and $BC$ intersect at $Z$.
+
+Prove that points $A$, $Z$ and $Q$ are collinear.
+
+# G7 (Iran)
+Let $ABCD$ be a cyclic quadrilateral with circumcircle $\Omega$ such that $CD > BD > BC$. The tangents to $\Omega$ at $B$ and $C$ meet at a point $S$. A line $\ell$ is called *coastal* if:
+
+- $\ell$ does not pass through $A$,
+- $\ell$ intersects ray $SD$ at a point $X_\ell$ beyond $D$, and
+- there is a circle tangent to line $\ell$, line $X_\ell A$, segment $SB$ and segment $SC$.
+
+Prove that there is a circle that is tangent to $\Omega$ and all coastal lines.
+
+# N1 (Mongolia)
+Let $n$ and $k$ be positive integers such that $n < k < 2n$. Suppose $a_1, a_2, \dots, a_k$ are positive integers such that $2^{a_1} + 2^{a_2} + \cdots + 2^{a_k}$ is divisible by $2^n - 1$.
+
+Show that at least three of $a_1, a_2, \dots, a_k$ have the same remainder when divided by $n$.
+
+# N2 (India)
+In an $n \times n$ board, for each $1 \le i \le n$ and $1 \le j \le n$, the cell in the $i$th row from the bottom and $j$th column from the left contains $\gcd(i, j)$ leaves. A koala travels from the bottom left corner to the top right corner. At each step, the koala moves up or to the right by a single cell. The koala eats the leaves in each cell it visits, including the bottom left and top right cells.
+
+Determine the maximum number of leaves that the koala can eat.
+
+*Here $\gcd(x, y)$ denotes the greatest common divisor of integers $x$ and $y$.*
+
+# N3 (Lithuania)
+An infinite sequence $a_1, a_2, \dots$ consists of positive integers, each of which has at least four positive divisors. For each $n \ge 1$, $a_{n+1}$ is the sum of the three largest proper divisors of $a_n$. Determine all possible values of $a_1$.
+
+*A proper divisor of a positive integer $N$ is a divisor of $N$ other than $N$.*
+
+# N4 (Croatia)
+Let $\mathbb{Z}_{>0}$ be the set of positive integers. Determine all functions $f : \mathbb{Z}_{>0} \to \mathbb{Z}$ such that for every $n \in \mathbb{Z}_{>0}$, and every positive divisor $d$ of $n$, there exists a positive divisor $e$ of $n$ such that $n$ divides $d + f(e)$.
+
+# N5 (India)
+The sequence of triples of positive integers $(a_0, b_0, c_0), (a_1, b_1, c_1), \dots, (a_{2025}, b_{2025}, c_{2025})$ satisfies
+$$(a_{i+1}, b_{i+1}, c_{i+1}) = \bigl(a_i + \gcd(b_i, c_i),\ b_i + \gcd(c_i, a_i),\ c_i + \gcd(a_i, b_i)\bigr)$$
+for $0 \le i \le 2024$.
+
+Determine the smallest possible value of $a_{2025}$.
+
+*Here $\gcd(x, y)$ denotes the greatest common divisor of integers $x$ and $y$.*
+
+# N6 (USA)
+For positive integers $n$ and $k$, let $f_k(n)$ denote the remainder when $n$ is divided by $2^k - 1$. A positive integer $n$ is *grouse* if
+$$f_1(n) \le f_2(n) \le f_3(n) \le f_4(n) \le \cdots.$$
+(a) Prove that there are infinitely many grouse numbers.
+
+(b) Prove that there exists a positive integer $M$ such that there are at most $M/2025^{2025}$ grouse numbers less than $M$.
+
+# N7 (Colombia)
+Let $\mathbb{Z}_{>0}$ denote the set of positive integers. A function $f : \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$ is said to be *bonza* if
+$$f(a) \text{ divides } b^a - f(b)^{f(a)}$$
+for all positive integers $a$ and $b$.
+
+Determine the smallest constant $c$ such that $f(n) \le cn$ for any bonza function $f$ and any positive integer $n$.
+
+# N8 (Romania)
+Prove that there are finitely many prime numbers $p$ such that
+
+- $p - 8$ is a perfect square, and
+- for all odd positive integers $k < \sqrt{p}$, the number $p - k^2$ has at most two distinct prime factors.
