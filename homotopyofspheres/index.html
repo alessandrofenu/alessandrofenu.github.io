@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homotopy Groups of Spheres - Alessandro Fenu</title>
+    <meta name="description" content="The homotopy groups of spheres π_{n+k}(S^n): a colour-coded table and a calculator that collects everything known about a single group (exact value, order, p-primary parts, summands, exponents) with explicit references, from Toda (1962) to 2026.">
+    <link rel="canonical" href="https://alefenu.com/homotopyofspheres/">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+    <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="manifest" href="/site.webmanifest?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+    <style>
+        /* Same look as index.html */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #232223;
+            color: #cccccc;
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .site-header {
+            background-color: #32302C;
+            color: #94A3A1;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        .header-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6em;
+            color: #94A3A1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .site-header h1 a { color: inherit; }
+        .site-header h1 a:hover { text-decoration: none; color: #847C6D; }
+        .site-nav { flex-grow: 1; display: flex; justify-content: center; align-items: center; }
+        .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        .site-nav li { margin: 0 15px; }
+        .site-nav a {
+            color: #94A3A1;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #847C6D;
+            transition: width 0.3s ease-out;
+        }
+        .site-nav a:hover::after, .site-nav a.active::after { width: 100%; }
+        .site-nav a:hover, .site-nav a.active { color: #847C6D; text-decoration: none; }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94A3A1;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .menu-toggle:hover { transform: rotate(90deg); }
+
+        main { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+        .section {
+            background-color: #363C3D;
+            color: #cccccc;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #847C6D;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #94A3A1;
+            padding-bottom: 5px;
+        }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; margin-top: 30px; }
+        p { margin-bottom: 15px; color: #cccccc; }
+        a { color: #847C6D; text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #94A3A1; text-decoration: underline; }
+        .muted { color: #94A3A1; }
+
+        /* ---------- The calculator ---------- */
+        .formula-box {
+            background-color: #2b3031;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.35);
+            padding: 36px 20px 30px;
+            text-align: center;
+        }
+        .formula {
+            display: inline-flex;
+            align-items: baseline;
+            flex-wrap: nowrap;
+            font-size: 3.2em;
+            color: #e8e8e8;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .formula .katex { font-size: 1em; }
+        .formula .sub {
+            font-size: 0.6em;
+            position: relative;
+            top: 0.42em;
+            margin: 0 0.08em 0 0.02em;
+            display: inline-flex;
+            align-items: baseline;
+        }
+        .formula .plus { font-family: KaTeX_Main, 'Times New Roman', serif; margin: 0 0.12em; color: #e8e8e8; }
+        .formula .sup {
+            font-family: KaTeX_Main, 'Times New Roman', serif;
+            font-size: 0.6em;
+            position: relative;
+            top: -0.62em;
+            margin: 0 0.04em 0 0.02em;
+            color: #94A3A1;
+            min-width: 0.6ch;
+            transition: color 0.2s;
+        }
+        .formula .sup.empty { font-style: italic; color: #6f7774; }
+        .formula .sup.live { color: #e8e8e8; }
+        .formula input {
+            font-family: KaTeX_Main, 'Times New Roman', serif;
+            font-size: 1em;
+            color: #e8e8e8;
+            background: rgba(148, 163, 161, 0.08);
+            border: none;
+            border-bottom: 2px dashed #847C6D;
+            border-radius: 3px 3px 0 0;
+            text-align: center;
+            width: 1.3ch;
+            min-width: 1.3ch;
+            padding: 0 0.15em;
+            outline: none;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .formula input::placeholder { color: #6f7774; font-style: italic; }
+        .formula input:focus { border-bottom: 2px solid #94A3A1; background: rgba(148, 163, 161, 0.16); }
+        .result {
+            margin-top: 22px;
+            min-height: 2.2em;
+            font-size: 1.7em;
+            color: #e8e8e8;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .result .katex { font-size: 1.05em; }
+        .result.hint { font-size: 1.05em; color: #94A3A1; font-style: italic; }
+        .details-line { margin-top: 6px; font-size: 0.95em; color: #94A3A1; min-height: 1.5em; }
+        .details-line .katex { font-size: 1.05em; }
+        .details-line:empty { display: none; }
+        .examples { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .chip {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+            color: #cccccc;
+            background: rgba(132, 124, 109, 0.14);
+            border: 1px solid rgba(132, 124, 109, 0.5);
+            border-radius: 16px;
+            padding: 3px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .chip:hover, .chip:focus-visible { background: rgba(132, 124, 109, 0.3); border-color: #847C6D; outline: none; }
+        .chip .katex { font-size: 1em; }
+        .chip small { color: #94A3A1; }
+
+        /* ---------- Fact cards ---------- */
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 14px;
+            margin-top: 26px;
+        }
+        .fact {
+            background: #2b3031;
+            border-radius: 8px;
+            border-left: 4px solid var(--c, #847C6D);
+            padding: 14px 18px 12px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .fact.exact   { --c: #7fa88b; grid-column: 1 / -1; }
+        .fact.prime   { --c: #94A3A1; }
+        .fact.order   { --c: #c2a76b; }
+        .fact.struct  { --c: #847C6D; }
+        .fact.bound   { --c: #8f93c0; }
+        .fact.special { --c: #c98d6b; }
+        .fact.warn    { --c: #d07a6a; }
+        .fact.note    { --c: #6f7774; }
+        .fact-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .fact-head i { color: var(--c); width: 1.1em; text-align: center; }
+        .fact-head .title {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #e8e8e8;
+            font-size: 1.02em;
+            flex: 1;
+        }
+        .badge {
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #232223;
+            background: var(--c);
+            border-radius: 10px;
+            padding: 1px 9px;
+            white-space: nowrap;
+        }
+        .fact-body { color: #d6d6d6; font-size: 0.96em; overflow-x: auto; overflow-y: hidden; }
+        .fact.exact .fact-body { font-size: 1.12em; }
+        .fact.exact .fact-body .muted { display: block; font-size: 0.8em; margin-top: 6px; line-height: 1.55; }
+        .fact-refs {
+            list-style: none;
+            margin: 10px 0 0;
+            padding: 8px 0 0;
+            border-top: 1px solid rgba(148, 163, 161, 0.18);
+            font-size: 0.8em;
+            color: #a9b0b0;
+            line-height: 1.5;
+        }
+        .fact-refs li { margin: 0 0 4px; padding-left: 1.1em; text-indent: -1.1em; }
+        .fact-refs li::before { content: '\f02d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--c); margin-right: 0.45em; font-size: 0.85em; }
+        .fact-refs b { color: #d6d6d6; font-weight: 700; }
+        .fact-refs .loc { color: #c9c9c9; }
+        .fact-refs i.t { font-style: italic; }
+        .fact-refs .ext { margin-left: 6px; font-size: 0.85em; text-indent: 0; }
+        .fact-refs .ext i { text-indent: 0; }
+
+        /* ---------- The table ---------- */
+        .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+        .controls .label { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; color: #94A3A1; margin-right: 6px; }
+        .seg {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
+            color: #cccccc;
+            background: #2b3031;
+            border: 1px solid #4a5152;
+            border-radius: 6px;
+            padding: 5px 14px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .seg:hover { border-color: #847C6D; }
+        .seg[aria-pressed="true"] { background: #847C6D; border-color: #847C6D; color: #232223; }
+        .table-note { font-size: 0.9em; color: #94A3A1; margin: 0 0 12px; }
+        .table-wrap {
+            position: relative;
+            overflow: auto;
+            max-height: 78vh;
+            border-radius: 6px;
+            background: #2b3031;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.35);
+        }
+        table.hos {
+            border-collapse: separate;
+            border-spacing: 0;
+            table-layout: fixed;
+            font-size: 12px;
+            line-height: 1;
+        }
+        table.hos th, table.hos td {
+            width: 70px;
+            min-width: 70px;
+            max-width: 70px;
+            height: 27px;
+            padding: 0 3px;
+            box-sizing: border-box;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-right: 1px solid rgba(35, 34, 35, 0.55);
+            border-bottom: 1px solid rgba(35, 34, 35, 0.55);
+        }
+        table.hos thead th {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+            background: #32302C;
+            color: #94A3A1;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        table.hos tbody th {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+            background: #32302C;
+            color: #94A3A1;
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            width: 46px;
+            min-width: 46px;
+            max-width: 46px;
+        }
+        table.hos thead th.corner { left: 0; z-index: 4; width: 46px; min-width: 46px; max-width: 46px; font-size: 11px; }
+        table.hos td { cursor: pointer; color: #e3e3e3; transition: filter 0.15s; }
+        table.hos td:hover { filter: brightness(1.35); }
+        table.hos td.blank { cursor: default; background: transparent; }
+        table.hos td.blank:hover { filter: none; }
+        table.hos td.unstable { background: #4a3f38; }
+        table.hos td.stable { background: #34484a; }
+        table.hos td.rep { background: rgba(52, 72, 74, 0.45); cursor: default; }
+        table.hos td.rep:hover { filter: none; }
+        table.hos td.zero { background: #2f3233; color: #6f7774; }
+        table.hos td.inf { background: #6b5a3c; color: #fff1d6; font-weight: 700; }
+        table.hos td.partial { background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0 4px, transparent 4px 8px); }
+        table.hos td.partial i { color: #f0b48e; font-style: normal; font-weight: 700; }
+        table.hos td.order { background-image: repeating-linear-gradient(135deg, rgba(194, 167, 107, 0.16) 0 4px, transparent 4px 8px); color: #e8d9b4; }
+        table.hos td.unknown { background: #2a2c2d; color: #8a6f62; }
+        table.hos td.long { white-space: normal; font-size: 10px; line-height: 1.08; text-overflow: clip; word-break: break-word; }
+        table.hos td.sel { outline: 2px solid #f0e2c0; outline-offset: -2px; position: relative; z-index: 1; }
+        table.hos sup { font-size: 0.75em; vertical-align: 0.45em; line-height: 0; }
+        .stab-svg { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 2; overflow: visible; }
+        .stab-svg path { fill: none; stroke: #f0e2c0; stroke-width: 2; stroke-dasharray: 4 4; stroke-linecap: round; opacity: 0.95; }
+        .stab-svg text { fill: #f0e2c0; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.5px; }
+        .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 0.88em; color: #b8bdbd; }
+        .legend span.sw { display: inline-block; width: 26px; height: 16px; border-radius: 3px; vertical-align: -3px; margin-right: 7px; }
+        .legend .sw.unstable { background: #4a3f38; }
+        .legend .sw.stable { background: #34484a; }
+        .legend .sw.zero { background: #2f3233; }
+        .legend .sw.inf { background: #6b5a3c; }
+        .legend .sw.partial { background: #4a3f38 repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 4px, transparent 4px 8px); }
+        .legend .sw.order { background: #4a3f38 repeating-linear-gradient(135deg, rgba(194, 167, 107, 0.3) 0 4px, transparent 4px 8px); }
+        .legend .sw.unknown { background: #2a2c2d; border: 1px dashed #8a6f62; box-sizing: border-box; }
+        .legend .ln { display: inline-block; width: 28px; height: 0; border-top: 2px dashed #f0e2c0; vertical-align: 4px; margin-right: 7px; }
+
+        /* ---------- Stable stems and references ---------- */
+        details.box { background: #2b3031; border-radius: 8px; padding: 12px 18px; margin-top: 18px; }
+        details.box > summary { cursor: pointer; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; color: #94A3A1; }
+        details.box > summary:hover { color: #847C6D; }
+        summary .katex, h2 .katex, h3 .katex, .seg .katex { text-transform: none; }
+        .stable-list { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.92em; }
+        .stable-list th { text-align: left; font-family: 'Oswald', sans-serif; color: #94A3A1; font-weight: 700; border-bottom: 1px solid #4a5152; padding: 6px 8px; }
+        .stable-list td { padding: 4px 8px; border-bottom: 1px solid rgba(148, 163, 161, 0.1); vertical-align: top; }
+        .stable-list td:first-child { color: #94A3A1; font-family: 'Oswald', sans-serif; width: 3em; }
+        .stable-list tr { cursor: pointer; }
+        .stable-list tr:hover td { background: rgba(132, 124, 109, 0.12); }
+        .stable-list .flag { color: #d07a6a; font-size: 0.85em; }
+        .stable-scroll { overflow-x: auto; }
+        .refs h3 { font-size: 1.15em; margin-top: 26px; }
+        .refs ol { padding-left: 0; list-style: none; margin: 0; }
+        .refs li { margin: 0 0 10px; padding: 6px 10px; border-radius: 6px; transition: background-color 0.6s; }
+        .refs li:target, .refs li.flash { background: rgba(132, 124, 109, 0.28); }
+        .refs .key { font-family: 'Oswald', sans-serif; color: #847C6D; margin-right: 8px; }
+        .refs .t { font-style: italic; color: #e3e3e3; }
+        .intro-list { margin: 0 0 15px; padding-left: 20px; }
+        .intro-list li { margin-bottom: 6px; }
+        code { background: #2b3031; color: #d8d8d8; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            .site-header { flex-direction: column; height: auto; padding: 10px 20px; }
+            .header-content { flex-direction: column; align-items: flex-start; width: 100%; }
+            .site-header h1 { margin-bottom: 10px; }
+            .site-nav {
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 10px;
+                display: none;
+                text-align: center;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                flex-grow: 0;
+            }
+            .site-nav.open { display: block; max-height: 300px; opacity: 1; }
+            .site-nav ul { flex-direction: column; align-items: center; }
+            .site-nav li { margin: 8px 0; }
+            .site-nav a { font-size: 1.1em; }
+            .menu-toggle { display: block; position: absolute; right: 20px; top: 10px; }
+            .section { padding: 30px 20px; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .formula { font-size: 2.4em; }
+            .result { font-size: 1.35em; }
+            .facts { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 70px; }
+            .site-header { padding: 8px 15px; }
+            .site-header h1 { font-size: 1.4em; margin-bottom: 0; }
+            main { padding: 0 10px; margin-top: 10px; }
+            .section { padding: 22px 14px; }
+            h2 { font-size: 1.55em; }
+            .formula-box { padding: 26px 8px 22px; }
+            .formula { font-size: 1.9em; }
+            .result { font-size: 1.15em; }
+            .fact { padding: 12px 13px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1><a href="../index.html">Alessandro Fenu</a></h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#documents">Documents and links</a></li>
+                    <li><a href="../index.html#tutorato">Tutoring</a></li>
+                    <li><a href="../compute.html">Compute!</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="calculator">
+            <h2>Homotopy groups of spheres</h2>
+            <p>Type the sphere dimension <span class="tex" data-tex="n"></span> and the stem <span class="tex" data-tex="k"></span>.
+                You get everything this page knows about <span class="tex" data-tex="\pi_{n+k}(S^n)"></span>: the group when it is known,
+                otherwise its order or bounds on it, its <span class="tex" data-tex="p"></span>-primary parts, known summands and exponents.
+                Every statement cites the theorem, table or paper it comes from.</p>
+
+            <div class="formula-box">
+                <div class="formula" id="formula">
+                    <span class="tex" data-tex="\pi"></span>
+                    <span class="sub"><input id="in-n" type="text" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="n" aria-label="Sphere dimension n"><span class="plus">+</span><input id="in-k" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="k" aria-label="Stem k"></span>
+                    <span class="tex" data-tex="\big(S"></span>
+                    <span class="sup empty" id="sup-n" aria-hidden="true">n</span>
+                    <span class="tex" data-tex="\big)"></span>
+                </div>
+
+                <div class="result hint" id="result" aria-live="polite">Type n and k, or click a cell of the table below.</div>
+                <div class="details-line" id="details"></div>
+                <div class="examples" id="examples"></div>
+            </div>
+
+            <div class="facts" id="facts"></div>
+        </section>
+
+        <section class="section" id="table">
+            <h2>The table</h2>
+            <p>Row <span class="tex" data-tex="k"></span>, column <span class="tex" data-tex="n"></span> holds <span class="tex" data-tex="\pi_{n+k}(S^n)"></span>,
+                written as in Toda’s table: <span class="tex" data-tex="24\cdot 2^2"></span> means <span class="tex" data-tex="\mathbb{Z}/24 \oplus (\mathbb{Z}/2)^2"></span> and <span class="tex" data-tex="\infty"></span> means <span class="tex" data-tex="\mathbb{Z}"></span>.
+                The dashed line is the Freudenthal boundary <span class="tex" data-tex="n = k+2"></span>, a line of slope one. To its right a row no longer changes, so only its first stable entry is written.
+                Click a cell for all the details and references.</p>
+
+            <div class="controls" role="group" aria-label="Table view">
+                <span class="label">Show</span>
+                <button class="seg" data-view="full" aria-pressed="true">Whole group</button>
+                <button class="seg" data-view="2" aria-pressed="false">2-primary</button>
+                <button class="seg" data-view="3" aria-pressed="false">3-primary</button>
+            </div>
+            <p class="table-note" id="table-note"></p>
+            <div class="table-wrap" id="table-wrap">
+                <table class="hos" id="hos-table"></table>
+                <svg class="stab-svg" id="stab-svg" aria-hidden="true"></svg>
+            </div>
+            <div class="legend" id="legend">
+                <span><span class="sw unstable"></span>unstable (<span class="tex" data-tex="n \le k+1"></span>)</span>
+                <span><span class="sw stable"></span>stable (<span class="tex" data-tex="n \ge k+2"></span>)</span>
+                <span><span class="sw inf"></span>contains <span class="tex" data-tex="\mathbb{Z}"></span></span>
+                <span><span class="sw zero"></span>trivial</span>
+                <span><span class="sw partial"></span>partly known (<b style="color:#f0b48e">?</b> = undetermined part)</span>
+                <span><span class="sw order"></span>only the order: <span class="tex" data-tex="|2^e|"></span> exact, <span class="tex" data-tex="2^{a\text{–}b}"></span> bounds</span>
+                <span><span class="sw unknown"></span>not determined here</span>
+                <span><span class="ln"></span>stable range starts (<span class="tex" data-tex="n=k+2"></span>)</span>
+            </div>
+
+            <details class="box" id="stable-box">
+                <summary>Stable stems <span class="tex" data-tex="\pi^s_k"></span> for <span class="tex" data-tex="k \le 90"></span></summary>
+                <p class="table-note" style="margin-top:10px">From Isaksen–Wang–Xu (2023, Table 1), with the 2024 corrections of Burklund–Isaksen–Xu in stems 70 and 71. Rows marked “open” list the possible 2-primary alternatives. Click a row to open it in the calculator.</p>
+                <div class="stable-scroll"><table class="stable-list" id="stable-list"></table></div>
+            </details>
+        </section>
+
+        <section class="section refs" id="references">
+            <h2>References</h2>
+            <p>All sources used on this page. Theorem, table and section numbers in the cards refer to these editions. The arXiv items from 2024–2026 are preprints.</p>
+            <div id="ref-list"></div>
+            <h3>What the data covers</h3>
+            <ul class="intro-list">
+                <li><b>Integral groups</b>, <span class="tex" data-tex="k \le 19"></span>, all <span class="tex" data-tex="n"></span>: Toda’s table.</li>
+                <li><b>2-primary parts</b>, stems <span class="tex" data-tex="\le 32"></span>, all <span class="tex" data-tex="n"></span>, plus the known groups in stem 33: the 2026 summary of Hirato–Lee–Miyauchi–Mukai–Ohara–Yang (Appendix B), which collects Toda, Mimura–Toda, Mimura, Mimura–Mori–Oda, Oda, Inoue–Miyauchi–Mukai, Miyauchi–Mukai and Yang–Wu. Orders through stem 50 come from Baer’s 2026 machine computation. The two sources agree everywhere they overlap.</li>
+                <li><b>3-primary parts</b>, stems <span class="tex" data-tex="\le 55"></span>, all <span class="tex" data-tex="n"></span>: Toda’s 2003 tables (odd spheres), extended to even spheres by Serre’s splitting.</li>
+                <li><b>Stable stems</b> <span class="tex" data-tex="k \le 90"></span>: Isaksen–Wang–Xu and Burklund–Isaksen–Xu. Odd primes: Ravenel’s tables (3-primary through stem 108) and the image of <span class="tex" data-tex="J"></span>.</li>
+                <li>Everything else comes from general theorems (Freudenthal, Serre, Adams, James, Cohen–Moore–Neisendorfer, Hopf fibrations, Thomeier…) applied to the data above. The cards say which theorem was used.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
